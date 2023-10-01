@@ -1,0 +1,11 @@
+package com.fomich.netdata.database.repository;
+
+import com.fomich.netdata.database.entity.Multiplexer;
+import com.fomich.netdata.dto.MultiplexerFilter;
+
+import java.util.List;
+
+public interface FilterMultiplexerRepository {
+
+    List<Multiplexer> findAllByFilter(MultiplexerFilter filter);
+}

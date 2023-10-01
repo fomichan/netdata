@@ -2,14 +2,12 @@ package com.fomich.netdata.database.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "name") // чтобы сравнмвать только по имени
 @Builder
 @Entity
 @Table(name="site")

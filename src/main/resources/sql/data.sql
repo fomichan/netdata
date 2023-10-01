@@ -7,6 +7,17 @@ VALUES ('site1'),
 
 
 
+INSERT INTO multiplexer (name, serial_number, site_id)
+VALUES ('s1mux1', 196543343, (SELECT id FROM site WHERE name = 'site1')),
+       ('s1mux2', 345353123, (SELECT id FROM site WHERE name = 'site1')),
+       ('s2mux1', 123154533, (SELECT id FROM site WHERE name = 'site2')),
+       ('s2mux2', 978673123, (SELECT id FROM site WHERE name = 'site2')),
+       ('s3mux1', 153245345, (SELECT id FROM site WHERE name = 'site3')),
+       ('s3mux2', 345345424, (SELECT id FROM site WHERE name = 'site3')),
+       ('s4mux1', 789752253, (SELECT id FROM site WHERE name = 'site4')),
+       ('s5mux1', 136975752, (SELECT id FROM site WHERE name = 'site5')),
+       ('s5mux2', 146575234, (SELECT id FROM site WHERE name = 'site5')),
+       ('s5mux3', 123453455, (SELECT id FROM site WHERE name = 'site5'));
 
 INSERT INTO module (module_type, serial_number, multiplexer_id)
 VALUES ('SYN4E', 456345634, (SELECT id FROM multiplexer WHERE name = 's1mux1')),
@@ -29,24 +40,6 @@ VALUES ('SYN4E', 456345634, (SELECT id FROM multiplexer WHERE name = 's1mux1')),
        ('SYN4E', 634563456, (SELECT id FROM multiplexer WHERE name = 's5mux2')),
        ('LOMIF', 345634563, (SELECT id FROM multiplexer WHERE name = 's5mux3')),
        ('SYN4E', 985797898, (SELECT id FROM multiplexer WHERE name = 's5mux3'));
-
-
-
-
-
-INSERT INTO multiplexer (name, serial_number, site_id)
-VALUES ('s1mux1', 196543343, (SELECT id FROM site WHERE name = 'site1')),
-       ('s1mux2', 345353123, (SELECT id FROM site WHERE name = 'site1')),
-       ('s2mux1', 123154533, (SELECT id FROM site WHERE name = 'site1')),
-       ('s2mux2', 978673123, (SELECT id FROM site WHERE name = 'site1')),
-       ('s3mux1', 153245345, (SELECT id FROM site WHERE name = 'site1')),
-       ('s3mux2', 345345424, (SELECT id FROM site WHERE name = 'site1')),
-       ('s4mux1', 789752253, (SELECT id FROM site WHERE name = 'site1')),
-       ('s5mux1', 136975752, (SELECT id FROM site WHERE name = 'site1')),
-       ('s5mux2', 146575234, (SELECT id FROM site WHERE name = 'site1')),
-       ('s5mux3', 123453455, (SELECT id FROM site WHERE name = 'site1'));
-
-
 
 INSERT INTO channel (name)
 VALUES ('channal01'),
