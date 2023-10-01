@@ -28,9 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 //@IT // есть в IntegrationTestBase
-//@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RequiredArgsConstructor
-
 //@Rollback // Стоит по умолчанию, тк не следует сохранять что сделали в тесте
 public class MultiplexerRepositoryTest extends IntegrationTestBase {
 
@@ -44,23 +42,25 @@ public class MultiplexerRepositoryTest extends IntegrationTestBase {
     private final EntityManager entityManager;
     private final TransactionTemplate transactionTemplate; // Для настройки транзакции и изменения значений по умолчанию
 
+    // !!!!! Чтобы инжектились бины необходимо в файле spring.properties указать spring.test.constructor.autowire.mode=all
 
-//    @Autowired
-//    public MultiplexerRepositoryTest(MultiplexerRepository multiplexerRepository, SiteRepository siteRepository, EntityManager entityManager, TransactionTemplate transactionTemplate) {
-//        this.multiplexerRepository = multiplexerRepository;
-//        this.siteRepository = siteRepository;
-//        this.entityManager = entityManager;
-//        this.transactionTemplate = transactionTemplate;
-//    }
+
 
     @Test
-    @Commit // чтобы не было rollback и можно посмотреть что создал enverse
-    void checkAuditing() {
-        var mux = multiplexerRepository.findById(2).get();
-        mux.setName(mux.getName() + "xx");
-        multiplexerRepository.flush();
-        System.out.println();
+    void checkJdbcTemplate() {
+        var mux = multiplexerRepository.findAllBySiteId(3);
+        assertThat(mux).hasSize(2);
     }
+
+
+//    @Test
+//    @Commit // чтобы не было rollback и можно посмотреть что создал enverse
+//    void checkAuditing() {
+//        var mux = multiplexerRepository.findById(2).get();
+//        mux.setName(mux.getName() + "xx");
+//        multiplexerRepository.flush();
+//        System.out.println();
+//    }
 
     @Test
     void checkCustomImplementation() {
