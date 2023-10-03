@@ -55,7 +55,7 @@ public class FilterMultiplexerRepositoryImpl implements FilterMultiplexerReposit
 
 
 
-    // С тспользованием JDBC
+    // С использованием JDBC
     @Override
     public List<MultiplexerReadDto> findAllByChannelId(Integer channelId) {
         return jdbcTemplate.query(FIND_BY_CHANNEL,

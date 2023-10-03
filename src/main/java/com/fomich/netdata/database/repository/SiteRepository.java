@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface SiteRepository extends JpaRepository<Site, Integer> {
 
     Optional<Site> findById(Integer id);
+
+
 }

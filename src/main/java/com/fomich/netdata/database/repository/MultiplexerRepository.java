@@ -67,6 +67,10 @@ public interface MultiplexerRepository extends JpaRepository<Multiplexer, Intege
     List<Multiplexer> findAllByNameContainingIgnoreCase(String fragment, Sort sort);
 
 
+    List<Multiplexer> findAllByNameContainingIgnoreCase(String fragment);
+    // может вернуть Collection, Stream (batch, close)
+
+
 
 
     // @EntityGraph(attributePaths = {"company", "company.locales"}) // можно сразу и subgraph
@@ -99,8 +103,7 @@ public interface MultiplexerRepository extends JpaRepository<Multiplexer, Intege
 
 
 
-    List<Multiplexer> findAllByNameContainingIgnoreCase(String fragment);
-    // может вернуть Collection, Stream (batch, close)
+
 
 //    void delete(Multiplexer entity);
 

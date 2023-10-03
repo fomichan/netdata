@@ -17497,3 +17497,135 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 2023-10-01T21:27:01.390+02:00  INFO 15972 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-01T21:27:01.393+02:00  INFO 15972 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-10-01T21:27:01.402+02:00  INFO 15972 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-01T22:16:12.454+02:00  INFO 15128 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 15128 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-01T22:16:12.456+02:00  INFO 15128 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-01T22:16:12.897+02:00  INFO 15128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-01T22:16:12.949+02:00  INFO 15128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 2 JPA repository interfaces.
+2023-10-01T22:16:13.605+02:00  INFO 15128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-01T22:16:13.612+02:00  INFO 15128 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-01T22:16:13.612+02:00  INFO 15128 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-01T22:16:13.692+02:00  INFO 15128 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-01T22:16:13.692+02:00  INFO 15128 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1196 ms
+2023-10-01T22:16:13.827+02:00  INFO 15128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-01T22:16:13.968+02:00  INFO 15128 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6dca31eb
+2023-10-01T22:16:13.970+02:00  INFO 15128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-01T22:16:14.131+02:00  INFO 15128 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-01T22:16:14.275+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.284+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.289+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.295+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.299+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.302+02:00  INFO 15128 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2023-10-01T22:16:14.319+02:00  INFO 15128 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2023-10-01T22:16:14.332+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.338+02:00  INFO 15128 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-01T22:16:14.342+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.348+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.423+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.426+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 32ms
+2023-10-01T22:16:14.431+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.435+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.452+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.455+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 15ms
+2023-10-01T22:16:14.458+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.474+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.476+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 15ms
+2023-10-01T22:16:14.478+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.488+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.491+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 9ms
+2023-10-01T22:16:14.493+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.510+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.513+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 17ms
+2023-10-01T22:16:14.516+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.529+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.532+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 13ms
+2023-10-01T22:16:14.534+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.545+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.549+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 11ms
+2023-10-01T22:16:14.553+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.570+02:00  INFO 15128 --- [main] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:16:14.573+02:00  INFO 15128 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 15ms
+2023-10-01T22:16:14.577+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.583+02:00  INFO 15128 --- [main] liquibase                                : Update command completed successfully.
+2023-10-01T22:16:14.589+02:00  INFO 15128 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:16:14.596+02:00  INFO 15128 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2023-10-01T22:16:14.684+02:00  INFO 15128 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-01T22:16:14.731+02:00  INFO 15128 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-01T22:16:14.733+02:00  INFO 15128 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-01T22:16:14.859+02:00  INFO 15128 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-01T22:16:14.877+02:00  INFO 15128 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-01T22:16:15.000+02:00  INFO 15128 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-01T22:16:15.279+02:00  INFO 15128 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-01T22:16:15.322+02:00  INFO 15128 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-01T22:16:15.944+02:00  INFO 15128 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-01T22:16:16.179+02:00  INFO 15128 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-01T22:16:16.420+02:00  INFO 15128 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-01T22:16:16.643+02:00  WARN 15128 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-01T22:16:16.929+02:00  INFO 15128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-01T22:16:16.938+02:00  INFO 15128 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 5.558 seconds (process running for 6.511)
+2023-10-01T22:17:51.839+02:00  INFO 2716 --- [Test worker] c.f.n.i.d.r.MultiplexerRepositoryTest    : Starting MultiplexerRepositoryTest using Java 17.0.8 with PID 2716 (started by fomic in D:\javaprojects\netdata)
+2023-10-01T22:17:51.841+02:00  INFO 2716 --- [Test worker] c.f.n.i.d.r.MultiplexerRepositoryTest    : The following 1 profile is active: "test"
+2023-10-01T22:17:52.313+02:00  INFO 2716 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-01T22:17:52.370+02:00  INFO 2716 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 2 JPA repository interfaces.
+2023-10-01T22:17:53.137+02:00  INFO 2716 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-01T22:17:53.361+02:00  INFO 2716 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@56872fcb
+2023-10-01T22:17:53.364+02:00  INFO 2716 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-01T22:17:53.560+02:00  INFO 2716 --- [Test worker] liquibase.database                       : Set default schema name to public
+2023-10-01T22:17:53.782+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.792+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.799+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.807+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.816+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.818+02:00  INFO 2716 --- [Test worker] liquibase.lockservice                    : Successfully acquired change log lock
+2023-10-01T22:17:53.841+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2023-10-01T22:17:53.853+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.859+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-01T22:17:53.865+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.871+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.947+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:53.951+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 20ms
+2023-10-01T22:17:53.957+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.962+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.974+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:53.977+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 11ms
+2023-10-01T22:17:53.980+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:53.990+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:53.992+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 9ms
+2023-10-01T22:17:53.995+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:54.004+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:54.006+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 9ms
+2023-10-01T22:17:54.009+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:54.016+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:54.019+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 7ms
+2023-10-01T22:17:54.023+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:54.035+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:54.037+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 10ms
+2023-10-01T22:17:54.040+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:54.047+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:54.049+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 6ms
+2023-10-01T22:17:54.051+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:54.059+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-01T22:17:54.061+02:00  INFO 2716 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 7ms
+2023-10-01T22:17:54.064+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:54.066+02:00  INFO 2716 --- [Test worker] liquibase                                : Update command completed successfully.
+2023-10-01T22:17:54.069+02:00  INFO 2716 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-01T22:17:54.071+02:00  INFO 2716 --- [Test worker] liquibase.lockservice                    : Successfully released change log lock
+2023-10-01T22:17:54.189+02:00  INFO 2716 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-01T22:17:54.278+02:00  INFO 2716 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-01T22:17:54.283+02:00  INFO 2716 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-01T22:17:54.424+02:00  INFO 2716 --- [Test worker] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-01T22:17:54.443+02:00  INFO 2716 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-01T22:17:54.700+02:00  INFO 2716 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-01T22:17:55.232+02:00  INFO 2716 --- [Test worker] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-01T22:17:55.319+02:00  INFO 2716 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-01T22:17:56.526+02:00  INFO 2716 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-01T22:17:57.123+02:00  INFO 2716 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-01T22:17:57.830+02:00  INFO 2716 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-01T22:17:58.596+02:00  WARN 2716 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-01T22:17:59.354+02:00  INFO 2716 --- [Test worker] c.f.n.i.d.r.MultiplexerRepositoryTest    : Started MultiplexerRepositoryTest in 7.901 seconds (process running for 13.134)
+2023-10-01T22:18:01.113+02:00  INFO 2716 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-01T22:18:01.116+02:00  INFO 2716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-01T22:18:01.123+02:00  INFO 2716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-01T22:20:52.303+02:00  INFO 15128 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-01T22:20:52.307+02:00  INFO 15128 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-01T22:20:52.315+02:00  INFO 15128 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
