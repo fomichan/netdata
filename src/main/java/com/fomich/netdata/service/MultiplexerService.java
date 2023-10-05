@@ -3,6 +3,7 @@ package com.fomich.netdata.service;
 import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.dto.MultiplexerCreateEditDto;
+import com.fomich.netdata.dto.MultiplexerFilter;
 import com.fomich.netdata.dto.MultiplexerIdDto;
 import com.fomich.netdata.dto.MultiplexerReadDto;
 import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
@@ -28,6 +29,16 @@ public class MultiplexerService {
 //        return multiplexerRepository.findById(id)
 //                .map(entity -> new MultiplexerIdDto(entity.getId()));
 //    }
+
+
+
+
+    public List<MultiplexerReadDto> findAll(MultiplexerFilter filter) {
+        return multiplexerRepository.findAllByFilter(filter).stream()
+                .map(multiplexerReadMapper::map)
+                .toList();
+    }
+
 
 
     public List<MultiplexerReadDto> findAll() {

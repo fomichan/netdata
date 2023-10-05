@@ -5,6 +5,21 @@
     <title>Multiplexers</title>
 </head>
 <body>
+
+    <form action="/multiplexers" th:object="${filter}">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="*{name}">
+        </label>
+        <label for="serialNumber">Serial number:
+            <input id="serialNumber" type="text" name="serialNumber" th:value="*{serialNumber()}">
+        </label>
+        <label for="siteName">Site:
+            <input id="siteName" type="text" name="siteName" th:value="*{siteName()}">
+        </label>
+
+        <button type="submit">Filter</button>
+    </form>
+
     <div th:each="multiplexer : ${multiplexers}">
         <a th:href="@{'/multiplexers/' + ${multiplexer.id}}" th:text="|${multiplexer.id}. ${multiplexer.name}|">Multiplexer</a>
     </div>

@@ -41,17 +41,22 @@ public class FilterMultiplexerRepositoryImpl implements FilterMultiplexerReposit
 
         List<Predicate> predicates = new ArrayList<>();
         if (filter.name() != null) {
-            predicates.add(cb.like(multiplexer.get("name"), filter.name()));
+            predicates.add(cb.like(multiplexer.get("name"), "%" + filter.name() + "%"));
         }
-//        if (filter.serialNumber() != null) {
-//            predicates.add(cb.like(multiplexer.get("serialNumber"), filter.serialNumber()));
-//        }
+        if (filter.siteName() != null) {
+            predicates.add(cb.like(multiplexer.get("site").get("name"), "%" + filter.siteName() + "%"));
+        }
+        if (filter.serialNumber() != null) {
+            predicates.add(cb.like(multiplexer.get("serialNumber").as(String.class), "%" + filter.serialNumber() + "%")); // .as(String.class) чтобы воспринимал как строки
+        }
 //        if (filter.birthDate() != null) {
 //            predicates.add(cb.lessThan(user.get("birthDate"), filter.birthDate()));
 //        }
         criteria.where(predicates.toArray(Predicate[]::new));
 
-        return entityManager.createQuery(criteria).getResultList();
+        List<Multiplexer> resultList = entityManager.createQuery(criteria).getResultList();
+        return resultList;
+        //return entityManager.createQuery(criteria).getResultList();
     }
 
 

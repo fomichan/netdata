@@ -2,6 +2,7 @@ package com.fomich.netdata.http.controller;
 
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.dto.MultiplexerCreateEditDto;
+import com.fomich.netdata.dto.MultiplexerFilter;
 import com.fomich.netdata.service.MultiplexerService;
 import com.fomich.netdata.service.SiteService;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +22,9 @@ public class MultiplexerController {
     private final SiteService siteService;
 
     @GetMapping
-    public String findAll(Model model) {
-        model.addAttribute("multiplexers", multiplexerService.findAll());
+    public String findAll(Model model, MultiplexerFilter filter) {
+        model.addAttribute("multiplexers", multiplexerService.findAll(filter));
+        model.addAttribute("filter", filter);
         return "channel/multiplexers";
     }
 
