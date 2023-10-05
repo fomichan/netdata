@@ -1,3 +1,5 @@
+
+
 INSERT INTO site (id, name)
 VALUES (1, 'site1'),
        (2, 'site2'),
@@ -74,3 +76,9 @@ VALUES (1, (SELECT id FROM multiplexer WHERE name = 's1mux2'), (SELECT id FROM c
        (17, (SELECT id FROM multiplexer WHERE name = 's3mux1'), (SELECT id FROM channel WHERE name = 'channal06')),
        (18, (SELECT id FROM multiplexer WHERE name = 's5mux1'), (SELECT id FROM channel WHERE name = 'channal06'));
 SELECT SETVAL('multiplexer_channel_id_seq', (SELECT MAX(id) FROM multiplexer_channel));
+
+
+
+
+
+

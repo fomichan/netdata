@@ -11,5 +11,5 @@ public interface FilterMultiplexerRepository {
     List<Multiplexer> findAllByFilter(MultiplexerFilter filter);
 
 
-    List<MultiplexerReadDto> findAllByChannelId(Integer channelId);
+//    List<MultiplexerReadDto> findAllByChannelId(Integer channelId);
 }

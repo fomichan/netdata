@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add multiplexer</title>
+</head>
+<body>
+    <form th:action="@{/multiplexers}" method="post" th:object="${multiplexer}">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="*{name}">
+        </label><br>
+        <label for="serialNumber">Serial Number:
+            <input id="serialNumber" type="text" name="serialNumber" th:value="*{serialNumber}">
+        </label><br>
+
+        <div>
+            <label for="site">Site:
+                <select id="site" name="siteId">
+                    <option th:each="site : ${sites}"
+                            th:value="${site.id()}"
+
+                            th:text="${site.name}">Site
+                    </option>
+                </select>
+            </label>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+
+</body>
+</html>

@@ -30,6 +30,9 @@ import java.util.Optional;
 public interface MultiplexerRepository extends JpaRepository<Multiplexer, Integer>,
         FilterMultiplexerRepository, RevisionRepository<Multiplexer, Integer, Integer> {
 
+
+
+
     // Query(name = 'Multiplexer.findByName') //ссылаемся на NamedQuery
     @Query("select m from Multiplexer m join m.multiplexerChannels mc where m.name = :name2") // fetch не срабатывает
     Optional<Multiplexer> findByName(@Param("name2") String name);

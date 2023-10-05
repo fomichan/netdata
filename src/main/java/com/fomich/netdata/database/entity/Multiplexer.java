@@ -40,8 +40,20 @@ public class Multiplexer extends AuditingEntity<Integer> {
 
     @NotAudited // в коллекциях нужно ставить отдельно чтобы Envers не аудировал
     @Builder.Default
-    @OneToMany(mappedBy = "multiplexer")
+    @OneToMany(mappedBy = "multiplexer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MultiplexerChannel> multiplexerChannels = new ArrayList<>();
+
+
+    @NotAudited
+    @Builder.Default
+    @OneToMany(mappedBy = "multiplexer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Module> modules = new ArrayList<>();
+
+
+ //   cascade = CascadeType.ALL, orphanRemoval = true
+//    cascade = CascadeType.ALL, чтобы указать Hibernate, что при удалении ParentEntity также нужно удалить
+//    все связанные ChildEntity. Мы также добавили orphanRemoval = true, чтобы при удалении дочерней сущности
+//    из списка children она также удалялась из базы данных, если она больше не связана с родительской сущностью.
 
 
 }

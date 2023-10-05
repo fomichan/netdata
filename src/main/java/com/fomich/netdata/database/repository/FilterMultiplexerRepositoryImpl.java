@@ -21,6 +21,7 @@ public class FilterMultiplexerRepositoryImpl implements FilterMultiplexerReposit
 
     private static final String FIND_BY_CHANNEL = """
         SELECT 
+            id,
             name,
             serial_number            
         FROM multiplexer 
@@ -56,13 +57,13 @@ public class FilterMultiplexerRepositoryImpl implements FilterMultiplexerReposit
 
 
     // С использованием JDBC
-    @Override
-    public List<MultiplexerReadDto> findAllByChannelId(Integer channelId) {
-        return jdbcTemplate.query(FIND_BY_CHANNEL,
-                (rs, rowNum) -> new MultiplexerReadDto(
-                        rs.getString("name"),
-                        rs.getInt("serial_number")
-
-                ), channelId);
-    }
+//    @Override
+//    public List<MultiplexerReadDto> findAllByChannelId(Integer channelId) {
+//        return jdbcTemplate.query(FIND_BY_CHANNEL,
+//                (rs, rowNum) -> new MultiplexerReadDto(
+//                        rs.getString("name"),
+//                        rs.getInt("serial_number")
+//
+//                ), channelId);
+//    }
 }

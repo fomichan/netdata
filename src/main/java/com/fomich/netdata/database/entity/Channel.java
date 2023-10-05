@@ -26,6 +26,6 @@ public class Channel implements BaseEntity<Integer> {
 
 
     @Builder.Default
-    @OneToMany(mappedBy = "channel")
+    @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MultiplexerChannel> multiplexerChannels = new ArrayList<>();
 }

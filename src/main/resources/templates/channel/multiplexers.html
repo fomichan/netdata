@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplexers</title>
+</head>
+<body>
+    <div th:each="multiplexer : ${multiplexers}">
+        <a th:href="@{'/multiplexers/' + ${multiplexer.id}}" th:text="|${multiplexer.id}. ${multiplexer.name}|">Multiplexer</a>
+    </div>
+
+
+    <form action="/multiplexers/add_multiplexer">
+        <button type="submit">Add multiplexer</button>
+    </form>
+</body>
+</html>

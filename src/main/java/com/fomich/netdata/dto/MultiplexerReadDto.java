@@ -1,6 +1,13 @@
 package com.fomich.netdata.dto;
 
-public record MultiplexerReadDto(String name,
-                                 Integer serialNumber
-                                 ) {
+import com.fomich.netdata.database.entity.Site;
+import lombok.Value;
+
+@Value
+public class MultiplexerReadDto {
+    Integer id;
+    String name;
+    Integer serialNumber;
+    SiteReadDto site;
+
 }
