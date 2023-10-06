@@ -1,594 +1,825 @@
-2023-10-05T00:06:39.362+02:00  INFO 24720 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:06:39.368+02:00  INFO 24720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T00:06:39.376+02:00  INFO 24720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T00:07:07.728+02:00  INFO 22032 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 22032 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T00:07:07.731+02:00  INFO 22032 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T00:07:08.390+02:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T00:07:08.459+02:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 2 JPA repository interfaces.
-2023-10-05T00:07:09.263+02:00  INFO 22032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T00:07:09.275+02:00  INFO 22032 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T00:07:09.276+02:00  INFO 22032 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T00:07:09.398+02:00  INFO 22032 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T00:07:09.398+02:00  INFO 22032 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1609 ms
-2023-10-05T00:07:09.571+02:00  INFO 22032 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T00:07:09.756+02:00  INFO 22032 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@740dcae3
-2023-10-05T00:07:09.757+02:00  INFO 22032 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T00:07:09.923+02:00  INFO 22032 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T00:07:10.122+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.135+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.145+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.153+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.160+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.164+02:00  INFO 22032 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
-2023-10-05T00:07:10.187+02:00  INFO 22032 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
-2023-10-05T00:07:10.197+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.202+02:00  INFO 22032 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T00:07:10.206+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.213+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.302+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.306+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 33ms
-2023-10-05T00:07:10.311+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.314+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.331+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.335+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 17ms
-2023-10-05T00:07:10.338+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.359+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.365+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 23ms
-2023-10-05T00:07:10.368+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.387+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.391+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 17ms
-2023-10-05T00:07:10.397+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.421+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.428+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 25ms
-2023-10-05T00:07:10.431+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.451+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.455+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 18ms
-2023-10-05T00:07:10.458+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.472+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.477+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 12ms
-2023-10-05T00:07:10.480+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.493+02:00  INFO 22032 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:07:10.496+02:00  INFO 22032 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 12ms
-2023-10-05T00:07:10.499+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.503+02:00  INFO 22032 --- [main] liquibase                                : Update command completed successfully.
-2023-10-05T00:07:10.509+02:00  INFO 22032 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:07:10.513+02:00  INFO 22032 --- [main] liquibase.lockservice                    : Successfully released change log lock
-2023-10-05T00:07:10.623+02:00  INFO 22032 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T00:07:10.707+02:00  INFO 22032 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T00:07:10.710+02:00  INFO 22032 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T00:07:10.860+02:00  INFO 22032 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T00:07:10.883+02:00  INFO 22032 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:07:11.038+02:00  INFO 22032 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T00:07:11.413+02:00  INFO 22032 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T00:07:11.475+02:00  INFO 22032 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:07:12.339+02:00  INFO 22032 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T00:07:12.638+02:00  INFO 22032 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:07:12.986+02:00  INFO 22032 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T00:07:13.651+02:00  INFO 22032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T00:07:13.663+02:00  INFO 22032 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 6.574 seconds (process running for 7.318)
-2023-10-05T00:10:04.114+02:00  INFO 22032 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T00:10:04.115+02:00  INFO 22032 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T00:10:04.116+02:00  INFO 22032 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-10-05T00:18:34.262+02:00  INFO 22032 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:18:34.264+02:00  INFO 22032 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T00:18:34.272+02:00  INFO 22032 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T00:19:22.980+02:00  INFO 16992 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 16992 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T00:19:22.982+02:00  INFO 16992 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T00:19:23.582+02:00  INFO 16992 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T00:19:23.685+02:00  INFO 16992 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 2 JPA repository interfaces.
-2023-10-05T00:19:24.584+02:00  INFO 16992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T00:19:24.594+02:00  INFO 16992 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T00:19:24.595+02:00  INFO 16992 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T00:19:24.708+02:00  INFO 16992 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T00:19:24.709+02:00  INFO 16992 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1674 ms
-2023-10-05T00:19:24.860+02:00  INFO 16992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T00:19:25.039+02:00  INFO 16992 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@51c65a43
-2023-10-05T00:19:25.040+02:00  INFO 16992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T00:19:25.197+02:00  INFO 16992 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T00:19:25.385+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.392+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.399+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.410+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.417+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.421+02:00  INFO 16992 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
-2023-10-05T00:19:25.442+02:00  INFO 16992 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
-2023-10-05T00:19:25.454+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.459+02:00  INFO 16992 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T00:19:25.465+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.471+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.570+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.577+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 43ms
-2023-10-05T00:19:25.583+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.587+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.608+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.616+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 21ms
-2023-10-05T00:19:25.620+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.643+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.649+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 24ms
-2023-10-05T00:19:25.653+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.670+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.676+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 18ms
-2023-10-05T00:19:25.681+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.703+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.708+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 21ms
-2023-10-05T00:19:25.713+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.728+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.733+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 15ms
-2023-10-05T00:19:25.735+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.751+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.755+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 15ms
-2023-10-05T00:19:25.758+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.778+02:00  INFO 16992 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:19:25.783+02:00  INFO 16992 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 19ms
-2023-10-05T00:19:25.786+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.790+02:00  INFO 16992 --- [main] liquibase                                : Update command completed successfully.
-2023-10-05T00:19:25.799+02:00  INFO 16992 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:19:25.803+02:00  INFO 16992 --- [main] liquibase.lockservice                    : Successfully released change log lock
-2023-10-05T00:19:25.927+02:00  INFO 16992 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T00:19:26.016+02:00  INFO 16992 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T00:19:26.019+02:00  INFO 16992 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T00:19:26.240+02:00  INFO 16992 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T00:19:26.263+02:00  INFO 16992 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:19:26.435+02:00  INFO 16992 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T00:19:26.878+02:00  INFO 16992 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T00:19:26.945+02:00  INFO 16992 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:19:27.820+02:00  INFO 16992 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T00:19:28.133+02:00  INFO 16992 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:19:28.464+02:00  INFO 16992 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T00:19:29.107+02:00  INFO 16992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T00:19:29.117+02:00  INFO 16992 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 6.829 seconds (process running for 9.281)
-2023-10-05T00:24:16.580+02:00  INFO 16992 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:24:16.581+02:00  INFO 16992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T00:24:16.591+02:00  INFO 16992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T00:25:50.037+02:00  INFO 5748 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 5748 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T00:25:50.039+02:00  INFO 5748 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T00:25:50.592+02:00  INFO 5748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T00:25:50.654+02:00  INFO 5748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 2 JPA repository interfaces.
-2023-10-05T00:25:51.426+02:00  INFO 5748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T00:25:51.436+02:00  INFO 5748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T00:25:51.436+02:00  INFO 5748 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T00:25:51.537+02:00  INFO 5748 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T00:25:51.538+02:00  INFO 5748 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1446 ms
-2023-10-05T00:25:51.689+02:00  INFO 5748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T00:25:51.861+02:00  INFO 5748 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@481b2f10
-2023-10-05T00:25:51.862+02:00  INFO 5748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T00:25:52.013+02:00  INFO 5748 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T00:25:52.192+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.202+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.209+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.218+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.224+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.227+02:00  INFO 5748 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
-2023-10-05T00:25:52.253+02:00  INFO 5748 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
-2023-10-05T00:25:52.264+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.271+02:00  INFO 5748 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T00:25:52.275+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.282+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.377+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.381+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 31ms
-2023-10-05T00:25:52.386+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.390+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.404+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.407+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 13ms
-2023-10-05T00:25:52.410+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.429+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.434+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 18ms
-2023-10-05T00:25:52.437+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.453+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.456+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 15ms
-2023-10-05T00:25:52.460+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.487+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.492+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 26ms
-2023-10-05T00:25:52.495+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.513+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.518+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 18ms
-2023-10-05T00:25:52.522+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.536+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.540+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 14ms
-2023-10-05T00:25:52.545+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.558+02:00  INFO 5748 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:25:52.562+02:00  INFO 5748 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 14ms
-2023-10-05T00:25:52.565+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.569+02:00  INFO 5748 --- [main] liquibase                                : Update command completed successfully.
-2023-10-05T00:25:52.575+02:00  INFO 5748 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:25:52.578+02:00  INFO 5748 --- [main] liquibase.lockservice                    : Successfully released change log lock
-2023-10-05T00:25:52.670+02:00  INFO 5748 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T00:25:52.747+02:00  INFO 5748 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T00:25:52.751+02:00  INFO 5748 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T00:25:52.908+02:00  INFO 5748 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T00:25:52.931+02:00  INFO 5748 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:25:53.082+02:00  INFO 5748 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T00:25:53.470+02:00  INFO 5748 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T00:25:53.533+02:00  INFO 5748 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:25:54.401+02:00  INFO 5748 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T00:25:54.701+02:00  INFO 5748 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:25:55.040+02:00  INFO 5748 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T00:25:55.686+02:00  INFO 5748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T00:25:55.698+02:00  INFO 5748 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 6.263 seconds (process running for 7.045)
-2023-10-05T00:47:42.948+02:00  INFO 5748 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:47:42.950+02:00  INFO 5748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T00:47:42.956+02:00  INFO 5748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T00:47:47.418+02:00  INFO 20924 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 20924 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T00:47:47.420+02:00  INFO 20924 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T00:47:48.020+02:00  INFO 20924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T00:47:48.097+02:00  INFO 20924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 2 JPA repository interfaces.
-2023-10-05T00:47:48.891+02:00  INFO 20924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T00:47:48.902+02:00  INFO 20924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T00:47:48.904+02:00  INFO 20924 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T00:47:49.010+02:00  INFO 20924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T00:47:49.010+02:00  INFO 20924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1537 ms
-2023-10-05T00:47:49.150+02:00  INFO 20924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T00:47:49.312+02:00  INFO 20924 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7455dacb
-2023-10-05T00:47:49.314+02:00  INFO 20924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T00:47:49.474+02:00  INFO 20924 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T00:47:49.645+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.652+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.660+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.668+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.674+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.678+02:00  INFO 20924 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
-2023-10-05T00:47:49.701+02:00  INFO 20924 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
-2023-10-05T00:47:49.713+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.720+02:00  INFO 20924 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T00:47:49.726+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.733+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.812+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:49.818+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 34ms
-2023-10-05T00:47:49.822+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.825+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.842+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:49.845+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 16ms
-2023-10-05T00:47:49.849+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.865+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:49.869+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 17ms
-2023-10-05T00:47:49.872+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.886+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:49.891+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 15ms
-2023-10-05T00:47:49.895+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.913+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:49.919+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 20ms
-2023-10-05T00:47:49.923+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.942+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:49.947+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 19ms
-2023-10-05T00:47:49.951+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.966+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:49.973+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 15ms
-2023-10-05T00:47:49.978+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:49.997+02:00  INFO 20924 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T00:47:50.000+02:00  INFO 20924 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 17ms
-2023-10-05T00:47:50.003+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:50.007+02:00  INFO 20924 --- [main] liquibase                                : Update command completed successfully.
-2023-10-05T00:47:50.013+02:00  INFO 20924 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T00:47:50.016+02:00  INFO 20924 --- [main] liquibase.lockservice                    : Successfully released change log lock
-2023-10-05T00:47:50.101+02:00  INFO 20924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T00:47:50.182+02:00  INFO 20924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T00:47:50.186+02:00  INFO 20924 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T00:47:50.350+02:00  INFO 20924 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T00:47:50.374+02:00  INFO 20924 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:47:50.543+02:00  INFO 20924 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T00:47:50.944+02:00  INFO 20924 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T00:47:51.022+02:00  INFO 20924 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T00:47:51.965+02:00  INFO 20924 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T00:47:52.271+02:00  INFO 20924 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:47:52.618+02:00  INFO 20924 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T00:47:53.279+02:00  INFO 20924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T00:47:53.289+02:00  INFO 20924 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 6.534 seconds (process running for 7.37)
-2023-10-05T00:58:11.504+02:00  INFO 20924 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T00:58:11.506+02:00  INFO 20924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T00:58:11.510+02:00  INFO 20924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T01:01:12.927+02:00  INFO 21756 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 21756 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T01:01:12.930+02:00  INFO 21756 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T01:01:13.551+02:00  INFO 21756 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T01:01:13.614+02:00  INFO 21756 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 2 JPA repository interfaces.
-2023-10-05T01:01:14.451+02:00  INFO 21756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T01:01:14.463+02:00  INFO 21756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T01:01:14.463+02:00  INFO 21756 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T01:01:14.570+02:00  INFO 21756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T01:01:14.571+02:00  INFO 21756 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1584 ms
-2023-10-05T01:01:14.706+02:00  INFO 21756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T01:01:14.879+02:00  INFO 21756 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7455dacb
-2023-10-05T01:01:14.880+02:00  INFO 21756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T01:01:15.043+02:00  INFO 21756 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T01:01:15.228+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.235+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.242+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.250+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.259+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.262+02:00  INFO 21756 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
-2023-10-05T01:01:15.287+02:00  INFO 21756 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
-2023-10-05T01:01:15.300+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.312+02:00  INFO 21756 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T01:01:15.318+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.324+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.405+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.408+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 31ms
-2023-10-05T01:01:15.413+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.417+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.433+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.437+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 16ms
-2023-10-05T01:01:15.440+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.459+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.463+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 19ms
-2023-10-05T01:01:15.468+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.484+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.488+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 15ms
-2023-10-05T01:01:15.494+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.516+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.522+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 23ms
-2023-10-05T01:01:15.526+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.548+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.552+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 18ms
-2023-10-05T01:01:15.557+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.575+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.579+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 15ms
-2023-10-05T01:01:15.582+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.597+02:00  INFO 21756 --- [main] liquibase.changelog                      : Custom SQL executed
-2023-10-05T01:01:15.600+02:00  INFO 21756 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 14ms
-2023-10-05T01:01:15.604+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.608+02:00  INFO 21756 --- [main] liquibase                                : Update command completed successfully.
-2023-10-05T01:01:15.615+02:00  INFO 21756 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T01:01:15.618+02:00  INFO 21756 --- [main] liquibase.lockservice                    : Successfully released change log lock
-2023-10-05T01:01:15.719+02:00  INFO 21756 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T01:01:15.823+02:00  INFO 21756 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T01:01:15.825+02:00  INFO 21756 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T01:01:16.003+02:00  INFO 21756 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T01:01:16.025+02:00  INFO 21756 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T01:01:16.200+02:00  INFO 21756 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T01:01:16.583+02:00  INFO 21756 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T01:01:16.639+02:00  INFO 21756 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T01:01:17.553+02:00  INFO 21756 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T01:01:17.924+02:00  INFO 21756 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T01:01:18.263+02:00  INFO 21756 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T01:01:18.947+02:00  INFO 21756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T01:01:18.957+02:00  INFO 21756 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 6.701 seconds (process running for 7.61)
-2023-10-05T01:05:34.787+02:00  INFO 21756 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T01:05:34.787+02:00  INFO 21756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T01:05:34.788+02:00  INFO 21756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-10-05T08:17:40.601+02:00  WARN 21756 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h11m25s525ms758µs800ns).
-2023-10-05T08:54:14.985+02:00  INFO 21756 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T08:54:14.987+02:00  INFO 21756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T08:54:14.990+02:00  INFO 21756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T11:03:40.245+02:00  INFO 7044 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 7044 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T11:03:40.252+02:00  INFO 7044 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T11:03:41.448+02:00  INFO 7044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T11:03:41.605+02:00  INFO 7044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 2 JPA repository interfaces.
-2023-10-05T11:03:43.449+02:00  INFO 7044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T11:03:43.474+02:00  INFO 7044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T11:03:43.475+02:00  INFO 7044 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T11:03:43.705+02:00  INFO 7044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T11:03:43.706+02:00  INFO 7044 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3318 ms
-2023-10-05T11:03:44.106+02:00  INFO 7044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T11:03:44.435+02:00  INFO 7044 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@51c65a43
-2023-10-05T11:03:44.437+02:00  INFO 7044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T11:03:44.730+02:00  INFO 7044 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T11:03:44.889+02:00  INFO 7044 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T11:03:44.906+02:00  INFO 7044 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T11:03:45.098+02:00  INFO 7044 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T11:03:45.240+02:00  INFO 7044 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T11:03:45.246+02:00  INFO 7044 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T11:03:45.499+02:00  INFO 7044 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T11:03:45.544+02:00  INFO 7044 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:03:45.904+02:00  INFO 7044 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T11:03:46.614+02:00  INFO 7044 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T11:03:46.737+02:00  INFO 7044 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:03:48.374+02:00  INFO 7044 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T11:03:49.012+02:00  INFO 7044 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:03:49.614+02:00  INFO 7044 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T11:03:50.894+02:00  INFO 7044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T11:03:50.921+02:00  INFO 7044 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 12.067 seconds (process running for 13.558)
-2023-10-05T11:03:52.656+02:00  INFO 7044 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T11:03:52.656+02:00  INFO 7044 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T11:03:52.665+02:00  INFO 7044 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2023-10-05T11:07:45.616+02:00  INFO 7044 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:07:45.619+02:00  INFO 7044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T11:07:45.629+02:00  INFO 7044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T11:21:30.031+02:00  INFO 23140 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 23140 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T11:21:30.036+02:00  INFO 23140 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T11:21:31.102+02:00  INFO 23140 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T11:21:31.354+02:00  INFO 23140 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 219 ms. Found 2 JPA repository interfaces.
-2023-10-05T11:21:33.536+02:00  INFO 23140 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T11:21:33.588+02:00  INFO 23140 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T11:21:33.589+02:00  INFO 23140 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T11:21:33.837+02:00  INFO 23140 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T11:21:33.838+02:00  INFO 23140 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3688 ms
-2023-10-05T11:21:34.177+02:00  INFO 23140 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T11:21:34.512+02:00  INFO 23140 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@54ffa561
-2023-10-05T11:21:34.515+02:00  INFO 23140 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T11:21:34.870+02:00  INFO 23140 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T11:21:35.151+02:00  INFO 23140 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T11:21:35.175+02:00  INFO 23140 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T11:21:35.459+02:00  INFO 23140 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T11:21:35.692+02:00  INFO 23140 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T11:21:35.697+02:00  INFO 23140 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T11:21:36.138+02:00  INFO 23140 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T11:21:36.236+02:00  INFO 23140 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:21:36.715+02:00  INFO 23140 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T11:21:37.846+02:00  INFO 23140 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T11:21:37.995+02:00  INFO 23140 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:21:39.681+02:00  INFO 23140 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T11:21:40.325+02:00  INFO 23140 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:21:40.961+02:00  INFO 23140 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T11:21:42.250+02:00  INFO 23140 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T11:21:42.270+02:00  INFO 23140 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 13.504 seconds (process running for 18.003)
-2023-10-05T11:21:44.234+02:00  INFO 23140 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T11:21:44.234+02:00  INFO 23140 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T11:21:44.238+02:00  INFO 23140 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2023-10-05T11:23:17.304+02:00  INFO 23140 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:23:17.307+02:00  INFO 23140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T11:23:17.319+02:00  INFO 23140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T11:23:32.884+02:00  INFO 27548 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 27548 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T11:23:32.888+02:00  INFO 27548 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T11:23:34.107+02:00  INFO 27548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T11:23:34.281+02:00  INFO 27548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 2 JPA repository interfaces.
-2023-10-05T11:23:36.396+02:00  INFO 27548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T11:23:36.430+02:00  INFO 27548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T11:23:36.431+02:00  INFO 27548 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T11:23:36.734+02:00  INFO 27548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T11:23:36.735+02:00  INFO 27548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3700 ms
-2023-10-05T11:23:37.039+02:00  INFO 27548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T11:23:37.389+02:00  INFO 27548 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b97b3d2
-2023-10-05T11:23:37.391+02:00  INFO 27548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T11:23:37.733+02:00  INFO 27548 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T11:23:37.946+02:00  INFO 27548 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T11:23:37.964+02:00  INFO 27548 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T11:23:38.265+02:00  INFO 27548 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T11:23:38.407+02:00  INFO 27548 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T11:23:38.411+02:00  INFO 27548 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T11:23:38.823+02:00  INFO 27548 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T11:23:38.880+02:00  INFO 27548 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:23:39.201+02:00  INFO 27548 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T11:23:39.867+02:00  INFO 27548 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T11:23:40.013+02:00  INFO 27548 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:23:41.913+02:00  INFO 27548 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T11:23:42.449+02:00  INFO 27548 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:23:43.154+02:00  INFO 27548 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T11:23:44.619+02:00  INFO 27548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T11:23:44.633+02:00  INFO 27548 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 13.225 seconds (process running for 14.974)
-2023-10-05T11:23:57.613+02:00  INFO 27548 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T11:23:57.613+02:00  INFO 27548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T11:23:57.616+02:00  INFO 27548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2023-10-05T11:24:22.634+02:00  WARN 27548 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s132ms246µs900ns).
-2023-10-05T11:25:31.821+02:00  WARN 27548 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m9s187ms769µs800ns).
-2023-10-05T11:32:07.479+02:00  WARN 27548 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m35s657ms316µs500ns).
-2023-10-05T11:32:07.656+02:00  INFO 27548 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:32:07.659+02:00  INFO 27548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T11:32:07.674+02:00  INFO 27548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T11:33:11.388+02:00  INFO 13764 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 13764 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T11:33:11.395+02:00  INFO 13764 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T11:33:12.639+02:00  INFO 13764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T11:33:12.746+02:00  INFO 13764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 2 JPA repository interfaces.
-2023-10-05T11:33:14.553+02:00  INFO 13764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T11:33:14.571+02:00  INFO 13764 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T11:33:14.572+02:00  INFO 13764 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T11:33:14.752+02:00  INFO 13764 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T11:33:14.752+02:00  INFO 13764 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3168 ms
-2023-10-05T11:33:15.058+02:00  INFO 13764 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T11:33:15.361+02:00  INFO 13764 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@230a73f2
-2023-10-05T11:33:15.363+02:00  INFO 13764 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T11:33:15.670+02:00  INFO 13764 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T11:33:15.843+02:00  INFO 13764 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T11:33:15.865+02:00  INFO 13764 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T11:33:16.076+02:00  INFO 13764 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T11:33:16.262+02:00  INFO 13764 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T11:33:16.270+02:00  INFO 13764 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T11:33:16.723+02:00  INFO 13764 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T11:33:16.801+02:00  INFO 13764 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:33:17.076+02:00  INFO 13764 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T11:33:17.666+02:00  INFO 13764 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T11:33:17.769+02:00  INFO 13764 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T11:33:19.151+02:00  INFO 13764 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T11:33:19.660+02:00  INFO 13764 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:33:20.288+02:00  INFO 13764 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T11:33:21.320+02:00  INFO 13764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T11:33:21.340+02:00  INFO 13764 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 11.789 seconds (process running for 14.368)
-2023-10-05T11:33:37.138+02:00  INFO 13764 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T11:33:37.138+02:00  INFO 13764 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T11:33:37.141+02:00  INFO 13764 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-10-05T11:34:44.470+02:00  WARN 13764 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s984ms474µs900ns).
-2023-10-05T11:54:02.435+02:00  WARN 13764 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m45s216ms897µs400ns).
-2023-10-05T11:54:02.550+02:00  INFO 13764 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T11:54:02.555+02:00  INFO 13764 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T11:54:02.564+02:00  INFO 13764 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T12:09:18.416+02:00  INFO 3544 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 3544 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T12:09:18.423+02:00  INFO 3544 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T12:09:19.627+02:00  INFO 3544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T12:09:19.767+02:00  INFO 3544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 2 JPA repository interfaces.
-2023-10-05T12:09:20.996+02:00  INFO 3544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T12:09:21.009+02:00  INFO 3544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T12:09:21.011+02:00  INFO 3544 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T12:09:21.161+02:00  INFO 3544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T12:09:21.162+02:00  INFO 3544 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2615 ms
-2023-10-05T12:09:21.359+02:00  INFO 3544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T12:09:21.594+02:00  INFO 3544 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e80a001
-2023-10-05T12:09:21.597+02:00  INFO 3544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T12:09:21.828+02:00  INFO 3544 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T12:09:22.035+02:00  INFO 3544 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T12:09:22.054+02:00  INFO 3544 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T12:09:22.224+02:00  INFO 3544 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T12:09:22.411+02:00  INFO 3544 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T12:09:22.414+02:00  INFO 3544 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T12:09:22.775+02:00  INFO 3544 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T12:09:22.812+02:00  INFO 3544 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T12:09:23.107+02:00  INFO 3544 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T12:09:23.665+02:00  INFO 3544 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T12:09:23.752+02:00  INFO 3544 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T12:09:24.892+02:00  INFO 3544 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T12:09:25.406+02:00  INFO 3544 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T12:09:25.862+02:00  INFO 3544 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T12:09:26.775+02:00  INFO 3544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T12:09:26.792+02:00  INFO 3544 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 9.272 seconds (process running for 10.583)
-2023-10-05T12:10:15.366+02:00  INFO 3544 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T12:10:15.369+02:00  INFO 3544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T12:10:15.371+02:00  INFO 3544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-10-05T12:23:21.343+02:00  INFO 3544 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T12:23:21.345+02:00  INFO 3544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T12:23:21.355+02:00  INFO 3544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T12:23:30.504+02:00  INFO 27368 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 27368 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T12:23:30.514+02:00  INFO 27368 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T12:23:31.633+02:00  INFO 27368 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T12:23:31.768+02:00  INFO 27368 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 2 JPA repository interfaces.
-2023-10-05T12:23:33.468+02:00  INFO 27368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T12:23:33.492+02:00  INFO 27368 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T12:23:33.493+02:00  INFO 27368 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T12:23:33.672+02:00  INFO 27368 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T12:23:33.673+02:00  INFO 27368 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3027 ms
-2023-10-05T12:23:33.880+02:00  INFO 27368 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T12:23:34.200+02:00  INFO 27368 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@51c65a43
-2023-10-05T12:23:34.205+02:00  INFO 27368 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T12:23:34.577+02:00  INFO 27368 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T12:23:34.745+02:00  INFO 27368 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T12:23:34.771+02:00  INFO 27368 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T12:23:35.052+02:00  INFO 27368 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T12:23:35.202+02:00  INFO 27368 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T12:23:35.206+02:00  INFO 27368 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T12:23:35.535+02:00  INFO 27368 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T12:23:35.587+02:00  INFO 27368 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T12:23:35.902+02:00  INFO 27368 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T12:23:36.481+02:00  INFO 27368 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T12:23:36.552+02:00  INFO 27368 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T12:23:37.746+02:00  INFO 27368 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T12:23:38.194+02:00  INFO 27368 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T12:23:38.705+02:00  INFO 27368 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T12:23:39.983+02:00  INFO 27368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T12:23:39.995+02:00  INFO 27368 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 10.966 seconds (process running for 12.384)
-2023-10-05T12:23:54.401+02:00  INFO 27368 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T12:23:54.401+02:00  INFO 27368 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T12:23:54.404+02:00  INFO 27368 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-10-05T12:25:45.308+02:00  INFO 27368 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T12:25:45.311+02:00  INFO 27368 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T12:25:45.323+02:00  INFO 27368 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-05T12:33:31.293+02:00  INFO 16136 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 16136 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
-2023-10-05T12:33:31.298+02:00  INFO 16136 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-10-05T12:33:32.595+02:00  INFO 16136 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-05T12:33:32.754+02:00  INFO 16136 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137 ms. Found 2 JPA repository interfaces.
-2023-10-05T12:33:33.864+02:00  INFO 16136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-05T12:33:33.885+02:00  INFO 16136 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-05T12:33:33.885+02:00  INFO 16136 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-05T12:33:34.123+02:00  INFO 16136 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-05T12:33:34.124+02:00  INFO 16136 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2680 ms
-2023-10-05T12:33:34.493+02:00  INFO 16136 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-05T12:33:34.862+02:00  INFO 16136 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e140497
-2023-10-05T12:33:34.867+02:00  INFO 16136 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-05T12:33:35.184+02:00  INFO 16136 --- [main] liquibase.database                       : Set default schema name to public
-2023-10-05T12:33:35.380+02:00  INFO 16136 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2023-10-05T12:33:35.395+02:00  INFO 16136 --- [main] liquibase.executor                       : Changelog query completed.
-2023-10-05T12:33:35.579+02:00  INFO 16136 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-05T12:33:35.731+02:00  INFO 16136 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-05T12:33:35.736+02:00  INFO 16136 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-05T12:33:35.963+02:00  INFO 16136 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
-2023-10-05T12:33:35.994+02:00  INFO 16136 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T12:33:36.256+02:00  INFO 16136 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-05T12:33:36.887+02:00  INFO 16136 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
-2023-10-05T12:33:36.974+02:00  INFO 16136 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-05T12:33:38.161+02:00  INFO 16136 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-05T12:33:38.599+02:00  INFO 16136 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T12:33:39.044+02:00  INFO 16136 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-10-05T12:33:39.969+02:00  INFO 16136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-05T12:33:39.983+02:00  INFO 16136 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 11.781 seconds (process running for 13.17)
-2023-10-05T12:33:51.194+02:00  INFO 16136 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-05T12:33:51.194+02:00  INFO 16136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-05T12:33:51.196+02:00  INFO 16136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-10-05T19:03:39.179+02:00  WARN 16136 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h29m4s229ms430µs400ns).
-2023-10-05T19:16:32.385+02:00  INFO 16136 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-05T19:16:32.387+02:00  INFO 16136 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-05T19:16:32.398+02:00  INFO 16136 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T00:17:23.052+02:00  INFO 9884 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 9884 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-06T00:17:23.057+02:00  INFO 9884 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-06T00:17:23.584+02:00  INFO 9884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T00:17:23.641+02:00  INFO 9884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2023-10-06T00:17:24.450+02:00  INFO 9884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-06T00:17:24.461+02:00  INFO 9884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-06T00:17:24.461+02:00  INFO 9884 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-06T00:17:24.559+02:00  INFO 9884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-06T00:17:24.560+02:00  INFO 9884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1455 ms
+2023-10-06T00:17:24.691+02:00  INFO 9884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T00:17:24.934+02:00  INFO 9884 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@50b46e24
+2023-10-06T00:17:24.937+02:00  INFO 9884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T00:17:25.159+02:00  INFO 9884 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-06T00:17:25.261+02:00  INFO 9884 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T00:17:25.274+02:00  INFO 9884 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-06T00:17:25.383+02:00  INFO 9884 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T00:17:25.484+02:00  INFO 9884 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T00:17:25.487+02:00  INFO 9884 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T00:17:25.671+02:00  INFO 9884 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T00:17:25.700+02:00  INFO 9884 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T00:17:25.869+02:00  INFO 9884 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T00:17:26.288+02:00  INFO 9884 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T00:17:26.361+02:00  INFO 9884 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T00:17:27.246+02:00  INFO 9884 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T00:17:27.595+02:00  INFO 9884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T00:17:27.962+02:00  INFO 9884 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T00:17:28.669+02:00  INFO 9884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-06T00:17:28.676+02:00  INFO 9884 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 6.096 seconds (process running for 7.904)
+2023-10-06T00:17:35.781+02:00  INFO 9884 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-06T00:17:35.781+02:00  INFO 9884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-06T00:17:35.786+02:00  INFO 9884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2023-10-06T01:06:14.270+02:00  INFO 9884 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T01:06:14.280+02:00  INFO 9884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T01:06:14.288+02:00  INFO 9884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T12:00:39.238+02:00  INFO 22104 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Starting ChannelRepositoryTest using Java 17.0.8 with PID 22104 (started by fomic in D:\javaprojects\netdata)
+2023-10-06T12:00:39.331+02:00  INFO 22104 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : The following 1 profile is active: "test"
+2023-10-06T12:00:39.791+02:00  INFO 22104 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T12:00:39.854+02:00  INFO 22104 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
+2023-10-06T12:00:40.556+02:00  INFO 22104 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T12:00:40.762+02:00  INFO 22104 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72a34537
+2023-10-06T12:00:40.764+02:00  INFO 22104 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T12:00:40.962+02:00  INFO 22104 --- [Test worker] liquibase.database                       : Set default schema name to public
+2023-10-06T12:00:41.192+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.204+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.213+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.221+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.227+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.229+02:00  INFO 22104 --- [Test worker] liquibase.lockservice                    : Successfully acquired change log lock
+2023-10-06T12:00:41.249+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2023-10-06T12:00:41.258+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.262+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T12:00:41.266+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.272+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.348+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.351+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 27ms
+2023-10-06T12:00:41.358+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.362+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.375+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.378+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 14ms
+2023-10-06T12:00:41.382+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.394+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.396+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 11ms
+2023-10-06T12:00:41.400+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.409+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.411+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 8ms
+2023-10-06T12:00:41.414+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.424+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.426+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 8ms
+2023-10-06T12:00:41.429+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.441+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.444+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 12ms
+2023-10-06T12:00:41.446+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.455+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.456+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 7ms
+2023-10-06T12:00:41.459+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.467+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:00:41.470+02:00  INFO 22104 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 8ms
+2023-10-06T12:00:41.472+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.475+02:00  INFO 22104 --- [Test worker] liquibase                                : Update command completed successfully.
+2023-10-06T12:00:41.479+02:00  INFO 22104 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:00:41.481+02:00  INFO 22104 --- [Test worker] liquibase.lockservice                    : Successfully released change log lock
+2023-10-06T12:00:41.603+02:00  INFO 22104 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T12:00:41.687+02:00  INFO 22104 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T12:00:41.690+02:00  INFO 22104 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T12:00:41.827+02:00  INFO 22104 --- [Test worker] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T12:00:41.847+02:00  INFO 22104 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:00:41.980+02:00  INFO 22104 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T12:00:42.338+02:00  INFO 22104 --- [Test worker] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T12:00:42.419+02:00  INFO 22104 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:00:43.377+02:00  INFO 22104 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T12:00:43.803+02:00  INFO 22104 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:00:44.374+02:00  INFO 22104 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T12:00:46.007+02:00  INFO 22104 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Started ChannelRepositoryTest in 7.117 seconds (process running for 13.034)
+2023-10-06T12:00:47.441+02:00  INFO 22104 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:00:47.448+02:00  INFO 22104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T12:00:47.465+02:00  INFO 22104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T12:13:52.322+02:00  INFO 29448 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Starting ChannelRepositoryTest using Java 17.0.8 with PID 29448 (started by fomic in D:\javaprojects\netdata)
+2023-10-06T12:13:52.323+02:00  INFO 29448 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : The following 1 profile is active: "test"
+2023-10-06T12:13:52.867+02:00  INFO 29448 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T12:13:52.929+02:00  INFO 29448 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 3 JPA repository interfaces.
+2023-10-06T12:13:53.652+02:00  INFO 29448 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T12:13:53.851+02:00  INFO 29448 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72a34537
+2023-10-06T12:13:53.854+02:00  INFO 29448 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T12:13:54.044+02:00  INFO 29448 --- [Test worker] liquibase.database                       : Set default schema name to public
+2023-10-06T12:13:54.245+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.250+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.260+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.265+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.272+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.275+02:00  INFO 29448 --- [Test worker] liquibase.lockservice                    : Successfully acquired change log lock
+2023-10-06T12:13:54.293+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2023-10-06T12:13:54.302+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.307+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T12:13:54.313+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.320+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.389+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.392+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 21ms
+2023-10-06T12:13:54.400+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.403+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.416+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.419+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 12ms
+2023-10-06T12:13:54.428+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.441+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.444+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 11ms
+2023-10-06T12:13:54.447+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.455+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.458+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 8ms
+2023-10-06T12:13:54.461+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.467+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.469+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 5ms
+2023-10-06T12:13:54.472+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.481+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.483+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 8ms
+2023-10-06T12:13:54.486+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.492+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.494+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 6ms
+2023-10-06T12:13:54.497+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.505+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:13:54.507+02:00  INFO 29448 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 8ms
+2023-10-06T12:13:54.510+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.512+02:00  INFO 29448 --- [Test worker] liquibase                                : Update command completed successfully.
+2023-10-06T12:13:54.517+02:00  INFO 29448 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:13:54.519+02:00  INFO 29448 --- [Test worker] liquibase.lockservice                    : Successfully released change log lock
+2023-10-06T12:13:54.636+02:00  INFO 29448 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T12:13:54.716+02:00  INFO 29448 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T12:13:54.720+02:00  INFO 29448 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T12:13:54.850+02:00  INFO 29448 --- [Test worker] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T12:13:54.877+02:00  INFO 29448 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:13:54.999+02:00  INFO 29448 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T12:13:55.346+02:00  INFO 29448 --- [Test worker] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T12:13:55.407+02:00  INFO 29448 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:13:56.212+02:00  INFO 29448 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T12:13:56.539+02:00  INFO 29448 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:13:56.958+02:00  INFO 29448 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T12:13:58.116+02:00  INFO 29448 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Started ChannelRepositoryTest in 6.138 seconds (process running for 10.925)
+2023-10-06T12:13:59.279+02:00  INFO 29448 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:13:59.285+02:00  INFO 29448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T12:13:59.311+02:00  INFO 29448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T12:16:06.478+02:00  INFO 20796 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Starting ChannelRepositoryTest using Java 17.0.8 with PID 20796 (started by fomic in D:\javaprojects\netdata)
+2023-10-06T12:16:06.481+02:00  INFO 20796 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : The following 1 profile is active: "test"
+2023-10-06T12:16:06.943+02:00  INFO 20796 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T12:16:06.997+02:00  INFO 20796 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2023-10-06T12:16:07.704+02:00  INFO 20796 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T12:16:07.916+02:00  INFO 20796 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72a34537
+2023-10-06T12:16:07.919+02:00  INFO 20796 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T12:16:08.108+02:00  INFO 20796 --- [Test worker] liquibase.database                       : Set default schema name to public
+2023-10-06T12:16:08.295+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.302+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.312+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.321+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.328+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.331+02:00  INFO 20796 --- [Test worker] liquibase.lockservice                    : Successfully acquired change log lock
+2023-10-06T12:16:08.367+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2023-10-06T12:16:08.377+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.383+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T12:16:08.389+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.396+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.463+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.467+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 20ms
+2023-10-06T12:16:08.475+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.478+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.490+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.492+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 10ms
+2023-10-06T12:16:08.496+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.509+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.608+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 109ms
+2023-10-06T12:16:08.618+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.629+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.631+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 10ms
+2023-10-06T12:16:08.635+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.646+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.648+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 10ms
+2023-10-06T12:16:08.652+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.668+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.670+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 14ms
+2023-10-06T12:16:08.674+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.681+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.683+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 7ms
+2023-10-06T12:16:08.687+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.695+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:16:08.697+02:00  INFO 20796 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 8ms
+2023-10-06T12:16:08.700+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.703+02:00  INFO 20796 --- [Test worker] liquibase                                : Update command completed successfully.
+2023-10-06T12:16:08.708+02:00  INFO 20796 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:16:08.709+02:00  INFO 20796 --- [Test worker] liquibase.lockservice                    : Successfully released change log lock
+2023-10-06T12:16:08.843+02:00  INFO 20796 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T12:16:08.948+02:00  INFO 20796 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T12:16:08.952+02:00  INFO 20796 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T12:16:09.129+02:00  INFO 20796 --- [Test worker] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T12:16:09.147+02:00  INFO 20796 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:16:09.281+02:00  INFO 20796 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T12:16:09.640+02:00  INFO 20796 --- [Test worker] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T12:16:09.704+02:00  INFO 20796 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:16:10.514+02:00  INFO 20796 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T12:16:10.844+02:00  INFO 20796 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:16:11.299+02:00  INFO 20796 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T12:16:12.444+02:00  INFO 20796 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Started ChannelRepositoryTest in 6.294 seconds (process running for 10.862)
+2023-10-06T12:16:13.352+02:00  INFO 20796 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:16:13.357+02:00  INFO 20796 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T12:16:13.378+02:00  INFO 20796 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T12:19:49.350+02:00  INFO 16700 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Starting ChannelRepositoryTest using Java 17.0.8 with PID 16700 (started by fomic in D:\javaprojects\netdata)
+2023-10-06T12:19:49.352+02:00  INFO 16700 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : The following 1 profile is active: "test"
+2023-10-06T12:19:49.843+02:00  INFO 16700 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T12:19:49.914+02:00  INFO 16700 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
+2023-10-06T12:19:50.634+02:00  INFO 16700 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T12:19:50.853+02:00  INFO 16700 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24fef542
+2023-10-06T12:19:50.858+02:00  INFO 16700 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T12:19:51.040+02:00  INFO 16700 --- [Test worker] liquibase.database                       : Set default schema name to public
+2023-10-06T12:19:51.228+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.236+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.244+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.251+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.255+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.257+02:00  INFO 16700 --- [Test worker] liquibase.lockservice                    : Successfully acquired change log lock
+2023-10-06T12:19:51.279+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2023-10-06T12:19:51.287+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.292+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T12:19:51.297+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.306+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.372+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.376+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::1::fomich ran successfully in 20ms
+2023-10-06T12:19:51.381+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.386+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.396+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.399+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::2::fomich ran successfully in 10ms
+2023-10-06T12:19:51.404+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.419+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.422+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::3::fomich ran successfully in 14ms
+2023-10-06T12:19:51.427+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.437+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.438+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::4::fomich ran successfully in 9ms
+2023-10-06T12:19:51.442+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.450+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.452+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-1.0.sql::5::fomich ran successfully in 8ms
+2023-10-06T12:19:51.456+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.466+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.468+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.0.sql::1::fomich ran successfully in 10ms
+2023-10-06T12:19:51.470+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.476+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.477+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::1::fomich ran successfully in 5ms
+2023-10-06T12:19:51.480+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.487+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : Custom SQL executed
+2023-10-06T12:19:51.488+02:00  INFO 16700 --- [Test worker] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-2.1.sql::2::fomich ran successfully in 6ms
+2023-10-06T12:19:51.491+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.493+02:00  INFO 16700 --- [Test worker] liquibase                                : Update command completed successfully.
+2023-10-06T12:19:51.498+02:00  INFO 16700 --- [Test worker] liquibase.executor                       : Changelog query completed.
+2023-10-06T12:19:51.500+02:00  INFO 16700 --- [Test worker] liquibase.lockservice                    : Successfully released change log lock
+2023-10-06T12:19:51.607+02:00  INFO 16700 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T12:19:51.682+02:00  INFO 16700 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T12:19:51.685+02:00  INFO 16700 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T12:19:51.813+02:00  INFO 16700 --- [Test worker] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T12:19:51.839+02:00  INFO 16700 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:19:52.001+02:00  INFO 16700 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T12:19:52.367+02:00  INFO 16700 --- [Test worker] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T12:19:52.431+02:00  INFO 16700 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T12:19:53.183+02:00  INFO 16700 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T12:19:53.544+02:00  INFO 16700 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:19:53.990+02:00  INFO 16700 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T12:19:55.197+02:00  INFO 16700 --- [Test worker] c.f.n.i.d.r.ChannelRepositoryTest        : Started ChannelRepositoryTest in 6.189 seconds (process running for 10.648)
+2023-10-06T12:19:58.037+02:00  INFO 16700 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T12:19:58.040+02:00  INFO 16700 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T12:19:58.052+02:00  INFO 16700 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T15:31:11.145+02:00  INFO 1324 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 1324 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-06T15:31:11.147+02:00  INFO 1324 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-06T15:31:11.801+02:00  INFO 1324 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T15:31:11.855+02:00  INFO 1324 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
+2023-10-06T15:31:12.570+02:00  INFO 1324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-06T15:31:12.581+02:00  INFO 1324 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-06T15:31:12.582+02:00  INFO 1324 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-06T15:31:12.677+02:00  INFO 1324 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-06T15:31:12.678+02:00  INFO 1324 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1489 ms
+2023-10-06T15:31:12.835+02:00  INFO 1324 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T15:31:13.018+02:00  INFO 1324 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30aec673
+2023-10-06T15:31:13.019+02:00  INFO 1324 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T15:31:13.216+02:00  INFO 1324 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-06T15:31:13.330+02:00  INFO 1324 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T15:31:13.344+02:00  INFO 1324 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-06T15:31:13.468+02:00  INFO 1324 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T15:31:13.554+02:00  INFO 1324 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T15:31:13.556+02:00  INFO 1324 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T15:31:13.740+02:00  INFO 1324 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T15:31:13.764+02:00  INFO 1324 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T15:31:13.929+02:00  INFO 1324 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T15:31:14.373+02:00  INFO 1324 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T15:31:14.456+02:00  INFO 1324 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T15:31:15.286+02:00  INFO 1324 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T15:31:15.587+02:00  INFO 1324 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T15:31:15.814+02:00  INFO 1324 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T15:31:16.441+02:00  INFO 1324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-06T15:31:16.447+02:00  INFO 1324 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 5.785 seconds (process running for 6.407)
+2023-10-06T15:31:27.895+02:00  INFO 1324 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-06T15:31:27.895+02:00  INFO 1324 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-06T15:31:27.898+02:00  INFO 1324 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-10-06T15:31:28.437+02:00 ERROR 1324 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] Exception processing template "channel/channels": An error happened during template parsing (template: "class path resource [templates/channel/channels.html]" - line 9, col 5)
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/channel/channels.html]" - line 9, col 5)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:649) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.attoparser.ParseException: (Line = 9, Column = 5) Incomplete structure: "<form action="/channels"">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="${filter.name()}">
+        </label>
+        <label for="multeplexerId">Multiplexer id:
+            <input id="multeplexerId" type="text" name="multeplexerId" th:value="${filter.multiplexerId()}">
+        </label>
+        <div>
+            <label for="page">Page:
+                <input id="page" type="number" name="page" th:value="${channels.metadata.page}">
+            </label>
+            <label for="size">Size:
+                <input id="size" type="number" name="size" th:value="${channels.metadata.size}">
+            </label>
+        </div>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <div th:each="channel : ${channels.content}">
+        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>
+    </div>
+
+
+<!--    <form action="/multiplexers/add_multiplexer">-->
+<!--        <button type="submit">Add multiplexer</button>-->
+<!--    </form>-->
+</body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	... 48 common frames omitted
+
+2023-10-06T15:31:28.446+02:00 ERROR 1324 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/channel/channels.html]" - line 9, col 5)] with root cause
+
+org.attoparser.ParseException: (Line = 9, Column = 5) Incomplete structure: "<form action="/channels"">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="${filter.name()}">
+        </label>
+        <label for="multeplexerId">Multiplexer id:
+            <input id="multeplexerId" type="text" name="multeplexerId" th:value="${filter.multiplexerId()}">
+        </label>
+        <div>
+            <label for="page">Page:
+                <input id="page" type="number" name="page" th:value="${channels.metadata.page}">
+            </label>
+            <label for="size">Size:
+                <input id="size" type="number" name="size" th:value="${channels.metadata.size}">
+            </label>
+        </div>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <div th:each="channel : ${channels.content}">
+        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>
+    </div>
+
+
+<!--    <form action="/multiplexers/add_multiplexer">-->
+<!--        <button type="submit">Add multiplexer</button>-->
+<!--    </form>-->
+</body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:649) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-10-06T15:32:42.073+02:00 ERROR 1324 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "channel/channels": An error happened during template parsing (template: "class path resource [templates/channel/channels.html]" - line 9, col 5)
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/channel/channels.html]" - line 9, col 5)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:649) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.attoparser.ParseException: (Line = 9, Column = 5) Incomplete structure: "<form action="/channels"">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="${filter.name()}">
+        </label>
+        <label for="multeplexerId">Multiplexer id:
+            <input id="multeplexerId" type="text" name="multeplexerId" th:value="${filter.multiplexerId()}">
+        </label>
+        <div>
+            <label for="page">Page:
+                <input id="page" type="number" name="page" th:value="${channels.metadata.page}">
+            </label>
+            <label for="size">Size:
+                <input id="size" type="number" name="size" th:value="${channels.metadata.size}">
+            </label>
+        </div>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <div th:each="channel : ${channels.content}">
+        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>
+    </div>
+
+
+<!--    <form action="/multiplexers/add_multiplexer">-->
+<!--        <button type="submit">Add multiplexer</button>-->
+<!--    </form>-->
+</body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	... 48 common frames omitted
+
+2023-10-06T15:32:42.075+02:00 ERROR 1324 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/channel/channels.html]" - line 9, col 5)] with root cause
+
+org.attoparser.ParseException: (Line = 9, Column = 5) Incomplete structure: "<form action="/channels"">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="${filter.name()}">
+        </label>
+        <label for="multeplexerId">Multiplexer id:
+            <input id="multeplexerId" type="text" name="multeplexerId" th:value="${filter.multiplexerId()}">
+        </label>
+        <div>
+            <label for="page">Page:
+                <input id="page" type="number" name="page" th:value="${channels.metadata.page}">
+            </label>
+            <label for="size">Size:
+                <input id="size" type="number" name="size" th:value="${channels.metadata.size}">
+            </label>
+        </div>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <div th:each="channel : ${channels.content}">
+        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>
+    </div>
+
+
+<!--    <form action="/multiplexers/add_multiplexer">-->
+<!--        <button type="submit">Add multiplexer</button>-->
+<!--    </form>-->
+</body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:649) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-10-06T15:33:20.296+02:00  INFO 1324 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T15:33:20.296+02:00  INFO 1324 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T15:33:20.308+02:00  INFO 1324 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T15:33:23.641+02:00  INFO 26104 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 26104 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-06T15:33:23.644+02:00  INFO 26104 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-06T15:33:24.096+02:00  INFO 26104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T15:33:24.148+02:00  INFO 26104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 3 JPA repository interfaces.
+2023-10-06T15:33:24.743+02:00  INFO 26104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-06T15:33:24.751+02:00  INFO 26104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-06T15:33:24.752+02:00  INFO 26104 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-06T15:33:24.830+02:00  INFO 26104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-06T15:33:24.831+02:00  INFO 26104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1132 ms
+2023-10-06T15:33:24.942+02:00  INFO 26104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T15:33:25.092+02:00  INFO 26104 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@739e8b96
+2023-10-06T15:33:25.093+02:00  INFO 26104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T15:33:25.209+02:00  INFO 26104 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-06T15:33:25.292+02:00  INFO 26104 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T15:33:25.304+02:00  INFO 26104 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-06T15:33:25.401+02:00  INFO 26104 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T15:33:25.473+02:00  INFO 26104 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T15:33:25.475+02:00  INFO 26104 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T15:33:25.644+02:00  INFO 26104 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T15:33:25.660+02:00  INFO 26104 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T15:33:25.786+02:00  INFO 26104 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T15:33:26.072+02:00  INFO 26104 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T15:33:26.130+02:00  INFO 26104 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T15:33:26.789+02:00  INFO 26104 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T15:33:27.011+02:00  INFO 26104 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T15:33:27.263+02:00  INFO 26104 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T15:33:27.866+02:00  INFO 26104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-06T15:33:27.878+02:00  INFO 26104 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 4.69 seconds (process running for 5.263)
+2023-10-06T15:33:39.082+02:00  INFO 26104 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-06T15:33:39.082+02:00  INFO 26104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-06T15:33:39.083+02:00  INFO 26104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-06T16:08:28.955+02:00  INFO 26104 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:08:28.957+02:00  INFO 26104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T16:08:28.963+02:00  INFO 26104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T16:10:31.736+02:00  INFO 24232 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 24232 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-06T16:10:31.739+02:00  INFO 24232 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-06T16:10:32.295+02:00  INFO 24232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T16:10:32.359+02:00  INFO 24232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 3 JPA repository interfaces.
+2023-10-06T16:10:33.061+02:00  INFO 24232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-06T16:10:33.077+02:00  INFO 24232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-06T16:10:33.077+02:00  INFO 24232 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-06T16:10:33.161+02:00  INFO 24232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-06T16:10:33.163+02:00  INFO 24232 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1361 ms
+2023-10-06T16:10:33.275+02:00  INFO 24232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T16:10:33.429+02:00  INFO 24232 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4dfdfe7d
+2023-10-06T16:10:33.431+02:00  INFO 24232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T16:10:33.565+02:00  INFO 24232 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-06T16:10:33.644+02:00  INFO 24232 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T16:10:33.653+02:00  INFO 24232 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-06T16:10:33.755+02:00  INFO 24232 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T16:10:33.832+02:00  INFO 24232 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T16:10:33.835+02:00  INFO 24232 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T16:10:33.958+02:00  INFO 24232 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T16:10:33.977+02:00  INFO 24232 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:10:34.116+02:00  INFO 24232 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T16:10:34.483+02:00  INFO 24232 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T16:10:34.538+02:00  INFO 24232 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:10:35.301+02:00  INFO 24232 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T16:10:35.551+02:00  INFO 24232 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:10:35.796+02:00  INFO 24232 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T16:10:36.458+02:00  INFO 24232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-06T16:10:36.469+02:00  INFO 24232 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 5.617 seconds (process running for 7.416)
+2023-10-06T16:10:41.423+02:00  INFO 24232 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-06T16:10:41.424+02:00  INFO 24232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-06T16:10:41.425+02:00  INFO 24232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-06T16:11:52.605+02:00  WARN 24232 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m19s73ms428µs700ns).
+2023-10-06T16:11:53.037+02:00  INFO 24232 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:11:53.039+02:00  INFO 24232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T16:11:53.047+02:00  INFO 24232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T16:13:41.056+02:00  INFO 27416 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 27416 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-06T16:13:41.058+02:00  INFO 27416 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-06T16:13:41.502+02:00  INFO 27416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T16:13:41.563+02:00  INFO 27416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
+2023-10-06T16:13:42.203+02:00  INFO 27416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-06T16:13:42.211+02:00  INFO 27416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-06T16:13:42.211+02:00  INFO 27416 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-06T16:13:42.295+02:00  INFO 27416 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-06T16:13:42.295+02:00  INFO 27416 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1196 ms
+2023-10-06T16:13:42.407+02:00  INFO 27416 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T16:13:42.560+02:00  INFO 27416 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1578b8ec
+2023-10-06T16:13:42.561+02:00  INFO 27416 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T16:13:42.687+02:00  INFO 27416 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-06T16:13:42.775+02:00  INFO 27416 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T16:13:42.784+02:00  INFO 27416 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-06T16:13:42.884+02:00  INFO 27416 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T16:13:42.955+02:00  INFO 27416 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T16:13:42.957+02:00  INFO 27416 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T16:13:43.080+02:00  INFO 27416 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T16:13:43.097+02:00  INFO 27416 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:13:43.247+02:00  INFO 27416 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T16:13:43.551+02:00  INFO 27416 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T16:13:43.602+02:00  INFO 27416 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:13:44.322+02:00  INFO 27416 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T16:13:44.575+02:00  INFO 27416 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:13:44.834+02:00  INFO 27416 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T16:13:45.472+02:00  INFO 27416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-06T16:13:45.481+02:00  INFO 27416 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 5.433 seconds (process running for 7.53)
+2023-10-06T16:13:53.963+02:00  INFO 27416 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-06T16:13:53.963+02:00  INFO 27416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-06T16:13:53.964+02:00  INFO 27416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-06T16:14:32.527+02:00  WARN 27416 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s858ms816µs801ns).
+2023-10-06T16:15:26.202+02:00  WARN 27416 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s676ms44µs100ns).
+2023-10-06T16:17:21.583+02:00  WARN 27416 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m55s381ms34µs599ns).
+2023-10-06T16:17:21.657+02:00  INFO 27416 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:17:21.659+02:00  INFO 27416 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T16:17:21.685+02:00  INFO 27416 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-06T16:17:24.591+02:00  INFO 10000 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 10000 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-06T16:17:24.593+02:00  INFO 10000 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-06T16:17:25.056+02:00  INFO 10000 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T16:17:25.119+02:00  INFO 10000 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 3 JPA repository interfaces.
+2023-10-06T16:17:25.762+02:00  INFO 10000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-06T16:17:25.772+02:00  INFO 10000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-06T16:17:25.774+02:00  INFO 10000 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-06T16:17:25.859+02:00  INFO 10000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-06T16:17:25.860+02:00  INFO 10000 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1208 ms
+2023-10-06T16:17:25.969+02:00  INFO 10000 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T16:17:26.133+02:00  INFO 10000 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@61e86192
+2023-10-06T16:17:26.135+02:00  INFO 10000 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T16:17:26.279+02:00  INFO 10000 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-06T16:17:26.359+02:00  INFO 10000 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T16:17:26.366+02:00  INFO 10000 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-06T16:17:26.467+02:00  INFO 10000 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T16:17:26.542+02:00  INFO 10000 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T16:17:26.546+02:00  INFO 10000 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T16:17:26.677+02:00  INFO 10000 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T16:17:26.695+02:00  INFO 10000 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:17:26.842+02:00  INFO 10000 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T16:17:27.168+02:00  INFO 10000 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T16:17:27.222+02:00  INFO 10000 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:17:28.082+02:00  INFO 10000 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T16:17:28.374+02:00  INFO 10000 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:17:28.627+02:00  INFO 10000 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T16:17:29.488+02:00  INFO 10000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-06T16:17:29.501+02:00  INFO 10000 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 5.359 seconds (process running for 6.14)
+2023-10-06T16:17:32.615+02:00  INFO 10000 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-06T16:17:32.615+02:00  INFO 10000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-06T16:17:32.616+02:00  INFO 10000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-10-06T16:19:22.505+02:00  INFO 13508 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 13508 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-10-06T16:19:22.507+02:00  INFO 13508 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-10-06T16:19:23.066+02:00  INFO 13508 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-06T16:19:23.138+02:00  INFO 13508 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 3 JPA repository interfaces.
+2023-10-06T16:19:23.787+02:00  INFO 13508 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-06T16:19:23.796+02:00  INFO 13508 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-06T16:19:23.796+02:00  INFO 13508 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-06T16:19:23.891+02:00  INFO 13508 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-06T16:19:23.892+02:00  INFO 13508 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1337 ms
+2023-10-06T16:19:24.014+02:00  INFO 13508 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-06T16:19:24.161+02:00  INFO 13508 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6acffb2d
+2023-10-06T16:19:24.162+02:00  INFO 13508 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-06T16:19:24.297+02:00  INFO 13508 --- [main] liquibase.database                       : Set default schema name to public
+2023-10-06T16:19:24.381+02:00  INFO 13508 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-10-06T16:19:24.392+02:00  INFO 13508 --- [main] liquibase.executor                       : Changelog query completed.
+2023-10-06T16:19:24.499+02:00  INFO 13508 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-06T16:19:24.591+02:00  INFO 13508 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-06T16:19:24.594+02:00  INFO 13508 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-06T16:19:24.747+02:00  INFO 13508 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-10-06T16:19:24.768+02:00  INFO 13508 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:19:24.916+02:00  INFO 13508 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-06T16:19:25.251+02:00  INFO 13508 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-10-06T16:19:25.305+02:00  INFO 13508 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-06T16:19:25.980+02:00  INFO 13508 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-06T16:19:26.249+02:00  INFO 13508 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:19:26.488+02:00  INFO 13508 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-06T16:19:27.142+02:00  INFO 13508 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-06T16:19:27.150+02:00  INFO 13508 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 5.433 seconds (process running for 6.113)
+2023-10-06T16:19:29.749+02:00  INFO 13508 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-06T16:19:29.750+02:00  INFO 13508 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-06T16:19:29.751+02:00  INFO 13508 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-06T16:21:39.025+02:00  INFO 13508 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-06T16:21:39.028+02:00  INFO 13508 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-06T16:21:39.036+02:00  INFO 13508 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -8,10 +8,13 @@ import com.fomich.netdata.dto.MultiplexerIdDto;
 import com.fomich.netdata.dto.MultiplexerReadDto;
 import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerReadMapper;
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.print.Pageable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,12 +36,15 @@ public class MultiplexerService {
 
 
 
+
+
+
     public List<MultiplexerReadDto> findAll(MultiplexerFilter filter) {
+
         return multiplexerRepository.findAllByFilter(filter).stream()
                 .map(multiplexerReadMapper::map)
                 .toList();
     }
-
 
 
     public List<MultiplexerReadDto> findAll() {

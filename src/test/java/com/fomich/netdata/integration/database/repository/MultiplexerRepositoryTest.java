@@ -64,7 +64,7 @@ public class MultiplexerRepositoryTest extends IntegrationTestBase {
 
     @Test
     void checkCustomImplementation() {
-        MultiplexerFilter filter = new MultiplexerFilter("%ux1%", null);
+        MultiplexerFilter filter = new MultiplexerFilter("%ux1%", null, null);
         var muxes = multiplexerRepository.findAllByFilter(filter);
         assertThat(muxes).hasSize(5);
     }

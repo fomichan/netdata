@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplexers</title>
+</head>
+<body>
+
+    <form action="/channels">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="${filter.name()}">
+        </label>
+        <label for="multiplexerId">Multiplexer id:
+            <input id="multiplexerId" type="text" name="multiplexerId" th:value="${filter.multiplexerId()}">
+        </label>
+        <div>
+            <label for="page">Page:
+                <input id="page" type="number" name="page" th:value="${channels.metadata.page}">
+            </label>
+            <label for="size">Size:
+                <input id="size" type="number" name="size" th:value="${channels.metadata.size}">
+            </label>
+        </div>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <div th:each="channel : ${channels.content}">
+        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>
+    </div>
+
+
+<!--    <form action="/multiplexers/add_multiplexer">-->
+<!--        <button type="submit">Add multiplexer</button>-->
+<!--    </form>-->
+</body>
+</html>

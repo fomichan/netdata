@@ -15,7 +15,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 @IT
 @Sql({
-        "classpath:sql/data.sql"
+        "classpath:sql/generate_data.sql"
 })
 public abstract class IntegrationTestBase {
 
