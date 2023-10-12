@@ -2,8 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.4'
     id 'io.spring.dependency-management' version '1.1.3'
-
-
+    //id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 }
 
 apply from: 'version.gradle'
@@ -26,16 +25,42 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main.java.srcDirs += "$buildDir/generated/sources/annotationProcessor/java/main"
+}
+
+//configurations {
+//    querydsl.extendsFrom annotationProcessor, implementation, compileOnly, runtimeOnly
+//}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+//    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity'
     runtimeOnly 'org.postgresql:postgresql'
     implementation 'org.springframework.data:spring-data-envers'
     implementation 'org.liquibase:liquibase-core'
-    implementation 'com.querydsl:querydsl-jpa'
+
+
+    // Версия 1 Querydsl
+//    implementation "com.querydsl:querydsl-jpa:${versions.querydsl}:jakarta"
+//    annotationProcessor "com.querydsl:querydsl-apt:${versions.querydsl}:jakarta"
+//    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+
+
+    // Версия 2 Querydsl
+    implementation "com.querydsl:querydsl-jpa:${versions.querydsl}:jakarta"
+    implementation "com.querydsl:querydsl-apt:${versions.querydsl}:jakarta"
+    implementation "com.querydsl:querydsl-core:${versions.querydsl}"
+    annotationProcessor "com.querydsl:querydsl-apt:${versions.querydsl}:jakarta"
+    annotationProcessor "com.querydsl:querydsl-apt:${versions.querydsl}:jakarta"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+//    Ошибка при генерации classes Querydsl: Unable to load class 'jakarta.persistence.Entity'.
+//    https://stackoverflow.com/questions/75120196/cant-generate-q-classes-with-spring-boot-3-jakarta-persistence-querydql-and-g
 
 
     compileOnly 'org.projectlombok:lombok'
@@ -43,11 +68,21 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.springframework.security:spring-security-test'
     testImplementation "org.testcontainers:postgresql:${versions.testcontainers}"
-
-
 }
+
+
+//querydsl {
+//    jpa = true
+//    library = "com.querydsl:querydsl-apt:${versions.querydsl}"
+//    querydslSourcesDir = "$buildDir/generated/sources/annotationProcessor/java/main"
+//}
+//initQuerydslSourcesDir.dependsOn clean
+//
+//compileQuerydsl {
+//    options.annotationProcessorPath = configurations.querydsl
+//}
 
 
 tasks.named('test') {

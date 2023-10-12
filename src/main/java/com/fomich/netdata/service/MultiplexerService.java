@@ -1,6 +1,8 @@
 package com.fomich.netdata.service;
 
 import com.fomich.netdata.database.entity.Multiplexer;
+import com.fomich.netdata.database.entity.QMultiplexer;
+import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.dto.MultiplexerCreateEditDto;
 import com.fomich.netdata.dto.MultiplexerFilter;
@@ -10,10 +12,11 @@ import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerReadMapper;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,14 +40,23 @@ public class MultiplexerService {
 
 
 
+    public Page<MultiplexerReadDto> findAll(MultiplexerFilter filter, Pageable pageable) {
+        var predicate = QPredicates.builder()
+                .add(filter.name(), QMultiplexer.multiplexer.name::containsIgnoreCase)
+                .add(filter.serialNumber(), QMultiplexer.multiplexer.serialNumber::containsIgnoreCase)
+                .add(filter.siteId(), QMultiplexer.multiplexer.site.id::eq)
+                .build();
 
-
-    public List<MultiplexerReadDto> findAll(MultiplexerFilter filter) {
-
-        return multiplexerRepository.findAllByFilter(filter).stream()
-                .map(multiplexerReadMapper::map)
-                .toList();
+        return multiplexerRepository.findAll(predicate, pageable)
+                .map(multiplexerReadMapper::map);
     }
+
+//    public List<MultiplexerReadDto> findAll(MultiplexerFilter filter) {
+//
+//        return multiplexerRepository.findAllByFilter(filter).stream()
+//                .map(multiplexerReadMapper::map)
+//                .toList();
+//    }
 
 
     public List<MultiplexerReadDto> findAll() {

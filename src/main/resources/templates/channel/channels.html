@@ -2,36 +2,168 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Multiplexers</title>
+    <title>Channels</title>
+    <style>
+        /* Ваш CSS код здесь */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+        /* Стили для формы фильтрации сверху */
+        #filterForm {
+            padding: 10px;
+            background-color: #f7f7f7;
+        }
+
+        #filterForm label, #filterForm select, #filterForm input {
+            margin-right: 10px;
+        }
+
+        /* Стили для пагинации снизу */
+        #paginationForm {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f7f7f7;
+        }
+
+        #paginationForm label, #paginationForm select, #paginationForm input {
+            margin-right: 10px;
+        }
+
+
+        /* Добавьте стили для кнопки "Add Multiplexer" */
+        /*#addMultiplexerButton {*/
+        /*    margin-top: 20px; !* Верхний отступ между таблицей и кнопкой *!*/
+        /*}*/
+    </style>
 </head>
 <body>
 
-    <form action="/channels">
-        <label for="name">Name:
+
+    <form action="/channels" id="filterForm">
+        <label for="name">Название канала:
             <input id="name" type="text" name="name" th:value="${filter.name()}">
         </label>
-        <label for="multiplexerId">Multiplexer id:
+        <label for="multiplexerId">ID мультиплексора:
             <input id="multiplexerId" type="text" name="multiplexerId" th:value="${filter.multiplexerId()}">
         </label>
+
+        <label for="siteId">Объект:
+            <select id="siteId" name="siteId">
+                <option value="">-- Выберите объект --</option>
+                <option th:each="site : ${sites}"
+                        th:value="${site.id()}"
+                        th:selected="${site.id() == filter.siteId()}"
+                        th:text="${site.name()}">Site</option>
+            </select>
+        </label>
+
+
         <div>
-            <label for="page">Page:
-                <input id="page" type="number" name="page" th:value="${channels.metadata.page}">
-            </label>
-            <label for="size">Size:
-                <input id="size" type="number" name="size" th:value="${channels.metadata.size}">
-            </label>
+            Сортировка
+            <select name="sort">
+                <option value="name" th:selected="${channels.metadata.sortField eq 'name'}">Название</option>
+                <option value="id" th:selected="${channels.metadata.sortField eq 'id'}" >ID</option>
+            </select>
+
+            <select name="direction">
+                <option value="asc" th:selected="${channels.metadata.sortDirection.name() == 'ASC'}">По возрастанию</option>
+                <option value="desc" th:selected="${channels.metadata.sortDirection.name() == 'DESC'}">По убыванию</option>
+            </select>
         </div>
 
-        <button type="submit">Filter</button>
+        <button type="submit">Отобразить</button>
     </form>
 
-    <div th:each="channel : ${channels.content}">
-        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>
+    <div >
+        <p> Найдено: <span th:text="${channels.metadata.totalElements}">Total elements</span> </p>
     </div>
 
 
-<!--    <form action="/multiplexers/add_multiplexer">-->
-<!--        <button type="submit">Add multiplexer</button>-->
-<!--    </form>-->
+    <!-- Таблица с данными -->
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название канала</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="channel : ${channels.content}">
+            <td th:text="${channel.id}">1</td>
+            <td>
+                <a th:href="@{'/channels/' + ${channel.id}}">
+                    <span th:text="${channel.name}">Channel</span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+<!--    <div th:each="channel : ${channels.content}">-->
+<!--        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>-->
+<!--    </div>-->
+
+
+
+    <!-- Форма пагинации -->
+    <form action="/channels" id="paginationForm">
+        <!-- Скрытые поля для передачи данных из верхней части формы -->
+        <input type="hidden" name="name" th:value="${filter.name}">
+        <input type="hidden" name="serialNumber" th:value="${filter.multiplexerId()}">
+        <input type="hidden" name="siteId" th:value="${filter.siteId()}">
+        <input type="hidden" name="sort" th:value="${channels.metadata.sortField}">
+        <input type="hidden" name="direction" th:value="${channels.metadata.sortDirection.name()}">
+
+        <!-- Номер страницы в виде input -->
+        <!--    <div>-->
+        <!--        <label for="page">Страница :-->
+        <!--            <input id="page" type="number" name="page" th:attr="max=${multiplexers.metadata.totalPages}" th:value="${multiplexers.metadata.page}" oninput="this.form.submit()">-->
+        <!--            из <span th:text="${multiplexers.metadata.totalPages}"></span>-->
+        <!--        </label>-->
+        <!--    </div>-->
+
+
+        <!-- Номер страницы в виде выпадающего списка -->
+        <div>
+            <label for="page">Страница :
+                <select id="page" name="page" th:onchange="this.form.submit()">
+                    <option th:each="page : ${#numbers.sequence(1, channels.metadata.totalPages)}"
+                            th:value="${page}"
+                            th:selected="${page == channels.metadata.page}"
+                            th:text="${page}"></option>
+                </select>
+            </label>
+        </div>
+
+
+        <div>
+            <label for="size">Отображать на странице:
+                <select id="size" name="size" onchange="this.form.submit()">
+                    <option value="10" th:selected="${channels.metadata.size == 10}">10</option>
+                    <option value="15" th:selected="${channels.metadata.size == 15}">15</option>
+                    <option value="20" th:selected="${channels.metadata.size == 20}">20</option>
+                </select>
+            </label>
+        </div>
+        <!--    <button type="submit">Apply</button>-->
+    </form>
+
+
+
 </body>
 </html>

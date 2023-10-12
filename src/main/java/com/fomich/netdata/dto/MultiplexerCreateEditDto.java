@@ -8,7 +8,7 @@ import lombok.experimental.FieldNameConstants;
 public class MultiplexerCreateEditDto {
 
     String name;
-    Integer serialNumber;
+    String serialNumber;
     Integer siteId;
 
 }

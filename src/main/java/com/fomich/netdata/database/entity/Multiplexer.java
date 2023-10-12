@@ -32,7 +32,7 @@ public class Multiplexer extends AuditingEntity<Integer> {
     @Column(unique = true, nullable = false)
     private String name;
 
-    private Integer serialNumber;
+    private String serialNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "site_id")

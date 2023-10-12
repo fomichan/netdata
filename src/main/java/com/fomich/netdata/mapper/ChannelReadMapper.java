@@ -24,4 +24,8 @@ public class ChannelReadMapper implements Mapper<Channel, ChannelReadDto> {
                 object.getName()
         );
     }
+
 }
+
+
+

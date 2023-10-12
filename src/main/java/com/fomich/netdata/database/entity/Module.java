@@ -21,7 +21,7 @@ public class Module implements BaseEntity<Integer> {
     @Enumerated(EnumType.STRING)
     private ModuleType moduleType;
 
-    private Integer serialNumber;
+    private String serialNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "multiplexer_id")

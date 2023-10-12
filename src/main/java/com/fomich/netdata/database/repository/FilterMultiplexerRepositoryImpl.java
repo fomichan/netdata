@@ -1,8 +1,11 @@
 package com.fomich.netdata.database.repository;
 
 import com.fomich.netdata.database.entity.Multiplexer;
+import com.fomich.netdata.database.entity.QMultiplexer;
+import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.dto.MultiplexerFilter;
 import com.fomich.netdata.dto.MultiplexerReadDto;
+import com.querydsl.jpa.impl.JPAQuery;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
@@ -29,10 +32,13 @@ public class FilterMultiplexerRepositoryImpl implements FilterMultiplexerReposit
     """;
 
 
+
+    /*
+    // Реализуем на Criteria API
     @Override
     public List<Multiplexer> findAllByFilter(MultiplexerFilter filter) {
 
-        // Реализуем на Criteria API
+
         var cb = entityManager.getCriteriaBuilder();
         var criteria = cb.createQuery(Multiplexer.class);
 
@@ -58,6 +64,32 @@ public class FilterMultiplexerRepositoryImpl implements FilterMultiplexerReposit
         return resultList;
         //return entityManager.createQuery(criteria).getResultList();
     }
+
+     */
+
+
+
+
+    // Реализуем на Querydsl
+    @Override
+    public List<Multiplexer> findAllByFilter(MultiplexerFilter filter) {
+        var predicate = QPredicates.builder()
+                .add(filter.name(), QMultiplexer.multiplexer.name::containsIgnoreCase)
+                //.add(filter.serialNumber(), QMultiplexer.multiplexer.serialNumber::containsIgnoreCase)
+                .build();
+
+        return new JPAQuery<Multiplexer>(entityManager)
+                .select(QMultiplexer.multiplexer)
+                .from(QMultiplexer.multiplexer)
+                .where(predicate)
+                .fetch();
+    }
+
+
+
+
+
+
 
 
 

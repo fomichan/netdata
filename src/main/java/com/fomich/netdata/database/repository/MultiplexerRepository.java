@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.history.RevisionRepository;
 import org.springframework.data.repository.query.Param;
@@ -28,7 +29,9 @@ import java.util.Optional;
 
 
 public interface MultiplexerRepository extends JpaRepository<Multiplexer, Integer>,
-        FilterMultiplexerRepository, RevisionRepository<Multiplexer, Integer, Integer> {
+        FilterMultiplexerRepository,
+        RevisionRepository<Multiplexer, Integer, Integer>,
+        QuerydslPredicateExecutor<Multiplexer> { // В нем уже есть Page<T> findAll(Predicate predicate, Pageable pageable);
 
 
 

@@ -1,15 +1,23 @@
 package com.fomich.netdata.service;
 
 import com.fomich.netdata.database.entity.Channel;
+import com.fomich.netdata.database.entity.QChannel;
+import com.fomich.netdata.database.entity.QMultiplexer;
+import com.fomich.netdata.database.entity.QMultiplexerChannel;
+import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.ChannelRepository;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.dto.*;
 import com.fomich.netdata.mapper.ChannelReadMapper;
 import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerReadMapper;
+import com.querydsl.core.types.Predicate;
+import com.querydsl.jpa.JPAExpressions;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,14 +34,54 @@ public class ChannelService {
     private final ChannelReadMapper channelReadMapper;
 
 
-    public Page<ChannelReadDto> findAll(ChannelFilter filter, Pageable pageable) {
-        Page<Channel> channels = channelRepository.findAllByMultiplexerId(pageable, filter.multiplexerId());
-        Page<ChannelReadDto> channelReadDtos = channels.map(channelReadMapper::map);
+    // запрос в HQL Repository
+//    public Page<ChannelReadDto> findAll(ChannelFilter filter, Pageable pageable) {
+//        Page<Channel> channels = channelRepository.findAllByMultiplexerId(pageable, filter.multiplexerId());
+//        Page<ChannelReadDto> channelReadDtos = channels.map(channelReadMapper::map);
+//        return channelReadDtos;
+//    }
 
-//        return channelRepository.findAllByMultiplexerId(pageable, filter.multiplexerId())
-//                .map(channelReadMapper::map);
-        return channelReadDtos;
+
+
+    public Page<ChannelReadDto> findAll(ChannelFilter filter, Pageable pageable) {
+        var predicate = QPredicates.builder()
+                .add(filter.name(), QChannel.channel.name::containsIgnoreCase)
+                .add(filter.multiplexerId(), QChannel.channel.multiplexerChannels.any().multiplexer.id::eq)
+                .add(filter.siteId(), QChannel.channel.multiplexerChannels.any().multiplexer.site.id::eq)
+                .build();
+
+//        Predicate predicate2 = QChannel.channel.id.in(
+//                JPAExpressions
+//                        .select(QMultiplexerChannel.multiplexerChannel.channel.id)
+//                        .from(QMultiplexerChannel.multiplexerChannel)
+//                        .innerJoin(QMultiplexerChannel.multiplexerChannel.multiplexer, QMultiplexer.multiplexer)
+//                        .where(QMultiplexer.multiplexer.site.id.eq(filter.siteId())));
+
+        //Добавим сортировку к pageable
+//        pageable = PageRequest.of(
+//                pageable.getPageNumber(),
+//                pageable.getPageSize(),
+//                Sort.by("name").ascending()
+//        );
+
+        Page<ChannelReadDto> page = channelRepository.findAll(predicate, pageable)
+                .map(channelReadMapper::map);
+        return page;
+
     }
+
+
+    public List<ChannelReadDto> findAll(ChannelFilter filter) {
+        List<ChannelReadDto> list = channelRepository.findAllByFilter(filter).stream()
+                .map(channelReadMapper::map)
+                .toList();
+        return list;
+    }
+
+
+
+
+
 
 
 

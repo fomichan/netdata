@@ -7,7 +7,7 @@ import lombok.Value;
 public class MultiplexerReadDto {
     Integer id;
     String name;
-    Integer serialNumber;
+    String serialNumber;
     SiteReadDto site;
 
 }

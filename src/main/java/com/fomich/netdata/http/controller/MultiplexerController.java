@@ -1,11 +1,13 @@
 package com.fomich.netdata.http.controller;
 
-import com.fomich.netdata.database.repository.MultiplexerRepository;
-import com.fomich.netdata.dto.MultiplexerCreateEditDto;
-import com.fomich.netdata.dto.MultiplexerFilter;
+import com.fomich.netdata.dto.*;
 import com.fomich.netdata.service.MultiplexerService;
 import com.fomich.netdata.service.SiteService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +24,22 @@ public class MultiplexerController {
     private final SiteService siteService;
 
     @GetMapping
-    public String findAll(Model model, MultiplexerFilter filter) {
-        model.addAttribute("multiplexers", multiplexerService.findAll(filter));
+    public String findAll(Model model,
+                          @RequestParam(name = "direction", defaultValue = "asc") String direction,
+                          @RequestParam(name = "sort", defaultValue = "name") String sort,
+                          @RequestParam(value = "page", defaultValue = "1") int pageNumber, // будем брать отсюда, а не из pageable чтобы начинался с 1
+                          MultiplexerFilter filter,
+                          Pageable pageable) {
+
+        // Создадим объект Sort на основе параметров сортировки
+        Sort sortObj = Sort.by(Sort.Direction.fromString(direction), sort);
+        // Создадим объект Pageable с учетом сортировки
+        Pageable pageableWithSort = PageRequest.of(pageNumber - 1, pageable.getPageSize(), sortObj);
+
+
+        Page<MultiplexerReadDto> page = multiplexerService.findAll(filter, pageableWithSort);
+        model.addAttribute("multiplexers", PageResponse.of(page));
+        model.addAttribute("sites", siteService.findAll());
         model.addAttribute("filter", filter);
         return "channel/multiplexers";
     }
