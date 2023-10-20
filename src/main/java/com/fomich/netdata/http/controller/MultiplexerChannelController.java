@@ -5,8 +5,11 @@ import com.fomich.netdata.service.MultiplexerChannelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/multiplexerchannels")
@@ -30,9 +33,17 @@ public class MultiplexerChannelController {
 
 
     @PostMapping
-    public String create(@ModelAttribute MultiplexerChannelCreateEditDto multiplexerChannel) {
+    public String create(@ModelAttribute @Validated MultiplexerChannelCreateEditDto multiplexerChannel,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
 
-        multiplexerChannelService.create(multiplexerChannel);
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+        } else {
+            multiplexerChannelService.create(multiplexerChannel);
+        }
+
+
 
         return "redirect:/channels/" + multiplexerChannel.getChannelId();
     }

@@ -37,6 +37,10 @@
     </form>
 
 
+    <!-- Ошибки    -->
+    <div th:if="${errors}">
+        <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
+    </div>
 
     <!-- Таблица мультиплексоров в которых прописан канал    -->
     <table>

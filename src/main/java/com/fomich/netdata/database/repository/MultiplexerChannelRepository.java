@@ -10,5 +10,7 @@ public interface MultiplexerChannelRepository extends JpaRepository<MultiplexerC
 
     //Optional<Site> findById(Integer id);
 
+    Optional<MultiplexerChannel> findMultiplexerChannelByMultiplexerIdAndAndChannelId(Integer multiplexerId, Integer channelId);
+
 
 }
