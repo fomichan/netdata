@@ -23,6 +23,8 @@ public class Module implements BaseEntity<Integer> {
 
     private String serialNumber;
 
+    private Integer slot;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "multiplexer_id")
     private Multiplexer multiplexer;

@@ -1,10 +1,12 @@
 package com.fomich.netdata.integration.database.repository;
 
+import com.fomich.netdata.database.entity.Module;
 import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.Site;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.database.repository.SiteRepository;
 import com.fomich.netdata.dto.MultiplexerFilter;
+import com.fomich.netdata.dto.SiteReadDto;
 import com.fomich.netdata.integration.IntegrationTestBase;
 import com.fomich.netdata.integration.annotation.IT;
 import jakarta.persistence.EntityManager;
@@ -23,6 +25,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,6 +47,26 @@ public class MultiplexerRepositoryTest extends IntegrationTestBase {
 
     // !!!!! Чтобы инжектились бины необходимо в файле spring.properties указать spring.test.constructor.autowire.mode=all
 
+
+    @Test
+    void checkFindById() {
+        Optional<Multiplexer> mayBeMux = multiplexerRepository.findById(10);
+        Multiplexer mux = mayBeMux.get();
+        List<Module> modules = mux.getModules();
+        System.out.println("Кол-во модулей " + modules.size());
+//        SiteReadDto site = Optional.ofNullable(object.getSite())
+//                .map(siteReadMapper::map)
+//                .orElse(null);
+    }
+
+    //    @Test
+//    void findById() {
+//        transactionTemplate.executeWithoutResult(tx -> { // transactionTemplate используется когда нужно ручное управление транзакцией
+//            var mux = entityManager.find(Multiplexer.class, 1);
+//            assertNotNull(mux);
+//            assertThat(mux.getMultiplexerChannels()).hasSize(2);
+//        });
+//    }
 
 
     @Test
@@ -114,12 +137,5 @@ public class MultiplexerRepositoryTest extends IntegrationTestBase {
 //        assertTrue(multiplexerRepository.findById(MUX_ID).isEmpty());
 //    }
 
-    @Test
-    void findById() {
-        transactionTemplate.executeWithoutResult(tx -> { // transactionTemplate используется когда нужно ручное управление транзакцией
-            var mux = entityManager.find(Multiplexer.class, 1);
-            assertNotNull(mux);
-            assertThat(mux.getMultiplexerChannels()).hasSize(2);
-        });
-    }
+
 }

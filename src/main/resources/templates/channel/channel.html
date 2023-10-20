@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Ваш CSS код здесь */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Обновить канал   -->
+    <form th:action="@{/channels/{channelId}/update(channelId=${channel.id})}" method="post" th:object="${channel}">
+        <label for="name">Name:
+            <input id="name" type="text" name="name" th:value="*{name}">
+        </label><br>
+        <button type="submit">Update</button>
+    </form>
+
+    <!-- Удалить канал   -->
+    <form th:action="@{/channels/{channelId}/delete(channelId=${channel.id})}" method="post">
+        <button type="submit" onclick="return confirm('Вы уверены?')">Удалить</button>
+    </form>
+
+
+
+    <!-- Таблица мультиплексоров в которых прописан канал    -->
+    <table>
+        <thead>
+        <tr>
+            <th>Мультиплексор</th>
+            <th>Объект</th>
+            <th>Удалить из канала</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="multiplexer : ${channel.multiplexers}">
+
+            <td>
+                <a th:href="@{'/multiplexers/' + ${multiplexer.id}}">
+                    <span th:text="${multiplexer.name}">multiplexerName</span>
+                </a>
+            </td>
+
+            <td th:text="${multiplexer.site.name()}">site</td>
+
+
+<!--            <td>-->
+<!--                <form th:action="@{/channels/{channelId}/delete(channelId=${channel.id})}" method="post">-->
+<!--&lt;!&ndash;                    <input type="hidden" name="multiplexerId" th:value="${multiplexer.id}" />&ndash;&gt;-->
+<!--                    <button type="submit" onclick="return confirm('Вы уверены?')">Remove</button>-->
+<!--                </form>-->
+<!--            </td>-->
+
+            <!-- Удалить мультиплексор из канала           -->
+            <td>
+                <form th:action="@{/multiplexerchannels/{mcId}/delete(mcId=${multiplexer.getMcId()})}" method="post">
+                    <input type="hidden" name="channelId" th:value="${channel.id}" />
+                    <button type="submit" onclick="return confirm('Вы уверены?')">Удалить</button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Кнопка добавить мультиплексор -->
+<!--    <div id="addMultiplexerButton">-->
+<!--        <form action="/modules/add_module">-->
+<!--            <input id="multiplexerId" type="hidden" name="multiplexerId" th:value="${multiplexer.id}">-->
+
+<!--            <button type="submit">Add module</button>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
+    <!-- Форма фильтрации мультиплексоров для добавления в канал   -->
+    <form th:action="@{/channels/{channelId}(channelId=${channel.id})}" id="filterForm">
+        <label for="muxName">Название мультиплексора:
+            <input id="muxName" type="text" name="name" th:value="${filter.name}">
+        </label>
+
+
+        <label for="siteId">Объект:
+            <select id="siteId" name="siteId">
+                <option value="">Все</option>
+                <option th:each="site : ${sites}"
+                        th:value="${site.id()}"
+                        th:selected="${site.id() == filter.siteId()}"
+                        th:text="${site.name()}">Site</option>
+            </select>
+        </label>
+
+        <button type="submit">Отобразить</button>
+    </form>
+
+    <div>
+        <p> Найдено: <span th:text="${multiplexers.metadata.totalElements}">Total elements</span> </p>
+    </div>
+
+
+    <!-- Таблица с мультиплексорами для добавления в канал -->
+    <table>
+        <thead>
+        <tr>
+            <th>Название мультиплексора</th>
+            <th>Объект</th>
+            <th>Добавить в канал</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="multiplexer : ${multiplexers.content}">
+            <td>
+                <a th:href="@{'/multiplexers/' + ${multiplexer.id}}">
+                    <span th:text="${multiplexer.name}">Multiplexer</span>
+                </a>
+            </td>
+            <td th:text="${multiplexer.site.name()}">Site</td>
+
+            <!-- Добавить мультиплексор в канал -->
+            <td >
+                <form action="/multiplexerchannels" method="post" th:object="${multiplexer}">
+                    <input type="hidden" name="channelId" th:value="${channel.id}">
+                    <input type="hidden" name="multiplexerId" th:value="${multiplexer.id}">
+                    <button type="submit">Добавить</button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Форма пагинации -->
+
+    <form th:action="@{/channels/{channelId}(channelId=${channel.id})}" id="paginationForm">
+        <!-- Скрытые поля для передачи данных из верхней части формы -->
+        <input type="hidden" name="name" th:value="${filter.name}">
+        <input type="hidden" name="siteId" th:value="${filter.siteId}">
+
+        <!-- Номер страницы в виде выпадающего списка -->
+        <div>
+            <label for="page">Страница :
+                <select id="page" name="page" th:onchange="this.form.submit()">
+                    <option th:each="page : ${#numbers.sequence(1, multiplexers.metadata.totalPages)}"
+                            th:value="${page}"
+                            th:selected="${page == multiplexers.metadata.page}"
+                            th:text="${page}"></option>
+                </select>
+            </label>
+        </div>
+
+
+        <div>
+            <label for="size">Отображать на странице:
+                <select id="size" name="size" onchange="this.form.submit()">
+                    <option value="10" th:selected="${multiplexers.metadata.size == 10}">10</option>
+                    <option value="15" th:selected="${multiplexers.metadata.size == 15}">15</option>
+                    <option value="20" th:selected="${multiplexers.metadata.size == 20}">20</option>
+                </select>
+            </label>
+        </div>
+        <!--    <button type="submit">Apply</button>-->
+    </form>
+
+</body>
+</html>

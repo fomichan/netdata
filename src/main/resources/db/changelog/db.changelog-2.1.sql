@@ -15,7 +15,7 @@ create table multiplexer_aud
     rev           integer not null,
     revtype       smallint,
     name          varchar(255),
-    serial_number integer,
+    serial_number varchar(32),
     site_id       integer,
     primary key (rev, id)
 );

@@ -1,6 +1,8 @@
 package com.fomich.netdata.http.controller;
 
+import com.fomich.netdata.database.entity.ModuleType;
 import com.fomich.netdata.dto.*;
+import com.fomich.netdata.service.ModuleService;
 import com.fomich.netdata.service.MultiplexerService;
 import com.fomich.netdata.service.SiteService;
 import lombok.RequiredArgsConstructor;
@@ -16,13 +18,81 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/multiplexers")
+@RequestMapping("/modules")
 @RequiredArgsConstructor
-public class MultiplexerController {
+public class ModuleController {
 
-    private final MultiplexerService multiplexerService;
-    private final SiteService siteService;
 
+    private final ModuleService moduleService;
+
+
+    @GetMapping("/{id}")
+    public String findById(@PathVariable("id") Integer id, Model model) {
+
+        return moduleService.findById(id)
+                .map(muxModule -> {
+                    model.addAttribute("muxModule", muxModule);
+                    model.addAttribute("moduleTypes", ModuleType.values());
+                    return "channel/module";
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+
+    @GetMapping("/add_module")
+    public String addModule(Model model, @ModelAttribute("muxModule") ModuleCreateEditDto muxModule) {
+        model.addAttribute("muxModule", muxModule);
+        model.addAttribute("moduleTypes", ModuleType.values());
+        return "channel/add_module";
+    }
+
+
+    @PostMapping
+//    @ResponseStatus(HttpStatus.CREATED)
+    public String create(@ModelAttribute ModuleCreateEditDto muxModule, RedirectAttributes redirectAttributes) {
+//        if (true) {
+//            redirectAttributes.addAttribute("username", user.getUsername());
+//            redirectAttributes.addAttribute("firstname", user.getFirstname());
+//            redirectAttributes.addFlashAttribute("user", user);
+//            return "redirect:/users/registration";
+//        }
+
+        moduleService.create(muxModule);
+
+        return "redirect:/multiplexers/" + muxModule.getMultiplexerId();
+    }
+
+
+
+
+
+    //    @PutMapping("/{id}")
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable("id") Integer id, @ModelAttribute ModuleCreateEditDto module) {
+        return moduleService.update(id, module)
+                .map(it -> "redirect:/multiplexers/" + module.getMultiplexerId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+
+
+
+    //    @DeleteMapping("/{id}")
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable("id") Integer id,
+                         @RequestParam("multiplexerId") Integer multiplexerId) {
+        if (!moduleService.delete(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return "redirect:/multiplexers/" + multiplexerId; // сюда надо передать id мультиплексора
+    }
+
+
+
+
+
+
+    /*
     @GetMapping
     public String findAll(Model model,
                           @RequestParam(name = "direction", defaultValue = "asc") String direction,
@@ -44,7 +114,10 @@ public class MultiplexerController {
         return "channel/multiplexers";
     }
 
+     */
 
+
+    /*
 
     @GetMapping("/{id}")
     public String findById(@PathVariable("id") Integer id, Model model) {
@@ -60,7 +133,7 @@ public class MultiplexerController {
 
 
     @GetMapping("/add_multiplexer")
-    public String addMultiplexer(Model model, @ModelAttribute("multiplexer") MultiplexerCreateEditDto multiplexer) {
+    public String registration(Model model, @ModelAttribute("user") MultiplexerCreateEditDto multiplexer) {
         model.addAttribute("multiplexer", multiplexer);
         model.addAttribute("sites", siteService.findAll());
         return "channel/add_multiplexer";
@@ -87,14 +160,9 @@ public class MultiplexerController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    //    @DeleteMapping("/{id}")
-    @PostMapping("/{id}/delete")
-    public String delete(@PathVariable("id") Integer id) {
-        if (!multiplexerService.delete(id)) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
-        return "redirect:/multiplexers";
-    }
+     */
+
+
 
 
 

@@ -15,7 +15,7 @@ import java.util.List;
 ) // NamedQuery имеет приоритет над PartTreeJpaQuery (по названию метода)
 
 @Data
-@ToString(exclude = "multiplexerChannels")
+@ToString(exclude = {"multiplexerChannels", "modules"})
 @EqualsAndHashCode(of = {"name", "serialNumber"})
 @NoArgsConstructor
 @AllArgsConstructor

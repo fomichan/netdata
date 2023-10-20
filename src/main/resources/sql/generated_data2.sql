@@ -22,21 +22,46 @@ SELECT
     floor(random() * 400) + 1;
 
 -- Создание 4-5 modules для каждого multiplexer
-INSERT INTO module (multiplexer_id, serial_number, module_type)
+-- INSERT INTO module (multiplexer_id, serial_number, module_type, slot)
+-- SELECT
+--     m.id,
+--     md5(random()::text),
+--     CASE floor(random() * 6)
+--         WHEN 0 THEN 'SYN4E'
+--         WHEN 1 THEN 'LOMIF'
+--         WHEN 2 THEN 'NEBRO'
+--         WHEN 3 THEN 'SYNAC'
+--         WHEN 4 THEN 'SUBH'
+--         ELSE 'EXLAN'
+--         END,
+--     floor(random() * 20 + 1)::integer
+-- FROM
+--     multiplexer m
+--         JOIN
+--     (SELECT DISTINCT multiplexer_id FROM multiplexer_channel) mc
+--     ON
+--             m.id = mc.multiplexer_id;
+
+
+-- Создаем модули для каждого мультиплексора
+INSERT INTO module (multiplexer_id, serial_number, slot, module_type)
 SELECT
-    m.id,
-    md5(random()::text),
-    CASE floor(random() * 6)
+    m.id AS multiplexer_id,
+    md5(random()::text) AS serial_number,
+    (FLOOR(RANDOM() * 20) + 1) AS slot,
+    CASE FLOOR(RANDOM() * 10)
         WHEN 0 THEN 'SYN4E'
         WHEN 1 THEN 'LOMIF'
         WHEN 2 THEN 'NEBRO'
         WHEN 3 THEN 'SYNAC'
         WHEN 4 THEN 'SUBH'
-        ELSE 'EXLAN'
-        END
-FROM
-    multiplexer m
-        JOIN
-    (SELECT DISTINCT multiplexer_id FROM multiplexer_channel) mc
-    ON
-            m.id = mc.multiplexer_id;
+        WHEN 5 THEN 'EXLAN'
+        WHEN 6 THEN 'NEMSG'
+        WHEN 7 THEN 'SYNAM'
+        WHEN 8 THEN 'POSUM'
+        ELSE 'COBUX'
+        END AS module_type
+FROM multiplexer m
+         CROSS JOIN generate_series(1, 6); -- Здесь указываем 6, чтобы создать ровно 6 записей для каждого мультиплексора
+
+

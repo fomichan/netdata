@@ -1,12 +1,11 @@
 package com.fomich.netdata.http.controller;
 
 import com.fomich.netdata.database.entity.Channel;
+import com.fomich.netdata.database.entity.ModuleType;
 import com.fomich.netdata.database.entity.Multiplexer;
-import com.fomich.netdata.dto.ChannelFilter;
-import com.fomich.netdata.dto.ChannelReadDto;
-import com.fomich.netdata.dto.MultiplexerFilter;
-import com.fomich.netdata.dto.PageResponse;
+import com.fomich.netdata.dto.*;
 import com.fomich.netdata.service.ChannelService;
+import com.fomich.netdata.service.MultiplexerService;
 import com.fomich.netdata.service.SiteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -14,11 +13,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/channels")
@@ -27,6 +28,34 @@ public class ChannelController {
 
     private final ChannelService channelService;
     private final SiteService siteService;
+    private final MultiplexerService multiplexerService;
+
+
+
+    @GetMapping("/{id}")
+    public String findById(@PathVariable("id") Integer id,
+                           Model model,
+                           @RequestParam(value = "page", defaultValue = "1") int pageNumber,
+                           MultiplexerFilter filter,
+                           Pageable pageable
+                           ) {
+
+        Page<MultiplexerReadDto> page = multiplexerService.findAll(filter, pageable.withPage(pageNumber - 1));
+
+        return channelService.findById(id)
+                .map(channel -> {
+                    model.addAttribute("multiplexers", PageResponse.of(page)); // чтобы можно было искать мультиплексоры для добавления по фильтру
+                    model.addAttribute("filter", filter);
+                    model.addAttribute("sites", siteService.findAll());
+
+                    model.addAttribute("channel", channel);
+
+
+                    return "channel/channel";
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
 
 
     // спринг может предоставить pageable, у него есть для этого специальный argument resolver

@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        /* Ваш CSS код здесь */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <form th:action="@{/multiplexers/{multiplexerId}/update(multiplexerId=${multiplexer.id})}" method="post" th:object="${multiplexer}">
@@ -23,10 +40,72 @@
                 </select>
             </label>
         </div>
+
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Модуль</th>-->
+<!--                <th>Серийный номер</th>-->
+<!--                <th>Слот</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr th:each="module : ${multiplexer.modules}">-->
+<!--                <td th:text="${module.moduleType.name()}">moduleType</td>-->
+<!--                <td th:text="${module.slot}">slot</td>-->
+<!--                <td th:text="${module.serialNumber}">serialNumber</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+
+
         <button type="submit">Update</button>
     </form>
     <form th:action="@{/multiplexers/{multiplexerId}/delete(multiplexerId=${multiplexer.id})}" method="post">
-        <button type="submit">Remove</button>
+        <button type="submit" onclick="return confirm('Вы уверены?')">Remove</button>
     </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Модуль</th>
+            <th>Слот</th>
+            <th>Серийный номер</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="module : ${multiplexer.modules}">
+
+            <td>
+                <a th:href="@{'/modules/' + ${module.id}}">
+                    <span th:text="${module.moduleType.name()}">moduleType</span>
+                </a>
+            </td>
+
+            <td th:text="${module.slot}">slot</td>
+            <td th:text="${module.serialNumber}">serialNumber</td>
+
+            <td>
+                <form th:action="@{/modules/{moduleId}/delete(moduleId=${module.id})}" method="post">
+                    <input type="hidden" name="multiplexerId" th:value="${multiplexer.id}" />
+                    <button type="submit" onclick="return confirm('Вы уверены?')">Remove</button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Кнопка добавить модуль -->
+    <div id="addMultiplexerButton">
+        <form action="/modules/add_module">
+            <input id="multiplexerId" type="hidden" name="multiplexerId" th:value="${multiplexer.id}">
+
+            <button type="submit">Add module</button>
+        </form>
+    </div>
+
 </body>
 </html>

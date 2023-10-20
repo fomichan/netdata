@@ -12,15 +12,16 @@ create table channel (
 create table module (
                         id serial not null,
                         multiplexer_id integer,
-                        serial_number integer,
-                        module_type varchar(255) check (module_type in ('SYN4E','LOMIF','NEBRO','SYNAC','SUBH','EXLAN')),
+                        serial_number varchar(32),
+                        slot integer,
+                        module_type varchar(255) ,
                         primary key (id)
 );
 
 --changeset fomich:3
 create table multiplexer (
                              id serial not null,
-                             serial_number integer,
+                             serial_number varchar(32),
                              site_id integer,
                              name varchar(255) not null unique,
                              primary key (id)
@@ -31,7 +32,8 @@ create table multiplexer_channel (
                                      channel_id integer,
                                      id serial not null,
                                      multiplexer_id integer,
-                                     primary key (id)
+                                     primary key (id),
+                                     unique (channel_id, multiplexer_id)
 );
 
 --changeset fomich:5

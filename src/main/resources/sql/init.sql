@@ -97,3 +97,4 @@ SELECT c.*
 FROM channel c
          INNER JOIN multiplexer_channel mc ON c.id = mc.channel_id
 WHERE mc.multiplexer_id = 3;
+

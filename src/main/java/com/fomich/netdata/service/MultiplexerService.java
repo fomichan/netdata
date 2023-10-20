@@ -4,12 +4,10 @@ import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.QMultiplexer;
 import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
-import com.fomich.netdata.dto.MultiplexerCreateEditDto;
-import com.fomich.netdata.dto.MultiplexerFilter;
-import com.fomich.netdata.dto.MultiplexerIdDto;
-import com.fomich.netdata.dto.MultiplexerReadDto;
+import com.fomich.netdata.dto.*;
 import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerReadMapper;
+import com.fomich.netdata.mapper.MultiplexerShowDetailsMapper;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -29,6 +27,8 @@ public class MultiplexerService {
     private final MultiplexerRepository multiplexerRepository;
     private final MultiplexerReadMapper multiplexerReadMapper;
     private final MultiplexerCreateEditMapper multiplexerCreateEditMapper;
+    private final MultiplexerShowDetailsMapper multiplexerShowDetailsMapper;
+
 
 
 //    public Optional<MultiplexerIdDto> findById(Integer id) {
@@ -36,7 +36,18 @@ public class MultiplexerService {
 //                .map(entity -> new MultiplexerIdDto(entity.getId()));
 //    }
 
+    /*
+    public Optional<MultiplexerReadDto> findById(Integer id) {
+        return multiplexerRepository.findById(id)
+                .map(multiplexerReadMapper::map);
+    }
 
+     */
+
+    public Optional<MultiplexerShowDetailsDto> findById(Integer id) {
+        return multiplexerRepository.findById(id)
+                .map(multiplexerShowDetailsMapper::map);
+    }
 
 
 
@@ -47,9 +58,14 @@ public class MultiplexerService {
                 .add(filter.siteId(), QMultiplexer.multiplexer.site.id::eq)
                 .build();
 
+
         return multiplexerRepository.findAll(predicate, pageable)
                 .map(multiplexerReadMapper::map);
     }
+
+
+
+
 
 //    public List<MultiplexerReadDto> findAll(MultiplexerFilter filter) {
 //
@@ -66,10 +82,12 @@ public class MultiplexerService {
     }
 
 
-    public Optional<MultiplexerReadDto> findById(Integer id) {
-        return multiplexerRepository.findById(id)
-                .map(multiplexerReadMapper::map);
-    }
+
+
+//    public Optional<MultiplexerReadDto> findById(Integer id) {
+//        return multiplexerRepository.findById(id)
+//                .map(multiplexerReadMapper::map);
+//    }
 
 
     @Transactional

@@ -68,7 +68,7 @@ public class MultiplexerServiceIT extends IntegrationTestBase{
     void create() {
         MultiplexerCreateEditDto muxDto = new MultiplexerCreateEditDto(
                 "testName",
-                123456,
+                "123456",
                 3
         );
         MultiplexerReadDto actualResult = multiplexerService.create(muxDto);
@@ -84,7 +84,7 @@ public class MultiplexerServiceIT extends IntegrationTestBase{
     void update() {
         MultiplexerCreateEditDto muxDto = new MultiplexerCreateEditDto(
                 "testName",
-                123456,
+                "123456",
                 3
         );
 

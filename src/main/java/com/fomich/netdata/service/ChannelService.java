@@ -1,14 +1,12 @@
 package com.fomich.netdata.service;
 
-import com.fomich.netdata.database.entity.Channel;
-import com.fomich.netdata.database.entity.QChannel;
-import com.fomich.netdata.database.entity.QMultiplexer;
-import com.fomich.netdata.database.entity.QMultiplexerChannel;
+import com.fomich.netdata.database.entity.*;
 import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.ChannelRepository;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.dto.*;
 import com.fomich.netdata.mapper.ChannelReadMapper;
+import com.fomich.netdata.mapper.ChannelShowDetailsMapper;
 import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerReadMapper;
 import com.querydsl.core.types.Predicate;
@@ -31,7 +29,20 @@ public class ChannelService {
 
 
     private final ChannelRepository channelRepository;
+    private final MultiplexerRepository multiplexerRepository;
     private final ChannelReadMapper channelReadMapper;
+    private final ChannelShowDetailsMapper channelShowDetailsMapper;
+
+
+
+
+    public Optional<ChannelShowDetailsDto> findById(Integer id) {
+        return channelRepository.findById(id)
+                .map(channelShowDetailsMapper::map);
+    }
+
+
+
 
 
     // запрос в HQL Repository
