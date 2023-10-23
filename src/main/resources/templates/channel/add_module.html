@@ -5,6 +5,13 @@
     <title>Add module</title>
 </head>
 <body>
+
+    <!-- Ошибки    -->
+    <div th:if="${errors}">
+        <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
+    </div>
+
+
     <form th:action="@{/modules}" method="post" th:object="${muxModule}">
 
         <div>

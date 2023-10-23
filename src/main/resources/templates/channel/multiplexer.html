@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Multiplexer</title>
     <style>
         /* Ваш CSS код здесь */
         table {
@@ -77,6 +77,8 @@
         </thead>
         <tbody>
         <tr th:each="module : ${multiplexer.modules}">
+
+
 
             <td>
                 <a th:href="@{'/modules/' + ${module.id}}">

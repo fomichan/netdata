@@ -113,7 +113,12 @@
             </a>
         </td>
         <td th:text="${multiplexer.serialNumber}">Serial number</td>
-        <td th:text="${multiplexer.site.name()}">Site</td>
+
+        <td>
+            <a th:href="@{'/sites/' + ${multiplexer.site.id()}}">
+                <span th:text="${multiplexer.site.name()}">Site</span>
+            </a>
+        </td>
         <td>
             <a th:href="@{'/channels' + '?multiplexerId=' + ${multiplexer.id}}">Каналы</a>
         </td>

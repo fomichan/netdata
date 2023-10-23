@@ -122,4 +122,10 @@ public interface MultiplexerRepository extends JpaRepository<Multiplexer, Intege
     List<MultiplexerReadDto2> findAllBySiteId(Integer siteId);
 
 
+
+
+
+
+
+
 }

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sites</title>
+    <style>
+        /* Ваш CSS код здесь */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+        /* Стили для формы фильтрации сверху */
+        #filterForm {
+            padding: 10px;
+            background-color: #f7f7f7;
+        }
+
+        #filterForm label, #filterForm select, #filterForm input {
+            margin-right: 10px;
+        }
+
+        /* Стили для пагинации снизу */
+        #paginationForm {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f7f7f7;
+        }
+
+        #paginationForm label, #paginationForm select, #paginationForm input {
+            margin-right: 10px;
+        }
+
+
+        /* Добавьте стили для кнопки "Add Multiplexer" */
+        #addMultiplexerButton {
+            margin-top: 20px; /* Верхний отступ между таблицей и кнопкой */
+        }
+    </style>
+
+</head>
+<body>
+
+
+<!-- Фильтрация -->
+<form action="/sites" id="filterForm">
+    <label for="name">Название объекта:
+        <input id="name" type="text" name="name" th:value="${filter.name()}">
+    </label>
+    <label for="region">Регион:
+        <input id="region" type="text" name="region" th:value="${filter.region()}">
+    </label>
+    <label for="city">Населенный пункт:
+        <input id="city" type="text" name="city" th:value="${filter.city()}">
+    </label>
+    <label for="address">Адрес:
+        <input id="address" type="text" name="address" th:value="${filter.address()}">
+    </label>
+
+
+    <div>
+        Сортировка
+        <select name="sort">
+            <option value="name" th:selected="${sites.metadata.sortField eq 'name'}">Название</option>
+            <option value="region" th:selected="${sites.metadata.sortField eq 'region'}">Регион</option>
+            <option value="city" th:selected="${sites.metadata.sortField eq 'city'}">Населенный пункт</option>
+
+        </select>
+
+        <select name="direction">
+            <option value="asc" th:selected="${sites.metadata.sortDirection.name() == 'ASC'}">По возрастанию</option>
+            <option value="desc" th:selected="${sites.metadata.sortDirection.name() == 'DESC'}">По убыванию</option>
+        </select>
+    </div>
+    <button type="submit">Отобразить</button>
+</form>
+
+<div>
+    <p> Найдено: <span th:text="${sites.metadata.totalElements}">Total elements</span> </p>
+</div>
+
+
+<!-- Таблица с данными -->
+<table>
+    <thead>
+    <tr>
+        <th>Объект</th>
+        <th>Регион</th>
+        <th>Населенный пункт</th>
+        <th>Адрес</th>
+        <th>Каналы</th>
+        <th>Мультиплексоры</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="site : ${sites.content}">
+
+        <td>
+            <a th:href="@{'/sites/' + ${site.id}}">
+                <span th:text="${site.name}">Site name</span>
+            </a>
+        </td>
+        <td th:text="${site.region()}">Region</td>
+        <td th:text="${site.city()}">City</td>
+        <td th:text="${site.address()}">Address</td>
+
+        <td>
+            <a th:href="@{'/channels' + '?siteId=' + ${site.id}}">Каналы</a>
+        </td>
+
+        <td>
+            <a th:href="@{'/multiplexers' + '?siteId=' + ${site.id}}">Мультиплексоры</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Кнопка добавить мультиплексор -->
+<div id="addSiteButton">
+    <form action="/sites/add_site">
+        <button type="submit">Добавить сайт</button>
+    </form>
+</div>
+
+<!-- Форма пагинации -->
+<form action="/sites" id="paginationForm">
+    <!-- Скрытые поля для передачи данных из верхней части формы -->
+    <input type="hidden" name="name" th:value="${filter.name}">
+    <input type="hidden" name="region" th:value="${filter.region()}">
+    <input type="hidden" name="city" th:value="${filter.city()}">
+    <input type="hidden" name="address" th:value="${filter.address()}">
+    <input type="hidden" name="sort" th:value="${sites.metadata.sortField}">
+    <input type="hidden" name="direction" th:value="${sites.metadata.sortDirection.name()}">
+
+
+
+    <!-- Номер страницы в виде выпадающего списка -->
+    <div>
+        <label for="page">Страница :
+            <select id="page" name="page" th:onchange="this.form.submit()">
+                <option th:each="page : ${#numbers.sequence(1, sites.metadata.totalPages)}"
+                        th:value="${page}"
+                        th:selected="${page == sites.metadata.page}"
+                        th:text="${page}"></option>
+            </select>
+        </label>
+    </div>
+
+
+
+
+
+    <div>
+        <label for="size">Отображать на странице:
+            <select id="size" name="size" onchange="this.form.submit()">
+                <option value="10" th:selected="${sites.metadata.size == 10}">10</option>
+                <option value="15" th:selected="${sites.metadata.size == 15}">15</option>
+                <option value="20" th:selected="${sites.metadata.size == 20}">20</option>
+            </select>
+        </label>
+    </div>
+<!--    <button type="submit">Apply</button>-->
+</form>
+
+
+
+
+</body>
+
+
+</html>

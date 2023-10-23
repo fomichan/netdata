@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add site</title>
+    <style>
+        /* Ваш CSS код здесь */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Форма добавления   -->
+    <form th:action="@{/sites}" method="post" th:object="${site}">
+        <label for="name">Объект:
+            <input id="name" type="text" name="name" th:value="*{name()}">
+        </label><br>
+        <label for="region">Регион:
+            <input id="region" type="text" name="region" th:value="*{region()}">
+        </label><br>
+        <label for="city">Населенный пункт:
+            <input id="city" type="text" name="city" th:value="*{city()}">
+        </label><br>
+        <label for="address">Адрес:
+            <input id="address" type="text" name="address" th:value="*{address()}">
+        </label><br>
+
+        <button type="submit">Добавить</button>
+    </form>
+
+
+
+
+</body>
+</html>

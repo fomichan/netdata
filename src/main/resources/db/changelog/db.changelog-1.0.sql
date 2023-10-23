@@ -40,6 +40,9 @@ create table multiplexer_channel (
 create table site (
                       id serial not null,
                       name varchar(255) not null unique,
+                      region varchar(255),
+                      city varchar(255),
+                      address varchar(255),
                       primary key (id)
 );
 

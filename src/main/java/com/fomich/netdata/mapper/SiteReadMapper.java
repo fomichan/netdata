@@ -14,7 +14,10 @@ public class SiteReadMapper implements Mapper<Site, SiteReadDto> {
     public SiteReadDto map(Site object) {
         return new SiteReadDto(
                 object.getId(),
-                object.getName()
+                object.getName(),
+                object.getRegion(),
+                object.getCity(),
+                object.getAddress()
         );
     }
 }

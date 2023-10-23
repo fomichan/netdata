@@ -16,7 +16,7 @@ import java.util.List;
 
 @Data
 @ToString(exclude = {"multiplexerChannels", "modules"})
-@EqualsAndHashCode(of = {"name", "serialNumber"})
+@EqualsAndHashCode(of = {"name", "serialNumber"}, callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

@@ -5,6 +5,9 @@
     <title>Module</title>
 </head>
 <body>
+
+
+
     <form th:action="@{/modules/{moduleId}/update(moduleId=${muxModule.id})}" method="post" th:object="${muxModule}">
 
         <div>
@@ -28,11 +31,7 @@
             <input id="slot" type="text" name="slot" th:value="*{slot}">
         </label><br>
 
-
-
-
        <input id="multiplexerId" type="hidden" name="multiplexerId" th:value="*{multiplexerId}">
-
 
         <button type="submit">Update</button>
     </form>

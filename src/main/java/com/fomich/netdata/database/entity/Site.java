@@ -24,6 +24,10 @@ public class Site implements BaseEntity<Integer> {
     @Column(unique = true, nullable = false)
     private String name;
 
+    private String region;
+    private String city;
+    private String address;
+
 
     @NotAudited
     @Builder.Default
