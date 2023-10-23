@@ -20,6 +20,7 @@
                     <option value="">-- Тип модуля --</option>
                     <option th:each="moduleType : ${moduleTypes}"
                             th:value="${moduleType}"
+                            th:selected="${moduleType == muxModule.moduleType}"
                             th:text="${moduleType}">Module type
                     </option>
                 </select>

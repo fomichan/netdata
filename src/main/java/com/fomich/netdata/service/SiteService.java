@@ -32,6 +32,13 @@ public class SiteService {
                 .toList();
     }
 
+    // Для не детализированного списка sites
+    public List<SiteShortReadDto> findAllShort() {
+        return siteRepository.findAllBy();
+    }
+
+
+
 
     public Page<SiteReadDto> findAll(SiteFilter filter, Pageable pageable) {
         var predicate = QPredicates.builder()

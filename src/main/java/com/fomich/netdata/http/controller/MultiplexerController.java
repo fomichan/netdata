@@ -11,6 +11,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -41,7 +43,7 @@ public class MultiplexerController {
 
         Page<MultiplexerReadDto> page = multiplexerService.findAll(filter, pageableWithSort);
         model.addAttribute("multiplexers", PageResponse.of(page));
-        model.addAttribute("sites", siteService.findAll());
+        model.addAttribute("sites", siteService.findAllShort());
         model.addAttribute("filter", filter);
         return "channel/multiplexers";
     }
@@ -51,17 +53,20 @@ public class MultiplexerController {
     @GetMapping("/{id}")
     public String findById(@PathVariable("id") Integer id, Model model) {
 
+
         Optional<MultiplexerShowDetailsDto> mux = multiplexerService.findById(id);
 
 
         mux.map(multiplexer -> {
             model.addAttribute("multiplexer", multiplexer);
-            model.addAttribute("sites", siteService.findAll());
+            model.addAttribute("sites", siteService.findAllShort());
             return multiplexer;
         })
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         return "channel/multiplexer";
+
+
 
 
         /*
@@ -74,32 +79,59 @@ public class MultiplexerController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
          */
+
+        /*
+        return multiplexerService.findById(id)
+                .map(multiplexer -> {
+                    model.addAttribute("multiplexer", multiplexer);
+                    model.addAttribute("sites", siteService.findAllShort());
+                    return "channel/multiplexer";
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+         */
     }
 
 
     @GetMapping("/add_multiplexer")
     public String addMultiplexer(Model model, @ModelAttribute("multiplexer") MultiplexerCreateEditDto multiplexer) {
         model.addAttribute("multiplexer", multiplexer);
-        model.addAttribute("sites", siteService.findAll());
+        model.addAttribute("sites", siteService.findAllShort());
         return "channel/add_multiplexer";
     }
 
 
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
-    public String create(@ModelAttribute MultiplexerCreateEditDto multiplexer, RedirectAttributes redirectAttributes) {
-//        if (true) {
-//            redirectAttributes.addAttribute("username", user.getUsername());
-//            redirectAttributes.addAttribute("firstname", user.getFirstname());
-//            redirectAttributes.addFlashAttribute("user", user);
-//            return "redirect:/users/registration";
-//        }
-        return "redirect:/multiplexers/" + multiplexerService.create(multiplexer).getId();
+    public String create(@ModelAttribute @Validated MultiplexerCreateEditDto multiplexer,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("multiplexer", multiplexer);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/multiplexers/add_multiplexer";
+        }
+
+        multiplexerService.create(multiplexer);
+        return "redirect:/multiplexers";
+
+        //return "redirect:/multiplexers/" + multiplexerService.create(multiplexer).getId();
     }
 
 //    @PutMapping("/{id}")
     @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Integer id, @ModelAttribute MultiplexerCreateEditDto multiplexer) {
+    public String update(@PathVariable("id") Integer id,
+                         @ModelAttribute @Validated MultiplexerCreateEditDto multiplexer,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("multiplexer", multiplexer);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/multiplexers/{id}";
+        }
+
+
         return multiplexerService.update(id, multiplexer)
                 .map(it -> "redirect:/multiplexers/{id}")
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

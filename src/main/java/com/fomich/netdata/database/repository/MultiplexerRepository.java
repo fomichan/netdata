@@ -42,6 +42,12 @@ public interface MultiplexerRepository extends JpaRepository<Multiplexer, Intege
     // может вернуть Optional, Entity, Future
 
 
+    // Для валидации
+    Optional<Multiplexer> findByNameIgnoreCase(String name);
+
+
+
+
 //      SimpleJpaQuery
 //    @Query("select u from User u " +
 //            "where u.firstname like %:firstname% and u.lastname like %:lastname%")

@@ -46,7 +46,7 @@ public class ChannelController {
                 .map(channel -> {
                     model.addAttribute("multiplexers", PageResponse.of(page)); // чтобы можно было искать мультиплексоры для добавления по фильтру
                     model.addAttribute("filter", filter);
-                    model.addAttribute("sites", siteService.findAll());
+                    model.addAttribute("sites", siteService.findAllShort());
 
                     model.addAttribute("channel", channel);
 
@@ -75,7 +75,7 @@ public class ChannelController {
 
         Page<ChannelReadDto> page = channelService.findAll(filter, pageableWithSort);
         model.addAttribute("channels", PageResponse.of(page));
-        model.addAttribute("sites", siteService.findAll());
+        model.addAttribute("sites", siteService.findAllShort());
         model.addAttribute("filter", filter);
         return "channel/channels";
     }

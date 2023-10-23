@@ -34,10 +34,10 @@ public class SiteCreateEditMapper implements Mapper<SiteCreateEditDto, Site>{
     }
 
     private void copy(SiteCreateEditDto fromObject, Site toObject) {
-        toObject.setName(fromObject.name());
-        toObject.setRegion(fromObject.region());
-        toObject.setCity(fromObject.city());
-        toObject.setAddress(fromObject.address());
+        toObject.setName(fromObject.getName());
+        toObject.setRegion(fromObject.getRegion());
+        toObject.setCity(fromObject.getCity());
+        toObject.setAddress(fromObject.getAddress());
 
 
     }

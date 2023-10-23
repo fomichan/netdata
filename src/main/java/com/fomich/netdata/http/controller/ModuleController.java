@@ -51,24 +51,29 @@ public class ModuleController {
 
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
-    public String create(@ModelAttribute @Validated ModuleCreateEditDto muxModule,
+    public String create(@ModelAttribute @Validated ModuleCreateEditDto moduleCreateDto,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 
+
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("muxModule", muxModule);
+            redirectAttributes.addFlashAttribute("muxModule", moduleCreateDto);
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
             return "redirect:/modules/add_module";
         }
 
-        moduleService.create(muxModule);
-        return "redirect:/multiplexers/" + muxModule.getMultiplexerId();
+        ModuleReadDto moduleReadDto = moduleService.create(moduleCreateDto);
+
+        //return "redirect:/multiplexers/" + moduleReadDto.getMultiplexerId();
+        return "redirect:/multiplexers/" + moduleCreateDto.getMultiplexerId();
+
+
     }
 
 
 
 
-
+    /*
     //    @PutMapping("/{id}")
     @PostMapping("/{id}/update")
     public String update(@PathVariable("id") Integer id, @ModelAttribute ModuleCreateEditDto module) {
@@ -76,6 +81,27 @@ public class ModuleController {
                 .map(it -> "redirect:/multiplexers/" + module.getMultiplexerId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
+
+     */
+
+    //    @PutMapping("/{id}")
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable("id") Integer id,
+                         @ModelAttribute @Validated ModuleCreateEditDto muxModule,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("muxModule", muxModule);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/modules/{id}";
+        }
+
+        return moduleService.update(id, muxModule)
+                .map(it -> "redirect:/multiplexers/" + muxModule.getMultiplexerId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
 
 
 

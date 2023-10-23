@@ -31,12 +31,6 @@ public class ModuleUniqueSlotValidator implements ConstraintValidator<ModuleUniq
     public boolean isValid(ModuleCreateEditDto value, ConstraintValidatorContext context) {
 
 
-//       List<Integer> slots = multiplexerRepository.findSlotById(value.getMultiplexerId());
-
-//        List<Integer> slots = moduleRepository.findSlotByMultiplexerId(value.getMultiplexerId());
-
-
-
 
         List<Tuple> tuples = moduleRepository.findModuleSlotByMultiplexerId(value.getMultiplexerId());
         List<Integer> slots = tuples.stream()
@@ -54,7 +48,16 @@ public class ModuleUniqueSlotValidator implements ConstraintValidator<ModuleUniq
          */
 
 
-        return !slots.contains(value.getSlot());
+        if (slots.contains(value.getSlot())) {
+
+            context.disableDefaultConstraintViolation();
+            context.buildConstraintViolationWithTemplate("Slot " + value.getSlot() + " is already occupied by another module").addConstraintViolation();
+            return false;
+        }
+        return true;
+
+
+        //return !slots.contains(value.getSlot());
 
     }
 }
