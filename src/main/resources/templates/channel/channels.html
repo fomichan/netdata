@@ -118,6 +118,13 @@
 <!--        <a th:href="@{'/channels/' + ${channel.id}}" th:text="|${channel.id}. ${channel.name}|">Channel</a>-->
 <!--    </div>-->
 
+    <!-- Кнопка добавить мультиплексор -->
+    <div id="addChannelButton">
+        <form action="/channels/add_channel">
+            <button type="submit">Добавить канал</button>
+        </form>
+    </div>
+
 
 
     <!-- Форма пагинации -->

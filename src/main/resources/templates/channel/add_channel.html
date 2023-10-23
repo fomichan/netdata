@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add channel</title>
+    <style>
+        /* Ваш CSS код здесь */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ошибки    -->
+    <div th:if="${errors}">
+        <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
+    </div>
+
+    <!-- Форма добавления   -->
+    <form th:action="@{/channels}" method="post" th:object="${channel}">
+        <label for="name">Объект:
+            <input id="name" type="text" name="name" th:value="*{name}">
+        </label><br>
+
+        <button type="submit">Добавить</button>
+    </form>
+
+</body>
+</html>

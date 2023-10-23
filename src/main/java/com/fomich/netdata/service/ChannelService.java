@@ -5,10 +5,7 @@ import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.ChannelRepository;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.dto.*;
-import com.fomich.netdata.mapper.ChannelReadMapper;
-import com.fomich.netdata.mapper.ChannelShowDetailsMapper;
-import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
-import com.fomich.netdata.mapper.MultiplexerReadMapper;
+import com.fomich.netdata.mapper.*;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.JPAExpressions;
 import lombok.RequiredArgsConstructor;
@@ -32,14 +29,12 @@ public class ChannelService {
     private final MultiplexerRepository multiplexerRepository;
     private final ChannelReadMapper channelReadMapper;
     private final ChannelShowDetailsMapper channelShowDetailsMapper;
+    private final ChannelCreateEditMapper channelCreateEditMapper;
 
 
 
 
-    public Optional<ChannelShowDetailsDto> findById(Integer id) {
-        return channelRepository.findById(id)
-                .map(channelShowDetailsMapper::map);
-    }
+
 
 
 
@@ -90,6 +85,42 @@ public class ChannelService {
     }
 
 
+    public Optional<ChannelShowDetailsDto> findById(Integer id) {
+        return channelRepository.findById(id)
+                .map(channelShowDetailsMapper::map);
+    }
+
+
+
+    @Transactional
+    public ChannelReadDto create(ChannelCreateEditDto channel) {
+        return Optional.of(channel)
+                .map(channelCreateEditMapper::map)
+                .map(channelRepository::save)
+                .map(channelReadMapper::map)
+                .orElseThrow();
+    }
+
+
+    @Transactional
+    public Optional<ChannelReadDto> update(Integer id, ChannelCreateEditDto channel) {
+        return channelRepository.findById(id)
+                .map(entity -> channelCreateEditMapper.map(channel, entity))
+                .map(channelRepository::saveAndFlush)
+                .map(channelReadMapper::map);
+    }
+
+
+    @Transactional
+    public boolean delete(Integer id) {
+        return channelRepository.findById(id)
+                .map(entity -> {
+                    channelRepository.delete(entity);
+                    channelRepository.flush();
+                    return true;
+                })
+                .orElse(false);
+    }
 
 
 
@@ -98,49 +129,5 @@ public class ChannelService {
 
 
 
-//    public List<MultiplexerReadDto> findAll() {
-//        return channelRepository.findAll().stream()
-//                .map(multiplexerReadMapper::map)
-//                .toList();
-//    }
-
-
-
-
-//    public Optional<MultiplexerReadDto> findById(Integer id) {
-//        return multiplexerRepository.findById(id)
-//                .map(multiplexerReadMapper::map);
-//    }
-//
-//
-//    @Transactional
-//    public MultiplexerReadDto create(MultiplexerCreateEditDto muxDto) {
-//        return Optional.of(muxDto)
-//                .map(multiplexerCreateEditMapper::map)
-//                .map(multiplexerRepository::save)
-//                .map(multiplexerReadMapper::map)
-//                .orElseThrow();
-//    }
-//
-//
-//    @Transactional
-//    public Optional<MultiplexerReadDto> update(Integer id, MultiplexerCreateEditDto muxDto) {
-//        return multiplexerRepository.findById(id)
-//                .map(entity -> multiplexerCreateEditMapper.map(muxDto, entity))
-//                .map(multiplexerRepository::saveAndFlush)
-//                .map(multiplexerReadMapper::map);
-//    }
-//
-//
-//    @Transactional
-//    public boolean delete(Integer id) {
-//        return multiplexerRepository.findById(id)
-//                .map(entity -> {
-//                    multiplexerRepository.delete(entity);
-//                    multiplexerRepository.flush();
-//                    return true;
-//                })
-//                .orElse(false);
-//    }
 
 }

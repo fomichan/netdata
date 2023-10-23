@@ -16,8 +16,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
 
@@ -79,4 +82,59 @@ public class ChannelController {
         model.addAttribute("filter", filter);
         return "channel/channels";
     }
+
+
+
+    @GetMapping("/add_channel")
+    public String addChannel(Model model, @ModelAttribute("channel") ChannelCreateEditDto channel) {
+        model.addAttribute("channel", channel);
+        return "channel/add_channel";
+    }
+
+
+    @PostMapping
+//    @ResponseStatus(HttpStatus.CREATED)
+    public String create(@ModelAttribute @Validated ChannelCreateEditDto channel,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("channel", channel);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/channels/add_channel";
+        }
+
+
+        return "redirect:/channels/" + channelService.create(channel).getId();
+    }
+
+    //    @PutMapping("/{id}")
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable("id") Integer id,
+                         @ModelAttribute @Validated ChannelCreateEditDto channel,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("channel", channel);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/channels/{id}";
+        }
+
+        return channelService.update(id, channel)
+                .map(it -> "redirect:/channels/{id}")
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    //    @DeleteMapping("/{id}")
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable("id") Integer id) {
+        if (!channelService.delete(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return "redirect:/channels";
+    }
+
+
+
 }

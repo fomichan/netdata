@@ -1,50 +1,38 @@
 package com.fomich.netdata.mapper;
 
-import com.fomich.netdata.database.entity.Multiplexer;
+import com.fomich.netdata.database.entity.Channel;
 import com.fomich.netdata.database.entity.Site;
-import com.fomich.netdata.database.repository.SiteRepository;
-import com.fomich.netdata.dto.MultiplexerCreateEditDto;
+import com.fomich.netdata.dto.ChannelCreateEditDto;
+import com.fomich.netdata.dto.SiteCreateEditDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 @RequiredArgsConstructor
-public class ChannelCreateEditMapper implements Mapper<MultiplexerCreateEditDto, Multiplexer>{
+public class ChannelCreateEditMapper implements Mapper<ChannelCreateEditDto, Channel>{
 
-    private final SiteRepository siteRepository;
+
 
 
     @Override
-    public Multiplexer map(MultiplexerCreateEditDto object) {
-        Multiplexer multiplexer = new Multiplexer();
-        copy(object, multiplexer);
+    public Channel map(ChannelCreateEditDto object) {
+        Channel channel = new Channel();
+        copy(object, channel);
 
-        return multiplexer;
+        return channel;
     }
 
 
     // For update
     @Override
-    public Multiplexer map(MultiplexerCreateEditDto fromObject, Multiplexer toObject) {
+    public Channel map(ChannelCreateEditDto fromObject, Channel toObject) {
         copy(fromObject, toObject);
         return toObject;
     }
 
-    private void copy(MultiplexerCreateEditDto fromObject, Multiplexer toObject) {
+    private void copy(ChannelCreateEditDto fromObject, Channel toObject) {
         toObject.setName(fromObject.getName());
-        toObject.setSerialNumber(fromObject.getSerialNumber());
-        toObject.setSite(getSite(fromObject.getSiteId()));
 
     }
-
-    private Site getSite(Integer siteId) {
-        return Optional.ofNullable(siteId)
-                .flatMap(siteRepository::findById)
-                .orElse(null);
-
-    }
-
 
 }

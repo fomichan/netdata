@@ -23,6 +23,11 @@
 </head>
 <body>
 
+    <!-- Ошибки    -->
+    <div th:if="${errors}">
+        <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
+    </div>
+
     <!-- Обновить канал   -->
     <form th:action="@{/channels/{channelId}/update(channelId=${channel.id})}" method="post" th:object="${channel}">
         <label for="name">Name:
@@ -37,10 +42,7 @@
     </form>
 
 
-    <!-- Ошибки    -->
-    <div th:if="${errors}">
-        <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
-    </div>
+
 
     <!-- Таблица мультиплексоров в которых прописан канал    -->
     <table>

@@ -1,7 +1,11 @@
 -- Создание 150 записей в таблице site
-INSERT INTO site (name)
+INSERT INTO site (name, region, city, address)
 SELECT
-        'Site ' || generate_series(1, 150);
+        'Site ' || generate_series(1, 150),
+        'Region ' || floor(random() * 10) + 1,
+        'City ' || floor(random() * 50) + 1,
+        'Address ' || floor(random() * 50) + 1
+;
 
 -- Создание 400 записей в таблице multiplexer
 INSERT INTO multiplexer (serial_number, site_id, name)

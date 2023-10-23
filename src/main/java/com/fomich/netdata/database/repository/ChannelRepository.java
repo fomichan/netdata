@@ -2,6 +2,7 @@ package com.fomich.netdata.database.repository;
 
 import com.fomich.netdata.database.entity.Channel;
 import com.fomich.netdata.database.entity.Multiplexer;
+import com.fomich.netdata.database.entity.Site;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,6 +25,11 @@ public interface ChannelRepository extends
 
     @Query("select c from Channel c join c.multiplexerChannels mc where mc.multiplexer.id = :id")
     Page<Channel> findAllByMultiplexerId(Pageable pageable, Integer id);
+
+
+
+    // Для валидации
+    Optional<Channel> findByNameIgnoreCase(String name);
 
 
 }
