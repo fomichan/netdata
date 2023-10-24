@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Module</title>
+
+    <link th:href="@{/css/elements.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+<!-- Меню сайта-->
+<header th:replace="~{channel/fragments/menuFragment :: menu}"></header>
+
+
     <!-- Ошибки    -->
     <div th:if="${errors}">
         <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>

@@ -3,25 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Add site</title>
-    <style>
-        /* Ваш CSS код здесь */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+    <link th:href="@{/css/elements.css}" rel="stylesheet" type="text/css">
 
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 <body>
+<!-- Меню сайта-->
+<header th:replace="~{channel/fragments/menuFragment :: menu}"></header>
 
     <!-- Ошибки    -->
     <div th:if="${errors}">

@@ -1,0 +1,61 @@
+/* Ваш CSS код здесь */
+
+
+/* Пример добавления верхнего отступа */
+.content {
+    margin-top: 50px; /* Высота меню + немного дополнительного отступа */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+/* Применить стили ко всем кнопкам на странице */
+button {
+    /* Ваши стили здесь */
+    background-color: #008CBA; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 10px 20px; /* Внутренний отступ */
+    border: none; /* Убрать границу */
+    cursor: pointer; /* Курсор при наведении */
+}
+
+/* Стили для наведения курсора на кнопку */
+button:hover {
+    background-color: #005F7E; /* Измененный цвет фона при наведении */
+}
+
+
+/* Стили для формы фильтрации сверху */
+#filterForm {
+    padding: 10px;
+    background-color: #f7f7f7;
+}
+
+#filterForm label, #filterForm select, #filterForm input {
+    margin-right: 10px;
+}
+
+/* Стили для пагинации снизу */
+#paginationForm {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+}
+
+#paginationForm label, #paginationForm select, #paginationForm input {
+    margin-right: 10px;
+}

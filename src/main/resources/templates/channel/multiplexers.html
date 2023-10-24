@@ -3,54 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Multiplexers</title>
-    <style>
-        /* Ваш CSS код здесь */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
 
 
-        /* Стили для формы фильтрации сверху */
-        #filterForm {
-            padding: 10px;
-            background-color: #f7f7f7;
-        }
-
-        #filterForm label, #filterForm select, #filterForm input {
-            margin-right: 10px;
-        }
-
-        /* Стили для пагинации снизу */
-        #paginationForm {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f7f7f7;
-        }
-
-        #paginationForm label, #paginationForm select, #paginationForm input {
-            margin-right: 10px;
-        }
-
-
-        /* Добавьте стили для кнопки "Add Multiplexer" */
-        #addMultiplexerButton {
-            margin-top: 20px; /* Верхний отступ между таблицей и кнопкой */
-        }
-    </style>
+    <link th:href="@{/css/elements.css}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
+<!-- Меню сайта-->
+<header th:replace="~{channel/fragments/menuFragment :: menu}"></header>
+
 
 
 <!-- Фильтрация -->
@@ -166,7 +127,7 @@
 
 
 
-
+    <!-- Сколько элементов отображать -->
     <div>
         <label for="size">Отображать на странице:
             <select id="size" name="size" onchange="this.form.submit()">
@@ -178,8 +139,6 @@
     </div>
 <!--    <button type="submit">Apply</button>-->
 </form>
-
-
 
 
 </body>

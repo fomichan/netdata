@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Add module</title>
+
+    <link th:href="@{/css/elements.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+<!-- Меню сайта-->
+<header th:replace="~{channel/fragments/menuFragment :: menu}"></header>
 
     <!-- Ошибки    -->
     <div th:if="${errors}">

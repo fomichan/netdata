@@ -1,0 +1,27 @@
+/* Пример стилей для меню */
+.menu {
+    z-index: 1000; /* Поднимите z-index меню над другими элементами */
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed; /* Фиксация меню */
+    top: 0; /* Расположение меню вверху страницы */
+    width: 100%; /* Ширина меню равна ширине страницы */
+
+
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+}
