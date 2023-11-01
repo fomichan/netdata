@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-import static org.springframework.util.StringUtils.hasText;
-
 @Component
 @RequiredArgsConstructor
 public class MuxChannelValidator implements ConstraintValidator<MuxChannel, MultiplexerChannelCreateEditDto> {

@@ -1,12 +1,9 @@
 package com.fomich.netdata.database.repository;
 
-import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.Site;
-import com.fomich.netdata.database.projections.SiteIdAndNameProjections;
 import com.fomich.netdata.dto.SiteShortReadDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;

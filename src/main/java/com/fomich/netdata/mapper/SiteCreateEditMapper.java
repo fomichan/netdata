@@ -1,14 +1,9 @@
 package com.fomich.netdata.mapper;
 
-import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.Site;
-import com.fomich.netdata.database.repository.SiteRepository;
-import com.fomich.netdata.dto.MultiplexerCreateEditDto;
 import com.fomich.netdata.dto.SiteCreateEditDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor

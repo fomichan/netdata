@@ -2,7 +2,6 @@ package com.fomich.netdata.validation;
 
 
 import com.fomich.netdata.validation.impl.ModuleUniqueSlotValidator;
-import com.fomich.netdata.validation.impl.MuxChannelValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

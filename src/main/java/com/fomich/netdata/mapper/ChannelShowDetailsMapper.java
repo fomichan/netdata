@@ -2,7 +2,10 @@ package com.fomich.netdata.mapper;
 
 import com.fomich.netdata.database.entity.Channel;
 import com.fomich.netdata.database.entity.MultiplexerChannel;
-import com.fomich.netdata.dto.*;
+import com.fomich.netdata.dto.ChannelShowDetailsDto;
+import com.fomich.netdata.dto.MultiplexerChannelReadDto;
+import com.fomich.netdata.dto.MultiplexerReadDto;
+import com.fomich.netdata.dto.MultiplexerReadDtoWithMCId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

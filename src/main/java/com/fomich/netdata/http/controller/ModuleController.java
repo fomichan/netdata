@@ -1,15 +1,10 @@
 package com.fomich.netdata.http.controller;
 
 import com.fomich.netdata.database.entity.ModuleType;
-import com.fomich.netdata.dto.*;
+import com.fomich.netdata.dto.ModuleCreateEditDto;
+import com.fomich.netdata.dto.ModuleReadDto;
 import com.fomich.netdata.service.ModuleService;
-import com.fomich.netdata.service.MultiplexerService;
-import com.fomich.netdata.service.SiteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

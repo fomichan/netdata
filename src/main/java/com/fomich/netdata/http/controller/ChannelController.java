@@ -1,8 +1,5 @@
 package com.fomich.netdata.http.controller;
 
-import com.fomich.netdata.database.entity.Channel;
-import com.fomich.netdata.database.entity.ModuleType;
-import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.dto.*;
 import com.fomich.netdata.service.ChannelService;
 import com.fomich.netdata.service.MultiplexerService;
@@ -12,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +17,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/channels")

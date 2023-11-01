@@ -1,6 +1,5 @@
 package com.fomich.netdata.dto;
 
-import com.fomich.netdata.validation.MuxUniqueName;
 import com.fomich.netdata.validation.SiteUniqueName;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Value;

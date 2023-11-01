@@ -2,18 +2,17 @@ package com.fomich.netdata.database.repository;
 
 import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.Site;
-import com.fomich.netdata.dto.MultiplexerReadDto;
 import com.fomich.netdata.dto.MultiplexerReadDto2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.history.RevisionRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,7 +1,6 @@
 package com.fomich.netdata.validation;
 
 
-import com.fomich.netdata.validation.impl.MuxUniqueNameValidator;
 import com.fomich.netdata.validation.impl.SiteUniqueNameValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

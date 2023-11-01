@@ -1,18 +1,14 @@
 package com.fomich.netdata.service;
 
-import com.fomich.netdata.database.entity.QMultiplexer;
-import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.ModuleRepository;
-import com.fomich.netdata.dto.*;
+import com.fomich.netdata.dto.ModuleCreateEditDto;
+import com.fomich.netdata.dto.ModuleReadDto;
 import com.fomich.netdata.mapper.ModuleCreateEditMapper;
 import com.fomich.netdata.mapper.ModuleReadMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

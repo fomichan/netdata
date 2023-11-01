@@ -1,21 +1,21 @@
 package com.fomich.netdata.service;
 
-import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.QMultiplexer;
 import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
-import com.fomich.netdata.dto.*;
+import com.fomich.netdata.dto.MultiplexerCreateEditDto;
+import com.fomich.netdata.dto.MultiplexerFilter;
+import com.fomich.netdata.dto.MultiplexerReadDto;
+import com.fomich.netdata.dto.MultiplexerShowDetailsDto;
 import com.fomich.netdata.mapper.MultiplexerCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerReadMapper;
 import com.fomich.netdata.mapper.MultiplexerShowDetailsMapper;
-import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

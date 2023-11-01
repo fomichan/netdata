@@ -1,6 +1,5 @@
 package com.fomich.netdata.integration.http.controller;
 
-import com.fomich.netdata.dto.MultiplexerCreateEditDto;
 import com.fomich.netdata.dto.MultiplexerCreateEditDto.Fields;
 import com.fomich.netdata.integration.IntegrationTestBase;
 import lombok.RequiredArgsConstructor;
@@ -9,11 +8,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrlPattern;
 
 
 @AutoConfigureMockMvc

@@ -1,13 +1,9 @@
 package com.fomich.netdata.validation.impl;
 
 import com.fomich.netdata.database.entity.Channel;
-import com.fomich.netdata.database.entity.Site;
 import com.fomich.netdata.database.repository.ChannelRepository;
-import com.fomich.netdata.database.repository.SiteRepository;
 import com.fomich.netdata.dto.ChannelCreateEditDto;
-import com.fomich.netdata.dto.SiteCreateEditDto;
 import com.fomich.netdata.validation.ChannelUniqueName;
-import com.fomich.netdata.validation.SiteUniqueName;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;

@@ -1,16 +1,11 @@
 package com.fomich.netdata.service;
 
 
-import com.fomich.netdata.database.entity.Channel;
-import com.fomich.netdata.database.entity.Multiplexer;
-import com.fomich.netdata.database.entity.MultiplexerChannel;
 import com.fomich.netdata.database.repository.ChannelRepository;
 import com.fomich.netdata.database.repository.MultiplexerChannelRepository;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
 import com.fomich.netdata.dto.MultiplexerChannelCreateEditDto;
 import com.fomich.netdata.dto.MultiplexerChannelReadDto;
-import com.fomich.netdata.dto.MultiplexerCreateEditDto;
-import com.fomich.netdata.dto.MultiplexerReadDto;
 import com.fomich.netdata.mapper.MultiplexerChannelCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerChannelReadMapper;
 import lombok.RequiredArgsConstructor;

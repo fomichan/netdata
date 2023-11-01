@@ -1,12 +1,8 @@
 package com.fomich.netdata.validation.impl;
 
 import com.fomich.netdata.database.entity.Multiplexer;
-import com.fomich.netdata.database.entity.MultiplexerChannel;
-import com.fomich.netdata.database.repository.MultiplexerChannelRepository;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
-import com.fomich.netdata.dto.MultiplexerChannelCreateEditDto;
 import com.fomich.netdata.dto.MultiplexerCreateEditDto;
-import com.fomich.netdata.validation.MuxChannel;
 import com.fomich.netdata.validation.MuxUniqueName;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

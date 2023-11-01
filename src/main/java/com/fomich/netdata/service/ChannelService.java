@@ -1,18 +1,19 @@
 package com.fomich.netdata.service;
 
-import com.fomich.netdata.database.entity.*;
+import com.fomich.netdata.database.entity.QChannel;
 import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.database.repository.ChannelRepository;
 import com.fomich.netdata.database.repository.MultiplexerRepository;
-import com.fomich.netdata.dto.*;
-import com.fomich.netdata.mapper.*;
-import com.querydsl.core.types.Predicate;
-import com.querydsl.jpa.JPAExpressions;
+import com.fomich.netdata.dto.ChannelCreateEditDto;
+import com.fomich.netdata.dto.ChannelFilter;
+import com.fomich.netdata.dto.ChannelReadDto;
+import com.fomich.netdata.dto.ChannelShowDetailsDto;
+import com.fomich.netdata.mapper.ChannelCreateEditMapper;
+import com.fomich.netdata.mapper.ChannelReadMapper;
+import com.fomich.netdata.mapper.ChannelShowDetailsMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -4,14 +4,11 @@ import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.QMultiplexer;
 import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.dto.MultiplexerFilter;
-import com.fomich.netdata.dto.MultiplexerReadDto;
 import com.querydsl.jpa.impl.JPAQuery;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor

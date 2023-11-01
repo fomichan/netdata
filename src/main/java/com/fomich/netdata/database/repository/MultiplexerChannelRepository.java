@@ -1,7 +1,6 @@
 package com.fomich.netdata.database.repository;
 
 import com.fomich.netdata.database.entity.MultiplexerChannel;
-import com.fomich.netdata.database.entity.Site;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

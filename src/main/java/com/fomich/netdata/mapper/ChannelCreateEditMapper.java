@@ -1,9 +1,7 @@
 package com.fomich.netdata.mapper;
 
 import com.fomich.netdata.database.entity.Channel;
-import com.fomich.netdata.database.entity.Site;
 import com.fomich.netdata.dto.ChannelCreateEditDto;
-import com.fomich.netdata.dto.SiteCreateEditDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

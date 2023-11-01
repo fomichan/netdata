@@ -27,7 +27,7 @@ create table multiplexer
     serial_number varchar(32),
     site_id       integer,
     name          varchar(255) not null
-        unique,
+        unique
 
 );
 

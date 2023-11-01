@@ -2,12 +2,9 @@ package com.fomich.netdata.database.repository;
 
 
 import com.fomich.netdata.database.entity.Channel;
-import com.fomich.netdata.database.entity.Multiplexer;
 import com.fomich.netdata.database.entity.QChannel;
-import com.fomich.netdata.database.entity.QMultiplexer;
 import com.fomich.netdata.database.querydsl.QPredicates;
 import com.fomich.netdata.dto.ChannelFilter;
-import com.fomich.netdata.dto.MultiplexerFilter;
 import com.querydsl.jpa.impl.JPAQuery;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
