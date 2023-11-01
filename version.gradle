@@ -1,7 +1,9 @@
 ext {
     versions = [
             'testcontainers': '1.19.0',
-            'querydsl': '5.0.0'
+            'querydsl': '5.0.0',
+            'springdoc': '1.6.11'
+
 
     ]
 }

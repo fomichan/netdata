@@ -3,6 +3,7 @@ package com.fomich.netdata.integration.service;
 import com.fomich.netdata.dto.MultiplexerCreateEditDto;
 import com.fomich.netdata.dto.MultiplexerIdDto;
 import com.fomich.netdata.dto.MultiplexerReadDto;
+import com.fomich.netdata.dto.MultiplexerShowDetailsDto;
 import com.fomich.netdata.integration.IntegrationTestBase;
 import com.fomich.netdata.integration.annotation.IT;
 import com.fomich.netdata.service.MultiplexerService;
@@ -58,7 +59,7 @@ public class MultiplexerServiceIT extends IntegrationTestBase{
 
     @Test
     void findById() {
-        Optional<MultiplexerReadDto> maybeMultiplexer = multiplexerService.findById(MUX_ID);
+        Optional<MultiplexerShowDetailsDto> maybeMultiplexer = multiplexerService.findById(MUX_ID);
         assertTrue(maybeMultiplexer.isPresent());
         maybeMultiplexer.ifPresent(mux -> assertEquals("s2mux1", mux.getName()));
     }
