@@ -18,17 +18,21 @@
     </div>
 
     <!-- Обновить канал   -->
+<div th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
     <form th:action="@{/channels/{channelId}/update(channelId=${channel.id})}" method="post" th:object="${channel}">
         <label for="name">Name:
             <input id="name" type="text" name="name" th:value="*{name}">
         </label><br>
         <button type="submit">Update</button>
     </form>
+</div>
 
     <!-- Удалить канал   -->
+<div th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
     <form th:action="@{/channels/{channelId}/delete(channelId=${channel.id})}" method="post">
         <button type="submit" onclick="return confirm('Вы уверены?')">Удалить</button>
     </form>
+</div>
 
 
 
@@ -39,7 +43,7 @@
         <tr>
             <th>Мультиплексор</th>
             <th>Объект</th>
-            <th>Удалить из канала</th>
+            <th th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">Удалить из канала</th>
         </tr>
         </thead>
         <tbody>
@@ -62,7 +66,7 @@
 <!--            </td>-->
 
             <!-- Удалить мультиплексор из канала           -->
-            <td>
+            <td th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
                 <form th:action="@{/multiplexerchannels/{mcId}/delete(mcId=${multiplexer.getMcId()})}" method="post">
                     <input type="hidden" name="channelId" th:value="${channel.id}" />
                     <button type="submit" onclick="return confirm('Вы уверены?')">Удалить</button>
@@ -72,6 +76,8 @@
         </tr>
         </tbody>
     </table>
+
+<div id="addMultiplexerButton" th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
 
 <h3>Поиск и добавление мультиплексора в канал</h3>
 
@@ -164,6 +170,8 @@
         </div>
         <!--    <button type="submit">Apply</button>-->
     </form>
+
+</div>
 
 </body>
 </html>

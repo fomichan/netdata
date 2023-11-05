@@ -4,6 +4,7 @@ import com.fomich.netdata.dto.MultiplexerChannelCreateEditDto;
 import com.fomich.netdata.service.MultiplexerChannelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -36,6 +37,7 @@ public class MultiplexerChannelController {
 
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String create(@ModelAttribute @Validated MultiplexerChannelCreateEditDto multiplexerChannel,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
@@ -59,17 +61,12 @@ public class MultiplexerChannelController {
 
     //    @DeleteMapping("/{id}")
     @PostMapping("/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String delete(@PathVariable("id") Integer id, @ModelAttribute("channelId") Integer channelId) {
         if (!multiplexerChannelService.delete(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         return "redirect:/channels/" + channelId;
     }
-
-
-
-
-
-
 
 }

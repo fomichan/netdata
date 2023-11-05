@@ -13,6 +13,7 @@ import com.fomich.netdata.mapper.MultiplexerShowDetailsMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,6 +45,8 @@ public class MultiplexerService {
 
      */
 
+
+    //@PostFilter("") // можно отфильтровать возвращаемые данные для разных пользователей по условию см 107
     public Optional<MultiplexerShowDetailsDto> findById(Integer id) {
         return multiplexerRepository.findById(id)
                 .map(multiplexerShowDetailsMapper::map);

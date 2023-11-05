@@ -44,7 +44,7 @@
 
        <input id="multiplexerId" type="hidden" name="multiplexerId" th:value="*{multiplexerId}">
 
-        <button type="submit">Update</button>
+        <button th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}" type="submit">Update</button>
     </form>
 
 </body>

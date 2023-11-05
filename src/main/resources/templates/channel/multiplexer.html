@@ -56,11 +56,15 @@
 
 
 
-        <button type="submit">Update</button>
+        <button th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}" type="submit">Update</button>
     </form>
+
+<!--Кнопка удалить мультиплексор-->
+<div th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
     <form th:action="@{/multiplexers/{multiplexerId}/delete(multiplexerId=${multiplexer.id})}" method="post">
         <button type="submit" onclick="return confirm('Вы уверены?')">Remove</button>
     </form>
+</div>
 
     <table>
         <thead>
@@ -68,7 +72,7 @@
             <th>Модуль</th>
             <th>Слот</th>
             <th>Серийный номер</th>
-            <th>Удалить</th>
+            <th th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">Удалить</th>
         </tr>
         </thead>
         <tbody>
@@ -85,7 +89,7 @@
             <td th:text="${module.slot}">slot</td>
             <td th:text="${module.serialNumber}">serialNumber</td>
 
-            <td>
+            <td th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
                 <form th:action="@{/modules/{moduleId}/delete(moduleId=${module.id})}" method="post">
                     <input type="hidden" name="multiplexerId" th:value="${multiplexer.id}" />
                     <button type="submit" onclick="return confirm('Вы уверены?')">Remove</button>
@@ -97,7 +101,7 @@
     </table>
 
     <!-- Кнопка добавить модуль -->
-    <div id="addMultiplexerButton">
+    <div id="addMultiplexerButton" th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
         <form action="/modules/add_module">
             <input id="multiplexerId" type="hidden" name="multiplexerId" th:value="${multiplexer.id}">
 

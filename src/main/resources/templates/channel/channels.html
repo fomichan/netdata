@@ -80,7 +80,7 @@
 <!--    </div>-->
 
     <!-- Кнопка добавить мультиплексор -->
-    <div id="addChannelButton">
+    <div id="addChannelButton" th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
         <form action="/channels/add_channel">
             <button type="submit">Добавить канал</button>
         </form>

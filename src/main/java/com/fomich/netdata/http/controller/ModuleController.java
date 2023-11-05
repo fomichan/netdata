@@ -6,6 +6,7 @@ import com.fomich.netdata.dto.ModuleReadDto;
 import com.fomich.netdata.service.ModuleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ public class ModuleController {
 
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER') or hasAuthority('MANAGER')")
     public String findById(@PathVariable("id") Integer id, Model model) {
 
         return moduleService.findById(id)
@@ -37,6 +39,7 @@ public class ModuleController {
 
 
     @GetMapping("/add_module")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String addModule(Model model, @ModelAttribute("muxModule") ModuleCreateEditDto muxModule) {
         model.addAttribute("muxModule", muxModule);
         model.addAttribute("moduleTypes", ModuleType.values());
@@ -46,6 +49,7 @@ public class ModuleController {
 
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String create(@ModelAttribute @Validated ModuleCreateEditDto moduleCreateDto,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
@@ -81,6 +85,7 @@ public class ModuleController {
 
     //    @PutMapping("/{id}")
     @PostMapping("/{id}/update")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String update(@PathVariable("id") Integer id,
                          @ModelAttribute @Validated ModuleCreateEditDto muxModule,
                          BindingResult bindingResult,
@@ -103,6 +108,7 @@ public class ModuleController {
 
     //    @DeleteMapping("/{id}")
     @PostMapping("/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String delete(@PathVariable("id") Integer id,
                          @RequestParam("multiplexerId") Integer multiplexerId) {
         if (!moduleService.delete(id)) {

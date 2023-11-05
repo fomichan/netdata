@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,7 @@ public class MultiplexerController {
     private final SiteService siteService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER') or hasAuthority('MANAGER')")
     public String findAll(Model model,
                           @RequestParam(name = "direction", defaultValue = "asc") String direction,
                           @RequestParam(name = "sort", defaultValue = "name") String sort,
@@ -51,6 +53,7 @@ public class MultiplexerController {
 
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER') or hasAuthority('MANAGER')")
     public String findById(@PathVariable("id") Integer id, Model model) {
 
 
@@ -94,6 +97,7 @@ public class MultiplexerController {
 
 
     @GetMapping("/add_multiplexer")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String addMultiplexer(Model model, @ModelAttribute("multiplexer") MultiplexerCreateEditDto multiplexer) {
         model.addAttribute("multiplexer", multiplexer);
         model.addAttribute("sites", siteService.findAllShort());
@@ -103,6 +107,7 @@ public class MultiplexerController {
 
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String create(@ModelAttribute @Validated MultiplexerCreateEditDto multiplexer,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
@@ -120,6 +125,7 @@ public class MultiplexerController {
 
 //    @PutMapping("/{id}")
     @PostMapping("/{id}/update")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String update(@PathVariable("id") Integer id,
                          @ModelAttribute @Validated MultiplexerCreateEditDto multiplexer,
                          BindingResult bindingResult,
@@ -139,13 +145,12 @@ public class MultiplexerController {
 
     //    @DeleteMapping("/{id}")
     @PostMapping("/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String delete(@PathVariable("id") Integer id) {
         if (!multiplexerService.delete(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         return "redirect:/multiplexers";
     }
-
-
 
 }

@@ -1,11 +1,9 @@
-/* Ваш CSS код здесь */
-
-
-/* Пример добавления верхнего отступа */
+/* Общие стили для всех страниц */
 .content {
     margin-top: 50px; /* Высота меню + немного дополнительного отступа */
 }
 
+/* Общие стили для таблиц */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -21,41 +19,25 @@ th {
     background-color: #f2f2f2;
 }
 
+.form {
+    padding: 10px;
+    background-color: #f7f7f7;
+}
 
+.form label, .form select, .form input {
+    margin-right: 30px; /* Увеличение отступа между элементами */
+    margin-bottom: 10px; /* Дополнительный отступ снизу */
+}
 
-/* Применить стили ко всем кнопкам на странице */
-button {
-    /* Ваши стили здесь */
-    background-color: #008CBA; /* Цвет фона */
+/* Общие стили для кнопок на странице */
+.button {
+    background-color: #008CBA; /* Цвет фона кнопок */
     color: white; /* Цвет текста */
     padding: 10px 20px; /* Внутренний отступ */
     border: none; /* Убрать границу */
     cursor: pointer; /* Курсор при наведении */
 }
 
-/* Стили для наведения курсора на кнопку */
-button:hover {
-    background-color: #005F7E; /* Измененный цвет фона при наведении */
-}
-
-
-/* Стили для формы фильтрации сверху */
-#filterForm {
-    padding: 10px;
-    background-color: #f7f7f7;
-}
-
-#filterForm label, #filterForm select, #filterForm input {
-    margin-right: 10px;
-}
-
-/* Стили для пагинации снизу */
-#paginationForm {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f7f7f7;
-}
-
-#paginationForm label, #paginationForm select, #paginationForm input {
-    margin-right: 10px;
+.button:hover {
+    background-color: #005F7E; /* Измененный цвет фона при наведении на кнопку */
 }

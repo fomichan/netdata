@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,7 @@ public class SiteController {
     private final SiteService siteService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER') or hasAuthority('MANAGER')")
     public String findAll(Model model,
                           @RequestParam(name = "direction", defaultValue = "asc") String direction,
                           @RequestParam(name = "sort", defaultValue = "name") String sort,
@@ -51,6 +53,7 @@ public class SiteController {
 
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER') or hasAuthority('MANAGER')")
     public String findById(@PathVariable("id") Integer id, Model model) {
 
         return siteService.findById(id)
@@ -64,6 +67,7 @@ public class SiteController {
 
 
     @GetMapping("/add_site")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String addSite(Model model, @ModelAttribute("site") SiteCreateEditDto site) {
         model.addAttribute("site", site);
         return "channel/add_site";
@@ -72,6 +76,7 @@ public class SiteController {
 
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String create(@ModelAttribute @Validated SiteCreateEditDto site,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
@@ -88,6 +93,7 @@ public class SiteController {
 
 //    @PutMapping("/{id}")
     @PostMapping("/{id}/update")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String update(@PathVariable("id") Integer id,
                          @ModelAttribute @Validated SiteCreateEditDto site,
                          BindingResult bindingResult,
@@ -106,6 +112,7 @@ public class SiteController {
 
     //    @DeleteMapping("/{id}")
     @PostMapping("/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String delete(@PathVariable("id") Integer id) {
         if (!siteService.delete(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);

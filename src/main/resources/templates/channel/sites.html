@@ -88,7 +88,7 @@
 </table>
 
 <!-- Кнопка добавить мультиплексор -->
-<div id="addSiteButton">
+<div id="addSiteButton" th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
     <form action="/sites/add_site">
         <button type="submit">Добавить сайт</button>
     </form>

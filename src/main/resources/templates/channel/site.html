@@ -32,13 +32,14 @@
             <input id="address" type="text" name="address" th:value="*{address()}">
         </label><br>
 
-        <button type="submit">Обновить</button>
+        <button th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}" type="submit">Обновить</button>
     </form>
 
-
+<div th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
     <form th:action="@{/sites/{siteId}/delete(siteId=${site.id()})}" method="post">
         <button type="submit" onclick="return confirm('Вы уверены?')">Удалить</button>
     </form>
+</div>
 
 </body>
 </html>

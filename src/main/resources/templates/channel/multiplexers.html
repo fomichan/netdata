@@ -87,12 +87,14 @@
     </tbody>
 </table>
 
-<!-- Кнопка добавить мультиплексор -->
-<div id="addMultiplexerButton">
+
+<!-- Кнопка добавить мультиплексор только для ADMIN -->
+<div id="addMultiplexerButton" th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
     <form action="/multiplexers/add_multiplexer">
         <button type="submit">Add multiplexer</button>
     </form>
 </div>
+
 
 <!-- Форма пагинации -->
 <form action="/multiplexers" id="paginationForm">
