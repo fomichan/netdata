@@ -4,6 +4,9 @@ import com.fomich.netdata.database.entity.ModuleType;
 import com.fomich.netdata.dto.ModuleCreateEditDto;
 import com.fomich.netdata.dto.ModuleReadDto;
 import com.fomich.netdata.service.ModuleService;
+import com.fomich.netdata.validation.group.CreateAction;
+import com.fomich.netdata.validation.group.UpdateAction;
+import jakarta.validation.groups.Default;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -50,7 +53,7 @@ public class ModuleController {
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
     @PreAuthorize("hasAuthority('ADMIN')")
-    public String create(@ModelAttribute @Validated ModuleCreateEditDto moduleCreateDto,
+    public String create(@ModelAttribute @Validated({Default.class, CreateAction.class}) ModuleCreateEditDto moduleCreateDto,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 
@@ -70,24 +73,11 @@ public class ModuleController {
     }
 
 
-
-
-    /*
-    //    @PutMapping("/{id}")
-    @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Integer id, @ModelAttribute ModuleCreateEditDto module) {
-        return moduleService.update(id, module)
-                .map(it -> "redirect:/multiplexers/" + module.getMultiplexerId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
-     */
-
     //    @PutMapping("/{id}")
     @PostMapping("/{id}/update")
     @PreAuthorize("hasAuthority('ADMIN')")
     public String update(@PathVariable("id") Integer id,
-                         @ModelAttribute @Validated ModuleCreateEditDto muxModule,
+                         @ModelAttribute @Validated({Default.class, UpdateAction.class}) ModuleCreateEditDto muxModule,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 

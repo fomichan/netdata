@@ -12,6 +12,7 @@ import com.fomich.netdata.mapper.SiteReadMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,7 @@ public class SiteService {
     private final SiteRepository siteRepository;
     private final SiteReadMapper siteReadMapper;
     private final SiteCreateEditMapper siteCreateEditMapper;
+
 
 
     public List<SiteReadDto> findAll() {
@@ -67,6 +69,7 @@ public class SiteService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public SiteReadDto create(SiteCreateEditDto site) {
         return Optional.of(site)
                 .map(siteCreateEditMapper::map)
@@ -77,6 +80,7 @@ public class SiteService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Optional<SiteReadDto> update(Integer id, SiteCreateEditDto site) {
         return siteRepository.findById(id)
                 .map(entity -> siteCreateEditMapper.map(site, entity))
@@ -86,6 +90,7 @@ public class SiteService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public boolean delete(Integer id) {
         return siteRepository.findById(id)
                 .map(entity -> {

@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PostFilter;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -94,6 +95,7 @@ public class MultiplexerService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public MultiplexerReadDto create(MultiplexerCreateEditDto muxDto) {
         return Optional.of(muxDto)
                 .map(multiplexerCreateEditMapper::map)
@@ -104,6 +106,7 @@ public class MultiplexerService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Optional<MultiplexerReadDto> update(Integer id, MultiplexerCreateEditDto muxDto) {
         return multiplexerRepository.findById(id)
                 .map(entity -> multiplexerCreateEditMapper.map(muxDto, entity))
@@ -113,6 +116,7 @@ public class MultiplexerService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public boolean delete(Integer id) {
         return multiplexerRepository.findById(id)
                 .map(entity -> {

@@ -4,6 +4,9 @@ import com.fomich.netdata.dto.*;
 import com.fomich.netdata.service.ChannelService;
 import com.fomich.netdata.service.MultiplexerService;
 import com.fomich.netdata.service.SiteService;
+import com.fomich.netdata.validation.group.CreateAction;
+import com.fomich.netdata.validation.group.UpdateAction;
+import jakarta.validation.groups.Default;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -93,7 +96,7 @@ public class ChannelController {
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
     @PreAuthorize("hasAuthority('ADMIN')")
-    public String create(@ModelAttribute @Validated ChannelCreateEditDto channel,
+    public String create(@ModelAttribute @Validated({Default.class, CreateAction.class}) ChannelCreateEditDto channel,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 
@@ -113,7 +116,7 @@ public class ChannelController {
     @PostMapping("/{id}/update")
     @PreAuthorize("hasAuthority('ADMIN')")
     public String update(@PathVariable("id") Integer id,
-                         @ModelAttribute @Validated ChannelCreateEditDto channel,
+                         @ModelAttribute @Validated({Default.class, UpdateAction.class}) ChannelCreateEditDto channel,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 

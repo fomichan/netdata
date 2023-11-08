@@ -14,6 +14,7 @@ import com.fomich.netdata.mapper.ChannelShowDetailsMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -94,6 +95,7 @@ public class ChannelService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ChannelReadDto create(ChannelCreateEditDto channel) {
         return Optional.of(channel)
                 .map(channelCreateEditMapper::map)
@@ -104,6 +106,7 @@ public class ChannelService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Optional<ChannelReadDto> update(Integer id, ChannelCreateEditDto channel) {
         return channelRepository.findById(id)
                 .map(entity -> channelCreateEditMapper.map(channel, entity))
@@ -113,6 +116,7 @@ public class ChannelService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public boolean delete(Integer id) {
         return channelRepository.findById(id)
                 .map(entity -> {

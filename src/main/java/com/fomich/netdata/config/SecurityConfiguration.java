@@ -22,14 +22,13 @@ public class SecurityConfiguration{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                //.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(urlConfig -> urlConfig
                         .requestMatchers("/login", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
                         //.requestMatchers("/users/{\\d+}/delete").hasAuthority(Role.ADMIN.getAuthority())
                         //.requestMatchers("/users").hasAuthority(Role.MANAGER.getAuthority())
                         //.requestMatchers("/users/**").hasAuthority(Role.MANAGER.getAuthority())
                         .anyRequest().authenticated() //любое обращение к url только с authenticated пользователем
-
                 )
 
                 .logout(logout -> logout
@@ -39,9 +38,9 @@ public class SecurityConfiguration{
                 )
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/multiplexers") // если прошла успешно, идти туда
+                        .defaultSuccessUrl("/multiplexers", true) // если прошла успешно, идти туда Установите второй аргумент как true для метода GET
+                        //.successForwardUrl("/multiplexers")
                         //.permitAll() // всем доступна страничка login
-
                 );
                 //.httpBasic(withDefaults());
         return http.build(); // возвращает securityFilterChain объект

@@ -6,10 +6,15 @@ import com.fomich.netdata.dto.UserCreateEditDto;
 import com.fomich.netdata.dto.UserFilter;
 import com.fomich.netdata.dto.UserReadDto;
 import com.fomich.netdata.service.security.UserService;
+import com.fomich.netdata.validation.group.CreateAction;
+import com.fomich.netdata.validation.group.UpdateAction;
+import jakarta.validation.groups.Default;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -31,8 +36,19 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('MANAGER') or hasAuthority('ADMIN')")
-    public String findAll(Model model, UserFilter filter, Pageable pageable) {
-        Page<UserReadDto> page = userService.findAll(filter, pageable);
+    public String findAll(Model model,
+                          @RequestParam(name = "direction", defaultValue = "asc") String direction,
+                          @RequestParam(name = "sort", defaultValue = "username") String sort,
+                          @RequestParam(value = "page", defaultValue = "1") int pageNumber, // будем брать отсюда, а не из pageable чтобы начинался с 1
+                          UserFilter filter, Pageable pageable) {
+
+        // Создадим объект Sort на основе параметров сортировки
+        Sort sortObj = Sort.by(Sort.Direction.fromString(direction), sort);
+        // Создадим объект Pageable с учетом сортировки
+        Pageable pageableWithSort = PageRequest.of(pageNumber - 1, pageable.getPageSize(), sortObj);
+
+
+        Page<UserReadDto> page = userService.findAll(filter, pageableWithSort);
         model.addAttribute("users", PageResponse.of(page));
         model.addAttribute("filter", filter);
         return "user/users";
@@ -63,7 +79,7 @@ public class UserController {
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
     @PreAuthorize("hasAuthority('MANAGER')")
-    public String create(@ModelAttribute @Validated UserCreateEditDto user,
+    public String create(@ModelAttribute @Validated({Default.class, CreateAction.class}) UserCreateEditDto user,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
@@ -83,7 +99,7 @@ public class UserController {
     @PostMapping("/{id}/update")
     @PreAuthorize("hasAuthority('MANAGER')")
     public String update(@PathVariable("id") Long id,
-                         @ModelAttribute @Validated UserCreateEditDto user,
+                         @ModelAttribute @Validated({Default.class, UpdateAction.class}) UserCreateEditDto user,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 
@@ -94,9 +110,8 @@ public class UserController {
         }
 
 
-
         return userService.update(id, user)
-                .map(it -> "redirect:/users/{id}")
+                .map(it -> "redirect:/users")
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 

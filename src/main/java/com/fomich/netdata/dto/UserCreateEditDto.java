@@ -3,6 +3,8 @@ package com.fomich.netdata.dto;
 import com.fomich.netdata.database.entity.Role;
 import com.fomich.netdata.validation.MuxUniqueName;
 import com.fomich.netdata.validation.UserUniqueName;
+import com.fomich.netdata.validation.group.CreateAction;
+import com.fomich.netdata.validation.group.UpdateAction;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -15,7 +17,7 @@ import java.time.LocalDate;
 
 @Value
 @FieldNameConstants
-@UserUniqueName // валидация на уникальное имя
+@UserUniqueName(groups = CreateAction.class) // валидация на уникальное имя
 public class UserCreateEditDto {
 
     @Email(message = "Имя пользователя должно быть в формате email")

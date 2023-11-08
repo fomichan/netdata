@@ -6,6 +6,7 @@ import com.fomich.netdata.dto.ModuleReadDto;
 import com.fomich.netdata.mapper.ModuleCreateEditMapper;
 import com.fomich.netdata.mapper.ModuleReadMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +32,7 @@ public class ModuleService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ModuleReadDto create(ModuleCreateEditDto moduleCreateEditDto) {
         return Optional.of(moduleCreateEditDto)
                 .map(moduleCreateEditMapper::map)
@@ -41,6 +43,7 @@ public class ModuleService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Optional<ModuleReadDto> update(Integer id, ModuleCreateEditDto moduleCreateEditDto) {
         return moduleRepository.findById(id)
                 .map(entity -> moduleCreateEditMapper.map(moduleCreateEditDto, entity))
@@ -50,6 +53,7 @@ public class ModuleService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public boolean delete(Integer id) {
         return moduleRepository.findById(id)
                 .map(entity -> {

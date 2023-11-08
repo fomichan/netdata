@@ -5,6 +5,9 @@ import com.fomich.netdata.dto.SiteCreateEditDto;
 import com.fomich.netdata.dto.SiteFilter;
 import com.fomich.netdata.dto.SiteReadDto;
 import com.fomich.netdata.service.SiteService;
+import com.fomich.netdata.validation.group.CreateAction;
+import com.fomich.netdata.validation.group.UpdateAction;
+import jakarta.validation.groups.Default;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -77,7 +80,7 @@ public class SiteController {
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
     @PreAuthorize("hasAuthority('ADMIN')")
-    public String create(@ModelAttribute @Validated SiteCreateEditDto site,
+    public String create(@ModelAttribute @Validated({Default.class, CreateAction.class}) SiteCreateEditDto site,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 
@@ -95,7 +98,7 @@ public class SiteController {
     @PostMapping("/{id}/update")
     @PreAuthorize("hasAuthority('ADMIN')")
     public String update(@PathVariable("id") Integer id,
-                         @ModelAttribute @Validated SiteCreateEditDto site,
+                         @ModelAttribute @Validated({Default.class, UpdateAction.class}) SiteCreateEditDto site,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 

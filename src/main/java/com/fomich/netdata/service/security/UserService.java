@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -36,11 +37,12 @@ public class UserService implements UserDetailsService {
     private final UserCreateEditMapper userCreateEditMapper;
 
 
+    @PreAuthorize("hasAnyAuthority('MANAGER', 'ADMIN')")
     public Page<UserReadDto> findAll(UserFilter filter, Pageable pageable) {
         var predicate = QPredicates.builder()
+                .add(filter.username(), user.firstname::containsIgnoreCase)
                 .add(filter.firstname(), user.firstname::containsIgnoreCase)
                 .add(filter.lastname(), user.lastname::containsIgnoreCase)
-                .add(filter.birthDate(), user.birthDate::before)
                 .build();
 
         return userRepository.findAll(predicate, pageable)
@@ -49,12 +51,14 @@ public class UserService implements UserDetailsService {
 
 
 
+    @PreAuthorize("hasAnyAuthority('MANAGER', 'ADMIN')")
     public List<UserReadDto> findAll() {
         return userRepository.findAll().stream()
                 .map(userReadMapper::map)
                 .toList();
     }
 
+    @PreAuthorize("hasAnyAuthority('MANAGER', 'ADMIN')")
     public Optional<UserReadDto> findById(Long id) {
         return userRepository.findById(id)
                 .map(userReadMapper::map);
@@ -62,6 +66,7 @@ public class UserService implements UserDetailsService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('MANAGER')")
     public UserReadDto create(UserCreateEditDto userDto) {
         return Optional.of(userDto)
                 .map(dto -> userCreateEditMapper.map(dto))
@@ -73,6 +78,7 @@ public class UserService implements UserDetailsService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('MANAGER')")
     public Optional<UserReadDto> update(Long id, UserCreateEditDto userDto) {
         return userRepository.findById(id)
                 .map(entity -> userCreateEditMapper.map(userDto, entity))
@@ -81,6 +87,7 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public boolean delete(Long id) {
         return userRepository.findById(id)
                 .map(entity -> {

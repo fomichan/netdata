@@ -9,6 +9,7 @@ import com.fomich.netdata.dto.MultiplexerChannelReadDto;
 import com.fomich.netdata.mapper.MultiplexerChannelCreateEditMapper;
 import com.fomich.netdata.mapper.MultiplexerChannelReadMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,10 +50,8 @@ public class MultiplexerChannelService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public MultiplexerChannelReadDto create(MultiplexerChannelCreateEditDto muxChanDto) {
-
-        // TODO: 20.10.2023 Проверить что в БД уже нет сущности с таким сочетанием ID
-
 
 
         return Optional.of(muxChanDto)
@@ -64,6 +63,7 @@ public class MultiplexerChannelService {
 
 
     @Transactional
+    @PreAuthorize("hasAuthority('ADMIN')")
     public boolean delete(Integer id) {
         return multiplexerChannelRepository.findById(id)
                 .map(entity -> {

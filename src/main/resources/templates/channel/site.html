@@ -1,45 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Site</title>
 
-    <link th:href="@{/css/elements.css}" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${site.name()}">Объект</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
 <body>
 
-<!-- Меню сайта-->
-<header th:replace="~{channel/fragments/menuFragment :: menu}"></header>
+<!--Navbar-->
+<header th:replace="~{channel/fragments/navbar :: navbar}"></header>
+
+
+<div class="container my-5">
+    <h1 class="display-5 mb-2" th:text="${site.name()}">Объект</h1>
 
     <!-- Ошибки    -->
-    <div th:if="${errors}">
-        <p style="color: red" th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
+    <div class="alert alert-danger" th:if="${errors}">
+            <p th:each="error : ${errors}" th:text="${error.defaultMessage}">Error message</p>
     </div>
 
+
     <!-- Форма UPDATE   -->
-    <form th:action="@{/sites/{siteId}/update(siteId=${site.id()})}" method="post" th:object="${site}">
-        <label for="name">Объект:
-            <input id="name" type="text" name="name" th:value="*{name()}">
-        </label><br>
-        <label for="region">Регион:
-            <input id="region" type="text" name="region" th:value="*{region()}">
-        </label><br>
-        <label for="city">Населенный пункт:
-            <input id="city" type="text" name="city" th:value="*{city()}">
-        </label><br>
-        <label for="address">Адрес:
-            <input id="address" type="text" name="address" th:value="*{address()}">
-        </label><br>
+    <div class="mb-3">
 
-        <button th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}" type="submit">Обновить</button>
-    </form>
+        <form th:action="@{/sites/{siteId}/update(siteId=${site.id()})}" method="post" th:object="${site}">
 
-<div th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
-    <form th:action="@{/sites/{siteId}/delete(siteId=${site.id()})}" method="post">
-        <button type="submit" onclick="return confirm('Вы уверены?')">Удалить</button>
-    </form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Название объекта:</label>
+                <input type="text" class="form-control" id="name" name="name" th:value="*{name()}">
+            </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Регион:</label>
+                <input type="text" class="form-control" id="region" name="region" th:value="*{region()}">
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">Населенный пункт:</label>
+                <input type="text" class="form-control" id="city" name="city" th:value="*{city()}">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Адрес:</label>
+                <input type="text" class="form-control" id="address" name="address" th:value="*{address()}">
+            </div>
+
+            <button th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}" type="submit" class="btn btn-primary">Обновить</button>
+        </form>
+    </div>
+
+
+
+    <!-- Кнопка удалить объект только для ADMIN -->
+    <div class="mb-3" th:if="${#authentication.principal.authorities[0].authority == 'ADMIN'}">
+        <form th:action="@{/sites/{siteId}/delete(siteId=${site.id()})}" method="post">
+            <button type="submit" class="btn btn-primary" onclick="return confirm('Вы уверены?')">Удалить</button>
+        </form>
+    </div>
+
+
 </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

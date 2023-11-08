@@ -2,6 +2,7 @@ package com.fomich.netdata.dto;
 
 import com.fomich.netdata.database.entity.ModuleType;
 import com.fomich.netdata.validation.ModuleUniqueSlot;
+import com.fomich.netdata.validation.group.CreateAction;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Max;
@@ -11,7 +12,7 @@ import lombok.Value;
 import lombok.experimental.FieldNameConstants;
 
 @Value
-@ModuleUniqueSlot // валидация
+@ModuleUniqueSlot(groups = CreateAction.class) // валидация
 @FieldNameConstants
 public class ModuleCreateEditDto {
 
