@@ -2,6 +2,7 @@ package com.fomich.netdata.integration;
 
 import com.fomich.netdata.integration.annotation.IT;
 import org.junit.jupiter.api.BeforeAll;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.jdbc.Sql;
@@ -17,6 +18,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @Sql({
         "classpath:sql/generate_data.sql"
 })
+@WithMockUser(username = "test@gmail.com", password = "test", authorities = {"ADMIN", "USER", "MANAGER"}) // пользователь для тестирования Spring Security
 public abstract class IntegrationTestBase {
 
 

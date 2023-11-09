@@ -1,7 +1,11 @@
 -- Создание 150 записей в таблице site
-INSERT INTO site (name)
+INSERT INTO site (name, region, city, address)
 SELECT
-        'Site ' || generate_series(1, 150);
+        'Site ' || generate_series(1, 150),
+        'Region ' || floor(random() * 10) + 1,
+        'City ' || floor(random() * 50) + 1,
+        'Address ' || floor(random() * 50) + 1
+;
 
 -- Создание 400 записей в таблице multiplexer
 INSERT INTO multiplexer (serial_number, site_id, name)
@@ -21,26 +25,6 @@ SELECT
     generate_series(1, 3000),
     floor(random() * 400) + 1;
 
--- Создание 4-5 modules для каждого multiplexer
--- INSERT INTO module (multiplexer_id, serial_number, module_type, slot)
--- SELECT
---     m.id,
---     md5(random()::text),
---     CASE floor(random() * 6)
---         WHEN 0 THEN 'SYN4E'
---         WHEN 1 THEN 'LOMIF'
---         WHEN 2 THEN 'NEBRO'
---         WHEN 3 THEN 'SYNAC'
---         WHEN 4 THEN 'SUBH'
---         ELSE 'EXLAN'
---         END,
---     floor(random() * 20 + 1)::integer
--- FROM
---     multiplexer m
---         JOIN
---     (SELECT DISTINCT multiplexer_id FROM multiplexer_channel) mc
---     ON
---             m.id = mc.multiplexer_id;
 
 
 -- Создаем модули для каждого мультиплексора
@@ -63,5 +47,4 @@ SELECT
         END AS module_type
 FROM multiplexer m
          CROSS JOIN generate_series(1, 6); -- Здесь указываем 6, чтобы создать ровно 6 записей для каждого мультиплексора
-
 

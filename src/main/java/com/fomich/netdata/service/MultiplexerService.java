@@ -33,19 +33,6 @@ public class MultiplexerService {
 
 
 
-//    public Optional<MultiplexerIdDto> findById(Integer id) {
-//        return multiplexerRepository.findById(id)
-//                .map(entity -> new MultiplexerIdDto(entity.getId()));
-//    }
-
-    /*
-    public Optional<MultiplexerReadDto> findById(Integer id) {
-        return multiplexerRepository.findById(id)
-                .map(multiplexerReadMapper::map);
-    }
-
-     */
-
 
     //@PostFilter("") // можно отфильтровать возвращаемые данные для разных пользователей по условию см 107
     public Optional<MultiplexerShowDetailsDto> findById(Integer id) {
@@ -79,11 +66,11 @@ public class MultiplexerService {
 //    }
 
 
-    public List<MultiplexerReadDto> findAll() {
-        return multiplexerRepository.findAll().stream()
-                .map(multiplexerReadMapper::map)
-                .toList();
-    }
+//    public List<MultiplexerReadDto> findAll() {
+//        return multiplexerRepository.findAll().stream()
+//                .map(multiplexerReadMapper::map)
+//                .toList();
+//    }
 
 
 
