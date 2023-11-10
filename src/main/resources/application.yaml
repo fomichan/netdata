@@ -1,9 +1,17 @@
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5434/postgres
-    username: postgres
-    password: pass
+#    url: jdbc:postgresql://localhost:5434/postgres
+#    username: postgres
+#    password: pass
+
+    # Если в environment variables не будет POSTGRES_DATABASE_URL, USERNAME, PASS (с подключением к Heroku), то запустится локальный
+    url: ${HEROKU_POSTGRES_DB_URL:jdbc:postgresql://localhost:5434/postgres}
+    username: ${HEROKU_POSTGRES_DB_USERNAME:postgres}
+    password: ${HEROKU_POSTGRES_DB_PASS:pass}
+
     driver-class-name: org.postgresql.Driver
+
   jpa:
 #    generate-ddl: false
 #    show-sql: false
@@ -44,5 +52,9 @@ springdoc:
       scopes: openid,email,profile
     oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect
 
+
+# Для heroku
+server:
+  port: ${PORT:8080}
 
 
