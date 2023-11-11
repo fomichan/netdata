@@ -148,8 +148,8 @@
                     <td th:text="${multiplexer.site.name()}">Site</td>
 
                     <!-- Добавить мультиплексор в канал -->
-                    <td >
-                        <form action="/multiplexerchannels" method="post" th:object="${multiplexer}">
+                    <td>
+                        <form th:action="@{/multiplexerchannels}" method="post" th:object="${multiplexer}">
                             <input type="hidden" name="channelId" th:value="${channel.id}">
                             <input type="hidden" name="multiplexerId" th:value="${multiplexer.id}">
                             <button type="submit">Добавить</button>

@@ -678,3 +678,79 @@ org.springframework.web.server.ResponseStatusException: 404 NOT_FOUND
 2023-11-11T20:17:03.214+01:00  INFO 17184 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-11-11T20:17:03.216+01:00  INFO 17184 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2023-11-11T20:17:03.220+01:00  INFO 17184 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-11-11T20:36:43.465+01:00  INFO 16332 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-11T20:36:43.515+01:00  INFO 16332 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-11T20:36:44.278+01:00  INFO 16332 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-11-11T20:36:48.025+01:00  INFO 25676 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 25676 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-11-11T20:36:48.027+01:00  INFO 25676 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-11-11T20:36:48.583+01:00  INFO 25676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-11T20:36:48.648+01:00  INFO 25676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 6 JPA repository interfaces.
+2023-11-11T20:36:49.364+01:00  INFO 25676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-11T20:36:49.371+01:00  INFO 25676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-11T20:36:49.371+01:00  INFO 25676 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-11-11T20:36:49.454+01:00  INFO 25676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-11T20:36:49.454+01:00  INFO 25676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1383 ms
+2023-11-11T20:36:49.578+01:00  INFO 25676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-11T20:36:50.419+01:00  INFO 25676 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7871d261
+2023-11-11T20:36:50.421+01:00  INFO 25676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-11T20:36:50.899+01:00  INFO 25676 --- [main] liquibase.database                       : Set default schema name to public
+2023-11-11T20:36:51.029+01:00  INFO 25676 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-11-11T20:36:51.096+01:00  INFO 25676 --- [main] liquibase.executor                       : Changelog query completed.
+2023-11-11T20:36:51.515+01:00  INFO 25676 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-11T20:36:51.564+01:00  INFO 25676 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-11-11T20:36:51.566+01:00  INFO 25676 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-11T20:36:51.685+01:00  INFO 25676 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-11-11T20:36:51.703+01:00  INFO 25676 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-11T20:36:51.831+01:00  INFO 25676 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-11T20:36:52.328+01:00  INFO 25676 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.User
+2023-11-11T20:36:52.329+01:00  INFO 25676 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-11-11T20:36:52.378+01:00  INFO 25676 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-11T20:36:53.082+01:00  INFO 25676 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-11T20:36:53.633+01:00  INFO 25676 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-11T20:36:54.123+01:00  INFO 25676 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-11T20:36:55.126+01:00  INFO 25676 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@10c88d11, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75f1c170, org.springframework.security.web.context.SecurityContextHolderFilter@10b9956a, org.springframework.security.web.header.HeaderWriterFilter@5d98522c, org.springframework.security.web.csrf.CsrfFilter@77480751, org.springframework.security.web.authentication.logout.LogoutFilter@44473749, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5a372288, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@3f4b52fa, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@509cf73a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f083345, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6559f04e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63fa0b9, org.springframework.security.web.access.ExceptionTranslationFilter@45e1d6a5, org.springframework.security.web.access.intercept.AuthorizationFilter@1a3761a]
+2023-11-11T20:36:55.425+01:00  INFO 25676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-11T20:36:55.433+01:00  INFO 25676 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 7.81 seconds (process running for 8.372)
+2023-11-11T20:37:12.755+01:00  INFO 25676 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-11T20:37:12.756+01:00  INFO 25676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-11T20:37:12.757+01:00  INFO 25676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-11-11T21:26:16.350+01:00  INFO 25676 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-11T21:26:16.352+01:00  INFO 25676 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-11T21:26:17.891+01:00  INFO 25676 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-11-11T21:26:21.670+01:00  INFO 4688 --- [main] com.fomich.netdata.NetdataApplication    : Starting NetdataApplication using Java 17.0.8 with PID 4688 (D:\javaprojects\netdata\build\classes\java\main started by fomic in D:\javaprojects\netdata)
+2023-11-11T21:26:21.672+01:00  INFO 4688 --- [main] com.fomich.netdata.NetdataApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-11-11T21:26:22.231+01:00  INFO 4688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-11T21:26:22.300+01:00  INFO 4688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
+2023-11-11T21:26:23.018+01:00  INFO 4688 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-11T21:26:23.026+01:00  INFO 4688 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-11T21:26:23.026+01:00  INFO 4688 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-11-11T21:26:23.114+01:00  INFO 4688 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-11T21:26:23.115+01:00  INFO 4688 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1401 ms
+2023-11-11T21:26:23.241+01:00  INFO 4688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-11T21:26:24.127+01:00  INFO 4688 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7871d261
+2023-11-11T21:26:24.128+01:00  INFO 4688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-11T21:26:24.575+01:00  INFO 4688 --- [main] liquibase.database                       : Set default schema name to public
+2023-11-11T21:26:24.703+01:00  INFO 4688 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2023-11-11T21:26:24.783+01:00  INFO 4688 --- [main] liquibase.executor                       : Changelog query completed.
+2023-11-11T21:26:25.149+01:00  INFO 4688 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-11T21:26:25.200+01:00  INFO 4688 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-11-11T21:26:25.204+01:00  INFO 4688 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-11T21:26:25.327+01:00  INFO 4688 --- [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2023-11-11T21:26:25.344+01:00  INFO 4688 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-11T21:26:25.455+01:00  INFO 4688 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-11T21:26:25.974+01:00  INFO 4688 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.User
+2023-11-11T21:26:25.975+01:00  INFO 4688 --- [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.fomich.netdata.database.entity.Multiplexer
+2023-11-11T21:26:26.022+01:00  INFO 4688 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-11T21:26:26.714+01:00  INFO 4688 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-11T21:26:27.719+01:00  INFO 4688 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-11T21:26:28.218+01:00  INFO 4688 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-11T21:26:29.232+01:00  INFO 4688 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@10c88d11, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75f1c170, org.springframework.security.web.context.SecurityContextHolderFilter@10b9956a, org.springframework.security.web.header.HeaderWriterFilter@5d98522c, org.springframework.security.web.csrf.CsrfFilter@77480751, org.springframework.security.web.authentication.logout.LogoutFilter@44473749, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5a372288, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@3f4b52fa, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@509cf73a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f083345, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6559f04e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63fa0b9, org.springframework.security.web.access.ExceptionTranslationFilter@45e1d6a5, org.springframework.security.web.access.intercept.AuthorizationFilter@1a3761a]
+2023-11-11T21:26:29.551+01:00  INFO 4688 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-11T21:26:29.561+01:00  INFO 4688 --- [main] com.fomich.netdata.NetdataApplication    : Started NetdataApplication in 8.277 seconds (process running for 8.821)
+2023-11-11T21:26:44.636+01:00  INFO 4688 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-11T21:26:44.636+01:00  INFO 4688 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-11T21:26:44.637+01:00  INFO 4688 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-11-11T21:27:15.027+01:00  WARN 4688 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2023-11-11T21:27:47.012+01:00  INFO 4688 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-11T21:27:47.014+01:00  INFO 4688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-11T21:27:49.773+01:00  INFO 4688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
