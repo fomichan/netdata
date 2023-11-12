@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
         type = SecuritySchemeType.OAUTH2,
         flows = @OAuthFlows(
                 authorizationCode = @OAuthFlow(
-                        authorizationUrl = "http://localhost:8080/oauth2/authorization/google",
+                        authorizationUrl = "https://netdata-db076adb964b.herokuapp.com/oauth2/authorization/google",
                         tokenUrl = "https://www.googleapis.com/oauth2/v4/token"
                 )
         )
