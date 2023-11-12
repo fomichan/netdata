@@ -17,6 +17,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @IT
 @Sql({
         "classpath:sql/generate_data.sql"
+        //"classpath:sql/real_data.sql"
 })
 @WithMockUser(username = "test@gmail.com", password = "test", authorities = {"ADMIN", "USER", "MANAGER"}) // пользователь для тестирования Spring Security
 public abstract class IntegrationTestBase {

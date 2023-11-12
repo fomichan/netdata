@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.TestConstructor;
 
 import java.time.LocalDate;
@@ -39,6 +40,8 @@ import static org.junit.jupiter.api.Assertions.*;
 // Можно указывать и над методом
 // Стараться не портить и переиспользовать контекст!!!
 
+
+//@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RequiredArgsConstructor
 public class MultiplexerServiceIT extends IntegrationTestBase{
 
@@ -101,9 +104,9 @@ public class MultiplexerServiceIT extends IntegrationTestBase{
     @Test
     void update() {
         MultiplexerCreateEditDto expectedDto = new MultiplexerCreateEditDto(
-                "testName",
+                "testName2",
                 "123456",
-                3
+                4
         );
 
         Optional<MultiplexerReadDto> actualResult = multiplexerService.update(MUX_ID, expectedDto);
@@ -120,7 +123,7 @@ public class MultiplexerServiceIT extends IntegrationTestBase{
     @Test
     void delete() {
         assertFalse(multiplexerService.delete(-124));
-        assertTrue(multiplexerService.delete(MUX_ID));
+        assertTrue(multiplexerService.delete(MUX_ID+1));
     }
 
 

@@ -1,3 +1,4 @@
+
 -- Создание 150 записей в таблице site
 INSERT INTO site (name, region, city, address)
 SELECT
