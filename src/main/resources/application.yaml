@@ -32,7 +32,8 @@ spring:
 #            clientSecret: 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
             clientId: ${GOOGLE_OAUTH_CLIENT_ID}
             clientSecret: ${GOOGLE_OAUTH_CLIENT_SECRET}
-            redirectUri: http://localhost:8080/login/oauth2/code/google
+#            redirectUri: http://localhost:8080/login/oauth2/code/google
+            redirectUri: https://netdata-db076adb964b.herokuapp.com/login/oauth2/code/google
             scope: openid,email,profile
 
 
@@ -54,7 +55,8 @@ springdoc:
       client-id: ${GOOGLE_OAUTH_CLIENT_ID}
       client-secret: ${GOOGLE_OAUTH_CLIENT_SECRET}
       scopes: openid,email,profile
-    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect
+#    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect
+    oauth2-redirect-url: https://netdata-db076adb964b.herokuapp.com/swagger-ui/oauth2-redirect
 
 
 # Для heroku

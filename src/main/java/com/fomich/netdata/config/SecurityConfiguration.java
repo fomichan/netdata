@@ -75,7 +75,7 @@ public class SecurityConfiguration{
             // сайт jwt.io позволяет посмотреть что в этом токене
             // userRequest.getAccessToken() есть также access token от oauth провайдера с ролями, но мы эти роли не используем
 
-            // TODO: 24.04.2022 create user userService.create
+            // TODO: create user userService.create
             UserDetails userDetails = userService.loadUserByUsername(email); // достанем пользователя из БД
 //            new OidcUserService().loadUser()
             DefaultOidcUser oidcUser = new DefaultOidcUser(userDetails.getAuthorities(), userRequest.getIdToken()); // создадим нового oidc user с нашими authorities
