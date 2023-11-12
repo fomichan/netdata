@@ -30,7 +30,7 @@ spring:
           google:
 #            clientId: 450835446042-ooief0mui0ker3ir2j8n3j6baokoo6b7.apps.googleusercontent.com
 #            clientSecret: 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
-            clientId: ${}GOOGLE_OAUTH_CLIENT_ID
+            clientId: ${GOOGLE_OAUTH_CLIENT_ID}
             clientSecret: ${GOOGLE_OAUTH_CLIENT_SECRET}
             redirectUri: http://localhost:8080/login/oauth2/code/google
             scope: openid,email,profile
@@ -51,7 +51,7 @@ springdoc:
     oauth:
 #      client-id: 450835446042-ooief0mui0ker3ir2j8n3j6baokoo6b7.apps.googleusercontent.com
 #      client-secret: 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
-      client-id: ${}GOOGLE_OAUTH_CLIENT_ID
+      client-id: ${GOOGLE_OAUTH_CLIENT_ID}
       client-secret: ${GOOGLE_OAUTH_CLIENT_SECRET}
       scopes: openid,email,profile
     oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect
